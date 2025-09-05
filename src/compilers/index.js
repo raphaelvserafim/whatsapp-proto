@@ -16,18 +16,24 @@ async function compileProtobuf() {
       stdio: 'inherit'
     });
 
-    console.log('🔄 Fixing ES module issues...');
+    console.log('🔄 Fixing imports...');
     const filePath = resolve(projectRoot, 'dist/index.js');
-    let content = readFileSync(filePath, 'utf-8');
+    let content = readFileSync(filePath, 'utf8');
 
-    content = content.replace(/from "protobufjs\/minimal"/g, 'from "protobufjs/minimal.js"');
-
+    // Fix the import statement (from your working script)
     content = content.replace(
-      /const \$root = \$protobuf\.roots\["default"\] \|\| \(\$protobuf\.roots\["default"\] = \{\}\);/g,
-      'if (!$protobuf.roots) $protobuf.roots = {};\nconst $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});'
+      /import \* as (\$protobuf) from/g,
+      'import $1 from'
     );
 
-    writeFileSync(filePath, content);
+    // Add missing extension to the import (from your working script)
+    content = content.replace(
+      /(['"])protobufjs\/minimal(['"])/g,
+      '$1protobufjs/minimal.js$2'
+    );
+
+    writeFileSync(filePath, content, 'utf8');
+    console.log(`✅ Fixed imports in ${filePath}`);
 
     console.log('🔄 Generating TypeScript definitions...');
     execSync(`yarn pbts -o ${resolve(projectRoot, 'dist/index.d.ts')} ${resolve(projectRoot, 'dist/index.js')}`, {
