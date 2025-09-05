@@ -5,6 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publish": "npm publish --access public",
   "files": [
     "dist/",
     "README.md"
