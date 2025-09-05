@@ -1,6 +1,6 @@
 {
   "name": "@raphaelvserafim/whatsapp-proto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "WhatsApp Protocol Buffer schema extractor and compiler",
   "type": "module",
   "main": "dist/index.js",
