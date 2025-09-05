@@ -1,11 +1,9 @@
 import { execSync } from 'child_process';
 import { existsSync, readFileSync, writeFileSync } from 'fs';
-
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
+
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-
-
 
 async function compileProtobuf() {
   try {
@@ -18,14 +16,15 @@ async function compileProtobuf() {
       stdio: 'inherit'
     });
 
-    console.log('🔄 Fixing ES module imports...');
+    console.log('🔄 Fixing ES module issues...');
     const filePath = resolve(projectRoot, 'dist/index.js');
     let content = readFileSync(filePath, 'utf-8');
 
+    content = content.replace(/from "protobufjs\/minimal"/g, 'from "protobufjs/minimal.js"');
 
     content = content.replace(
-      /from ['"]protobufjs\/minimal['"]/g,
-      'from "protobufjs/minimal.js"'
+      /const \$root = \$protobuf\.roots\["default"\] \|\| \(\$protobuf\.roots\["default"\] = \{\}\);/g,
+      'if (!$protobuf.roots) $protobuf.roots = {};\nconst $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});'
     );
 
     writeFileSync(filePath, content);
@@ -43,7 +42,6 @@ async function compileProtobuf() {
   }
 }
 
-// Execute if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
   compileProtobuf();
 }
