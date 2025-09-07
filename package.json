@@ -1,14 +1,9 @@
 {
   "name": "@raphaelvserafim/whatsapp-proto",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "WhatsApp Protocol Buffer schema extractor and compiler",
-  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist/",
-    "README.md"
-  ],
   "scripts": {
     "build": "node src/scripts/build.js",
     "prepublishOnly": "npm run build",
@@ -17,6 +12,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
       "import": "./dist/index.js"
     }
   },

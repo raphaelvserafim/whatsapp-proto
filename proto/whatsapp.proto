@@ -1,8 +1,8 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1026752675
-/// Generated on: 2025-09-05T14:50:10.006Z
+/// WhatsApp Version: 2.3000.1026807430
+/// Generated on: 2025-09-07T02:57:12.480Z
 /// Entities found: 175
 
 message ADVDeviceIdentity {
