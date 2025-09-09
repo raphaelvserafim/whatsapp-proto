@@ -1,12 +1,12 @@
-import requestPromise from 'request-promise-native';
-import * as acorn from 'acorn';
-import * as walk from 'acorn-walk';
-import { writeFile, mkdir } from 'fs/promises';
-import { existsSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
+const requestPromise = require('request-promise-native');
+const acorn = require('acorn');
+const walk = require('acorn-walk');
+const { writeFile, mkdir } = require('fs').promises;
+const { existsSync } = require('fs');
+const { dirname, resolve } = require('path');
 
-const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+
+const projectRoot = resolve(dirname(__filename), '../..');
 
 
 // Configuration object for better maintainability
@@ -744,7 +744,7 @@ async function extractProtobuf(outputPath = CONFIG.defaultOutputPath) {
 }
 
 // CLI execution
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (require.main === module) {
   const outputPath = process.argv[2];
   extractProtobuf(outputPath)
     .then(path => {
@@ -757,10 +757,13 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     });
 }
 
-export {
+// CommonJS exports
+module.exports = {
   extractProtobuf,
   findAppModules,
   CONFIG,
   createRequestHeaders,
   makeRequestWithRetry
 };
+
+ 

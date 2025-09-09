@@ -1,9 +1,8 @@
-import { execSync } from 'child_process';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
+const { execSync } = require('child_process');
+const { existsSync, readFileSync, writeFileSync } = require('fs');
+const { dirname, resolve } = require('path');
 
-const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const projectRoot = resolve(dirname(__filename), '../..');
 
 async function compileProtobuf() {
   try {
@@ -11,8 +10,9 @@ async function compileProtobuf() {
       throw new Error('whatsapp.proto file not found');
     }
 
-    console.log('🔄 Generating JavaScript code...');
-    execSync(`yarn pbjs -t static-module -w es6 --no-bundle -o ${resolve(projectRoot, 'dist/index.js')} ${resolve(projectRoot, 'proto/whatsapp.proto')}`, {
+    console.log('🔄 Generating JavaScript code (CommonJS)...');
+    // Mudança: removido -w es6 para gerar CommonJS ao invés de ES6 modules
+    execSync(`yarn pbjs -t static-module --no-bundle -o ${resolve(projectRoot, 'dist/index.js')} ${resolve(projectRoot, 'proto/whatsapp.proto')}`, {
       stdio: 'inherit'
     });
 
@@ -20,16 +20,16 @@ async function compileProtobuf() {
     const filePath = resolve(projectRoot, 'dist/index.js');
     let content = readFileSync(filePath, 'utf8');
 
-    // Fix the import statement (from your working script)
+    // Fix para CommonJS - substitui require por require com .js se necessário
     content = content.replace(
-      /import \* as (\$protobuf) from/g,
-      'import $1 from'
+      /require\(['"]protobufjs\/minimal['"]\)/g,
+      'require("protobufjs/minimal.js")'
     );
 
-    // Add missing extension to the import (from your working script)
+    // Outros possíveis fixes para CommonJS
     content = content.replace(
-      /(['"])protobufjs\/minimal(['"])/g,
-      '$1protobufjs/minimal.js$2'
+      /require\(['"]protobufjs['"]\)/g,
+      'require("protobufjs")'
     );
 
     writeFileSync(filePath, content, 'utf8');
@@ -41,15 +41,14 @@ async function compileProtobuf() {
     });
 
     console.log('✅ Compilation completed successfully!');
-
   } catch (error) {
     console.error('❌ Compilation error:', error.message);
     process.exit(1);
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (require.main === module) {
   compileProtobuf();
 }
 
-export { compileProtobuf };
+module.exports = { compileProtobuf };
