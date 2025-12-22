@@ -1,9 +1,9 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1029647170
-/// Generated on: 2025-11-10T15:10:41.564Z
-/// Entities found: 202
+/// WhatsApp Version: 2.3000.1031395807
+/// Generated on: 2025-12-22T18:43:50.453Z
+/// Entities found: 206
 
 message ADVDeviceIdentity {
   uint32 rawId = 1;
@@ -393,6 +393,19 @@ message BotCapabilityMetadata {
     AI_RESPONSE_MODEL_BRANDING = 47;
     SESSION_TRANSPARENCY_SYSTEM_MESSAGE = 48;
     RICH_RESPONSE_UR_REASONING = 49;
+    RICH_RESPONSE_UR_ZEITGEIST_CITATIONS = 50;
+    RICH_RESPONSE_UR_ZEITGEIST_CAROUSEL = 51;
+    AI_IMAGINE_LOADING_INDICATOR = 52;
+    RICH_RESPONSE_UR_IMAGINE = 53;
+    AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR = 54;
+  }
+}
+
+message BotDocumentMessageMetadata {
+  DocumentPluginType pluginType = 1;
+  enum DocumentPluginType {
+    TEXT_EXTRACTION = 0;
+    OCR_AND_IMAGES = 1;
   }
 }
 
@@ -490,6 +503,14 @@ message BotFeedbackMessage {
     
   }
   
+}
+
+message BotGroupMetadata {
+  repeated BotGroupParticipantMetadata participantsMetadata = 1;
+}
+
+message BotGroupParticipantMetadata {
+  string botFbid = 1;
 }
 
 message BotImagineMetadata {
@@ -596,6 +617,9 @@ message BotMetadata {
   AIThreadInfo botThreadInfo = 31;
   AIRegenerateMetadata regenerateMetadata = 32;
   SessionTransparencyMetadata sessionTransparencyMetadata = 33;
+  BotDocumentMessageMetadata botDocumentMessageMetadata = 34;
+  BotGroupMetadata botGroupMetadata = 35;
+  BotRenderingConfigMetadata botRenderingConfigMetadata = 36;
   bytes internalMetadata = 999;
 }
 
@@ -639,6 +663,10 @@ enum BotMetricsEntryPoint {
   ATTACHMENT_TRAY_GROUP_CHAT = 36;
   ASK_META_AI_MEDIA_VIEWER_1ON1 = 37;
   ASK_META_AI_MEDIA_VIEWER_GROUP = 38;
+  MEDIA_PICKER_1_ON_1_CHAT = 39;
+  MEDIA_PICKER_GROUP_CHAT = 40;
+  ASK_META_AI_NO_SEARCH_RESULTS = 41;
+  META_AI_SETTINGS = 45;
 }
 message BotMetricsMetadata {
   string destinationId = 1;
@@ -706,6 +734,7 @@ message BotPluginMetadata {
 message BotProgressIndicatorMetadata {
   string progressDescription = 1;
   repeated BotPlanningStepMetadata stepsMetadata = 2;
+  int64 estimatedCompletionTime = 3;
   message BotPlanningStepMetadata {
     string statusTitle = 1;
     string statusBody = 2;
@@ -809,6 +838,11 @@ message BotReminderMetadata {
   }
 }
 
+message BotRenderingConfigMetadata {
+  string bloksVersioningId = 1;
+  double pixelDensity = 2;
+}
+
 message BotRenderingMetadata {
   repeated Keyword keywords = 1;
   message Keyword {
@@ -831,6 +865,7 @@ enum BotSessionSource {
   EMU_FLASH = 4;
   EMU_FLASH_FOLLOWUP = 5;
   VOICE = 6;
+  AI_HOME_SESSION = 7;
 }
 message BotSignatureVerificationMetadata {
   repeated BotSignatureVerificationUseCaseProof proofs = 1;
@@ -1011,6 +1046,7 @@ message ClientPairingProps {
   bool isChatDbLidMigrated = 1;
   bool isSyncdPureLidSession = 2;
   bool isSyncdSnapshotRecoveryEnabled = 3;
+  bool isHsThumbnailSyncEnabled = 4;
 }
 
 message ClientPayload {
@@ -1088,6 +1124,8 @@ message ClientPayload {
       OVERRIDE = 3;
       FALLBACK = 4;
       MNS = 5;
+      MNS_SECONDARY = 6;
+      SOCKS_PROXY = 7;
     }
   }
   
@@ -1209,6 +1247,8 @@ message ClientPayload {
     string version = 2;
     WebdPayload webdPayload = 3;
     WebSubPlatform webSubPlatform = 4;
+    string browser = 5;
+    string browserVersion = 6;
     enum WebSubPlatform {
       WEB_BROWSER = 0;
       APP_STORE = 1;
@@ -1415,6 +1455,7 @@ message ContextInfo {
     string newsletterName = 3;
     ContentType contentType = 4;
     string accessibilityText = 5;
+    string profileName = 6;
     enum ContentType {
       UPDATE = 1;
       UPDATE_CARD = 2;
@@ -1532,6 +1573,7 @@ message Conversation {
     COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY = 0;
     COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY = 1;
     COMPLETE_ON_DEMAND_SYNC_BUT_MORE_MSG_REMAIN_ON_PRIMARY = 2;
+    COMPLETE_ON_DEMAND_SYNC_WITH_MORE_MSG_ON_PRIMARY_BUT_NO_ACCESS = 3;
   }
 }
 
@@ -1930,6 +1972,7 @@ message InThreadSurveyMetadata {
   string privacyStatementFull = 15;
   repeated InThreadSurveyPrivacyStatementPart privacyStatementParts = 16;
   string feedbackToastText = 17;
+  int32 startQuestionIndex = 18;
   message InThreadSurveyOption {
     string stringValue = 1;
     uint32 numericValue = 2;
@@ -2170,7 +2213,8 @@ message Message {
   StatusStickerInteractionMessage statusStickerInteractionMessage = 110;
   PollCreationMessage pollCreationMessageV5 = 111;
   NewsletterFollowerInviteMessage newsletterFollowerInviteMessageV2 = 113;
-  PollResultSnapshotMessage pollResultSnapshotMessageV3 = 114;
+  PollResultSnapshotMessage pollResultSnapshotMessageV3 = 115;
+  FutureProofMessage newsletterAdminProfileMessage = 116;
   message AlbumMessage {
     uint32 expectedImageCount = 2;
     uint32 expectedVideoCount = 3;
@@ -2311,6 +2355,7 @@ message Message {
     ContextInfo contextInfo = 7;
     string nativeFlowCallButtonPayload = 8;
     string deeplinkPayload = 9;
+    MessageContextInfo messageContextInfo = 10;
   }
   
   message CallLogMessage {
@@ -3007,7 +3052,6 @@ message Message {
   message PaymentExtendedMetadata {
     uint32 type = 1;
     string platform = 2;
-    string messageParamsJson = 3;
   }
   
   message PaymentInviteMessage {
@@ -3911,8 +3955,10 @@ enum MutationProps {
   NEWSLETTER_SAVED_INTERESTS_ACTION = 75;
   AI_THREAD_RENAME_ACTION = 76;
   INTERACTIVE_MESSAGE_ACTION = 77;
+  SETTINGS_SYNC_ACTION = 78;
   SHARE_OWN_PN = 10001;
   BUSINESS_BROADCAST_ACTION = 10002;
+  AI_THREAD_DELETE_ACTION = 10003;
 }
 message NoiseCertificate {
   bytes details = 1;
@@ -4528,7 +4574,6 @@ message SyncActionValue {
   CtwaPerCustomerDataSharingAction ctwaPerCustomerDataSharingAction = 62;
   PaymentTosAction paymentTosAction = 63;
   PrivacySettingChannelsPersonalisedRecommendationAction privacySettingChannelsPersonalisedRecommendationAction = 64;
-  BusinessBroadcastAssociationAction businessBroadcastAssociationAction = 65;
   DetectedOutcomesStatusAction detectedOutcomesStatusAction = 66;
   MaibaAIFeaturesControlAction maibaAiFeaturesControlAction = 68;
   BusinessBroadcastListAction businessBroadcastListAction = 69;
@@ -4539,6 +4584,7 @@ message SyncActionValue {
   NewsletterSavedInterestsAction newsletterSavedInterestsAction = 75;
   AiThreadRenameAction aiThreadRenameAction = 76;
   InteractiveMessageAction interactiveMessageAction = 77;
+  SettingsSyncAction settingsSyncAction = 78;
   message AgentAction {
     string name = 1;
     int32 deviceID = 2;
@@ -4547,7 +4593,6 @@ message SyncActionValue {
   
   message AiThreadRenameAction {
     string newTitle = 1;
-    bool isFromServer = 2;
   }
   
   message AndroidUnsupportedActions {
@@ -4870,6 +4915,71 @@ message SyncActionValue {
   
   message RemoveRecentStickerAction {
     int64 lastStickerSentTs = 1;
+  }
+  
+  message SettingsSyncAction {
+    bool startAtLogin = 1;
+    bool minimizeToTray = 2;
+    string language = 3;
+    bool replaceTextWithEmoji = 4;
+    DisplayMode bannerNotificationDisplayMode = 5;
+    DisplayMode unreadCounterBadgeDisplayMode = 6;
+    bool isMessagesNotificationEnabled = 7;
+    bool isCallsNotificationEnabled = 8;
+    bool isReactionsNotificationEnabled = 9;
+    bool isStatusReactionsNotificationEnabled = 10;
+    bool isTextPreviewForNotificationEnabled = 11;
+    int32 defaultNotificationToneId = 12;
+    int32 groupDefaultNotificationToneId = 13;
+    int32 appTheme = 14;
+    int32 wallpaperId = 15;
+    bool isDoodleWallpaperEnabled = 16;
+    int32 fontSize = 17;
+    bool isPhotosAutodownloadEnabled = 18;
+    bool isAudiosAutodownloadEnabled = 19;
+    bool isVideosAutodownloadEnabled = 20;
+    bool isDocumentsAutodownloadEnabled = 21;
+    bool disableLinkPreviews = 22;
+    int32 notificationToneId = 23;
+    enum DisplayMode {
+      DISPLAY_MODE_UNKNOWN = 0;
+      ALWAYS = 1;
+      NEVER = 2;
+      ONLY_WHEN_APP_IS_OPEN = 3;
+    }
+    enum SettingKey {
+      SETTING_KEY_UNKNOWN = 0;
+      START_AT_LOGIN = 1;
+      MINIMIZE_TO_TRAY = 2;
+      LANGUAGE = 3;
+      REPLACE_TEXT_WITH_EMOJI = 4;
+      BANNER_NOTIFICATION_DISPLAY_MODE = 5;
+      UNREAD_COUNTER_BADGE_DISPLAY_MODE = 6;
+      IS_MESSAGES_NOTIFICATION_ENABLED = 7;
+      IS_CALLS_NOTIFICATION_ENABLED = 8;
+      IS_REACTIONS_NOTIFICATION_ENABLED = 9;
+      IS_STATUS_REACTIONS_NOTIFICATION_ENABLED = 10;
+      IS_TEXT_PREVIEW_FOR_NOTIFICATION_ENABLED = 11;
+      DEFAULT_NOTIFICATION_TONE_ID = 12;
+      GROUP_DEFAULT_NOTIFICATION_TONE_ID = 13;
+      APP_THEME = 14;
+      WALLPAPER_ID = 15;
+      IS_DOODLE_WALLPAPER_ENABLED = 16;
+      FONT_SIZE = 17;
+      IS_PHOTOS_AUTODOWNLOAD_ENABLED = 18;
+      IS_AUDIOS_AUTODOWNLOAD_ENABLED = 19;
+      IS_VIDEOS_AUTODOWNLOAD_ENABLED = 20;
+      IS_DOCUMENTS_AUTODOWNLOAD_ENABLED = 21;
+      DISABLE_LINK_PREVIEWS = 22;
+      NOTIFICATION_TONE_ID = 23;
+    }
+    enum SettingPlatform {
+      PLATFORM_UNKNOWN = 0;
+      WEB = 1;
+      HYBRID = 2;
+      WINDOWS = 3;
+      MAC = 4;
+    }
   }
   
   message StarAction {
@@ -5244,6 +5354,7 @@ message WebMessageInfo {
   GroupHistoryBundleInfo groupHistoryBundleInfo = 75;
   InteractiveMessageAdditionalMetadata interactiveMessageAdditionalMetadata = 76;
   QuarantinedMessage quarantinedMessage = 77;
+  uint32 nonJidMentions = 78;
   enum BizPrivacyStatus {
     E2EE = 0;
     FB = 2;
@@ -5481,6 +5592,8 @@ message WebMessageInfo {
     PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE = 219;
     QUARANTINED_MESSAGE = 220;
     GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE = 221;
+    GROUP_OPEN_BOT_ADDED = 222;
+    GROUP_TEE_BOT_ADDED = 223;
   }
 }
 

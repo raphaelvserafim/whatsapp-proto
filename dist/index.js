@@ -11819,6 +11819,11 @@
                         case 47:
                         case 48:
                         case 49:
+                        case 50:
+                        case 51:
+                        case 52:
+                        case 53:
+                        case 54:
                             break;
                         }
                 }
@@ -12048,6 +12053,26 @@
                         case 49:
                             message.capabilities[i] = 49;
                             break;
+                        case "RICH_RESPONSE_UR_ZEITGEIST_CITATIONS":
+                        case 50:
+                            message.capabilities[i] = 50;
+                            break;
+                        case "RICH_RESPONSE_UR_ZEITGEIST_CAROUSEL":
+                        case 51:
+                            message.capabilities[i] = 51;
+                            break;
+                        case "AI_IMAGINE_LOADING_INDICATOR":
+                        case 52:
+                            message.capabilities[i] = 52;
+                            break;
+                        case "RICH_RESPONSE_UR_IMAGINE":
+                        case 53:
+                            message.capabilities[i] = 53;
+                            break;
+                        case "AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR":
+                        case 54:
+                            message.capabilities[i] = 54;
+                            break;
                         }
                 }
                 return message;
@@ -12156,6 +12181,11 @@
              * @property {number} AI_RESPONSE_MODEL_BRANDING=47 AI_RESPONSE_MODEL_BRANDING value
              * @property {number} SESSION_TRANSPARENCY_SYSTEM_MESSAGE=48 SESSION_TRANSPARENCY_SYSTEM_MESSAGE value
              * @property {number} RICH_RESPONSE_UR_REASONING=49 RICH_RESPONSE_UR_REASONING value
+             * @property {number} RICH_RESPONSE_UR_ZEITGEIST_CITATIONS=50 RICH_RESPONSE_UR_ZEITGEIST_CITATIONS value
+             * @property {number} RICH_RESPONSE_UR_ZEITGEIST_CAROUSEL=51 RICH_RESPONSE_UR_ZEITGEIST_CAROUSEL value
+             * @property {number} AI_IMAGINE_LOADING_INDICATOR=52 AI_IMAGINE_LOADING_INDICATOR value
+             * @property {number} RICH_RESPONSE_UR_IMAGINE=53 RICH_RESPONSE_UR_IMAGINE value
+             * @property {number} AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR=54 AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR value
              */
             BotCapabilityMetadata.BotCapabilityType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -12209,10 +12239,253 @@
                 values[valuesById[47] = "AI_RESPONSE_MODEL_BRANDING"] = 47;
                 values[valuesById[48] = "SESSION_TRANSPARENCY_SYSTEM_MESSAGE"] = 48;
                 values[valuesById[49] = "RICH_RESPONSE_UR_REASONING"] = 49;
+                values[valuesById[50] = "RICH_RESPONSE_UR_ZEITGEIST_CITATIONS"] = 50;
+                values[valuesById[51] = "RICH_RESPONSE_UR_ZEITGEIST_CAROUSEL"] = 51;
+                values[valuesById[52] = "AI_IMAGINE_LOADING_INDICATOR"] = 52;
+                values[valuesById[53] = "RICH_RESPONSE_UR_IMAGINE"] = 53;
+                values[valuesById[54] = "AI_IMAGINE_UR_TO_NATIVE_LOADING_INDICATOR"] = 54;
                 return values;
             })();
     
             return BotCapabilityMetadata;
+        })();
+    
+        proto.BotDocumentMessageMetadata = (function() {
+    
+            /**
+             * Properties of a BotDocumentMessageMetadata.
+             * @memberof proto
+             * @interface IBotDocumentMessageMetadata
+             * @property {proto.BotDocumentMessageMetadata.DocumentPluginType|null} [pluginType] BotDocumentMessageMetadata pluginType
+             */
+    
+            /**
+             * Constructs a new BotDocumentMessageMetadata.
+             * @memberof proto
+             * @classdesc Represents a BotDocumentMessageMetadata.
+             * @implements IBotDocumentMessageMetadata
+             * @constructor
+             * @param {proto.IBotDocumentMessageMetadata=} [properties] Properties to set
+             */
+            function BotDocumentMessageMetadata(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * BotDocumentMessageMetadata pluginType.
+             * @member {proto.BotDocumentMessageMetadata.DocumentPluginType} pluginType
+             * @memberof proto.BotDocumentMessageMetadata
+             * @instance
+             */
+            BotDocumentMessageMetadata.prototype.pluginType = 0;
+    
+            /**
+             * Creates a new BotDocumentMessageMetadata instance using the specified properties.
+             * @function create
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {proto.IBotDocumentMessageMetadata=} [properties] Properties to set
+             * @returns {proto.BotDocumentMessageMetadata} BotDocumentMessageMetadata instance
+             */
+            BotDocumentMessageMetadata.create = function create(properties) {
+                return new BotDocumentMessageMetadata(properties);
+            };
+    
+            /**
+             * Encodes the specified BotDocumentMessageMetadata message. Does not implicitly {@link proto.BotDocumentMessageMetadata.verify|verify} messages.
+             * @function encode
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {proto.IBotDocumentMessageMetadata} message BotDocumentMessageMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotDocumentMessageMetadata.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.pluginType != null && Object.hasOwnProperty.call(message, "pluginType"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.pluginType);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified BotDocumentMessageMetadata message, length delimited. Does not implicitly {@link proto.BotDocumentMessageMetadata.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {proto.IBotDocumentMessageMetadata} message BotDocumentMessageMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotDocumentMessageMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a BotDocumentMessageMetadata message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotDocumentMessageMetadata.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.BotDocumentMessageMetadata();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.pluginType = reader.int32();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a BotDocumentMessageMetadata message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotDocumentMessageMetadata.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a BotDocumentMessageMetadata message.
+             * @function verify
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BotDocumentMessageMetadata.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.pluginType != null && message.hasOwnProperty("pluginType"))
+                    switch (message.pluginType) {
+                    default:
+                        return "pluginType: enum value expected";
+                    case 0:
+                    case 1:
+                        break;
+                    }
+                return null;
+            };
+    
+            /**
+             * Creates a BotDocumentMessageMetadata message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.BotDocumentMessageMetadata} BotDocumentMessageMetadata
+             */
+            BotDocumentMessageMetadata.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.BotDocumentMessageMetadata)
+                    return object;
+                var message = new $root.proto.BotDocumentMessageMetadata();
+                switch (object.pluginType) {
+                default:
+                    if (typeof object.pluginType === "number") {
+                        message.pluginType = object.pluginType;
+                        break;
+                    }
+                    break;
+                case "TEXT_EXTRACTION":
+                case 0:
+                    message.pluginType = 0;
+                    break;
+                case "OCR_AND_IMAGES":
+                case 1:
+                    message.pluginType = 1;
+                    break;
+                }
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a BotDocumentMessageMetadata message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {proto.BotDocumentMessageMetadata} message BotDocumentMessageMetadata
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BotDocumentMessageMetadata.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.pluginType = options.enums === String ? "TEXT_EXTRACTION" : 0;
+                if (message.pluginType != null && message.hasOwnProperty("pluginType"))
+                    object.pluginType = options.enums === String ? $root.proto.BotDocumentMessageMetadata.DocumentPluginType[message.pluginType] === undefined ? message.pluginType : $root.proto.BotDocumentMessageMetadata.DocumentPluginType[message.pluginType] : message.pluginType;
+                return object;
+            };
+    
+            /**
+             * Converts this BotDocumentMessageMetadata to JSON.
+             * @function toJSON
+             * @memberof proto.BotDocumentMessageMetadata
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BotDocumentMessageMetadata.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            /**
+             * Gets the default type url for BotDocumentMessageMetadata
+             * @function getTypeUrl
+             * @memberof proto.BotDocumentMessageMetadata
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BotDocumentMessageMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/proto.BotDocumentMessageMetadata";
+            };
+    
+            /**
+             * DocumentPluginType enum.
+             * @name proto.BotDocumentMessageMetadata.DocumentPluginType
+             * @enum {number}
+             * @property {number} TEXT_EXTRACTION=0 TEXT_EXTRACTION value
+             * @property {number} OCR_AND_IMAGES=1 OCR_AND_IMAGES value
+             */
+            BotDocumentMessageMetadata.DocumentPluginType = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "TEXT_EXTRACTION"] = 0;
+                values[valuesById[1] = "OCR_AND_IMAGES"] = 1;
+                return values;
+            })();
+    
+            return BotDocumentMessageMetadata;
         })();
     
         proto.BotFeedbackMessage = (function() {
@@ -14906,6 +15179,437 @@
             return BotFeedbackMessage;
         })();
     
+        proto.BotGroupMetadata = (function() {
+    
+            /**
+             * Properties of a BotGroupMetadata.
+             * @memberof proto
+             * @interface IBotGroupMetadata
+             * @property {Array.<proto.IBotGroupParticipantMetadata>|null} [participantsMetadata] BotGroupMetadata participantsMetadata
+             */
+    
+            /**
+             * Constructs a new BotGroupMetadata.
+             * @memberof proto
+             * @classdesc Represents a BotGroupMetadata.
+             * @implements IBotGroupMetadata
+             * @constructor
+             * @param {proto.IBotGroupMetadata=} [properties] Properties to set
+             */
+            function BotGroupMetadata(properties) {
+                this.participantsMetadata = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * BotGroupMetadata participantsMetadata.
+             * @member {Array.<proto.IBotGroupParticipantMetadata>} participantsMetadata
+             * @memberof proto.BotGroupMetadata
+             * @instance
+             */
+            BotGroupMetadata.prototype.participantsMetadata = $util.emptyArray;
+    
+            /**
+             * Creates a new BotGroupMetadata instance using the specified properties.
+             * @function create
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {proto.IBotGroupMetadata=} [properties] Properties to set
+             * @returns {proto.BotGroupMetadata} BotGroupMetadata instance
+             */
+            BotGroupMetadata.create = function create(properties) {
+                return new BotGroupMetadata(properties);
+            };
+    
+            /**
+             * Encodes the specified BotGroupMetadata message. Does not implicitly {@link proto.BotGroupMetadata.verify|verify} messages.
+             * @function encode
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {proto.IBotGroupMetadata} message BotGroupMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotGroupMetadata.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.participantsMetadata != null && message.participantsMetadata.length)
+                    for (var i = 0; i < message.participantsMetadata.length; ++i)
+                        $root.proto.BotGroupParticipantMetadata.encode(message.participantsMetadata[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified BotGroupMetadata message, length delimited. Does not implicitly {@link proto.BotGroupMetadata.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {proto.IBotGroupMetadata} message BotGroupMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotGroupMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a BotGroupMetadata message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.BotGroupMetadata} BotGroupMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotGroupMetadata.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.BotGroupMetadata();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            if (!(message.participantsMetadata && message.participantsMetadata.length))
+                                message.participantsMetadata = [];
+                            message.participantsMetadata.push($root.proto.BotGroupParticipantMetadata.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a BotGroupMetadata message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.BotGroupMetadata} BotGroupMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotGroupMetadata.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a BotGroupMetadata message.
+             * @function verify
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BotGroupMetadata.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.participantsMetadata != null && message.hasOwnProperty("participantsMetadata")) {
+                    if (!Array.isArray(message.participantsMetadata))
+                        return "participantsMetadata: array expected";
+                    for (var i = 0; i < message.participantsMetadata.length; ++i) {
+                        var error = $root.proto.BotGroupParticipantMetadata.verify(message.participantsMetadata[i]);
+                        if (error)
+                            return "participantsMetadata." + error;
+                    }
+                }
+                return null;
+            };
+    
+            /**
+             * Creates a BotGroupMetadata message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.BotGroupMetadata} BotGroupMetadata
+             */
+            BotGroupMetadata.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.BotGroupMetadata)
+                    return object;
+                var message = new $root.proto.BotGroupMetadata();
+                if (object.participantsMetadata) {
+                    if (!Array.isArray(object.participantsMetadata))
+                        throw TypeError(".proto.BotGroupMetadata.participantsMetadata: array expected");
+                    message.participantsMetadata = [];
+                    for (var i = 0; i < object.participantsMetadata.length; ++i) {
+                        if (typeof object.participantsMetadata[i] !== "object")
+                            throw TypeError(".proto.BotGroupMetadata.participantsMetadata: object expected");
+                        message.participantsMetadata[i] = $root.proto.BotGroupParticipantMetadata.fromObject(object.participantsMetadata[i]);
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a BotGroupMetadata message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {proto.BotGroupMetadata} message BotGroupMetadata
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BotGroupMetadata.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.participantsMetadata = [];
+                if (message.participantsMetadata && message.participantsMetadata.length) {
+                    object.participantsMetadata = [];
+                    for (var j = 0; j < message.participantsMetadata.length; ++j)
+                        object.participantsMetadata[j] = $root.proto.BotGroupParticipantMetadata.toObject(message.participantsMetadata[j], options);
+                }
+                return object;
+            };
+    
+            /**
+             * Converts this BotGroupMetadata to JSON.
+             * @function toJSON
+             * @memberof proto.BotGroupMetadata
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BotGroupMetadata.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            /**
+             * Gets the default type url for BotGroupMetadata
+             * @function getTypeUrl
+             * @memberof proto.BotGroupMetadata
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BotGroupMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/proto.BotGroupMetadata";
+            };
+    
+            return BotGroupMetadata;
+        })();
+    
+        proto.BotGroupParticipantMetadata = (function() {
+    
+            /**
+             * Properties of a BotGroupParticipantMetadata.
+             * @memberof proto
+             * @interface IBotGroupParticipantMetadata
+             * @property {string|null} [botFbid] BotGroupParticipantMetadata botFbid
+             */
+    
+            /**
+             * Constructs a new BotGroupParticipantMetadata.
+             * @memberof proto
+             * @classdesc Represents a BotGroupParticipantMetadata.
+             * @implements IBotGroupParticipantMetadata
+             * @constructor
+             * @param {proto.IBotGroupParticipantMetadata=} [properties] Properties to set
+             */
+            function BotGroupParticipantMetadata(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * BotGroupParticipantMetadata botFbid.
+             * @member {string} botFbid
+             * @memberof proto.BotGroupParticipantMetadata
+             * @instance
+             */
+            BotGroupParticipantMetadata.prototype.botFbid = "";
+    
+            /**
+             * Creates a new BotGroupParticipantMetadata instance using the specified properties.
+             * @function create
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {proto.IBotGroupParticipantMetadata=} [properties] Properties to set
+             * @returns {proto.BotGroupParticipantMetadata} BotGroupParticipantMetadata instance
+             */
+            BotGroupParticipantMetadata.create = function create(properties) {
+                return new BotGroupParticipantMetadata(properties);
+            };
+    
+            /**
+             * Encodes the specified BotGroupParticipantMetadata message. Does not implicitly {@link proto.BotGroupParticipantMetadata.verify|verify} messages.
+             * @function encode
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {proto.IBotGroupParticipantMetadata} message BotGroupParticipantMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotGroupParticipantMetadata.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.botFbid != null && Object.hasOwnProperty.call(message, "botFbid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.botFbid);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified BotGroupParticipantMetadata message, length delimited. Does not implicitly {@link proto.BotGroupParticipantMetadata.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {proto.IBotGroupParticipantMetadata} message BotGroupParticipantMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotGroupParticipantMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a BotGroupParticipantMetadata message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotGroupParticipantMetadata.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.BotGroupParticipantMetadata();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.botFbid = reader.string();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a BotGroupParticipantMetadata message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotGroupParticipantMetadata.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a BotGroupParticipantMetadata message.
+             * @function verify
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BotGroupParticipantMetadata.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.botFbid != null && message.hasOwnProperty("botFbid"))
+                    if (!$util.isString(message.botFbid))
+                        return "botFbid: string expected";
+                return null;
+            };
+    
+            /**
+             * Creates a BotGroupParticipantMetadata message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.BotGroupParticipantMetadata} BotGroupParticipantMetadata
+             */
+            BotGroupParticipantMetadata.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.BotGroupParticipantMetadata)
+                    return object;
+                var message = new $root.proto.BotGroupParticipantMetadata();
+                if (object.botFbid != null)
+                    message.botFbid = String(object.botFbid);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a BotGroupParticipantMetadata message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {proto.BotGroupParticipantMetadata} message BotGroupParticipantMetadata
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BotGroupParticipantMetadata.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.botFbid = "";
+                if (message.botFbid != null && message.hasOwnProperty("botFbid"))
+                    object.botFbid = message.botFbid;
+                return object;
+            };
+    
+            /**
+             * Converts this BotGroupParticipantMetadata to JSON.
+             * @function toJSON
+             * @memberof proto.BotGroupParticipantMetadata
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BotGroupParticipantMetadata.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            /**
+             * Gets the default type url for BotGroupParticipantMetadata
+             * @function getTypeUrl
+             * @memberof proto.BotGroupParticipantMetadata
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BotGroupParticipantMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/proto.BotGroupParticipantMetadata";
+            };
+    
+            return BotGroupParticipantMetadata;
+        })();
+    
         proto.BotImagineMetadata = (function() {
     
             /**
@@ -17475,6 +18179,10 @@
                     case 36:
                     case 37:
                     case 38:
+                    case 39:
+                    case 40:
+                    case 41:
+                    case 45:
                         break;
                     }
                 if (message.forwardScore != null && message.hasOwnProperty("forwardScore"))
@@ -17658,6 +18366,22 @@
                 case 38:
                     message.botEntryPointOrigin = 38;
                     break;
+                case "MEDIA_PICKER_1_ON_1_CHAT":
+                case 39:
+                    message.botEntryPointOrigin = 39;
+                    break;
+                case "MEDIA_PICKER_GROUP_CHAT":
+                case 40:
+                    message.botEntryPointOrigin = 40;
+                    break;
+                case "ASK_META_AI_NO_SEARCH_RESULTS":
+                case 41:
+                    message.botEntryPointOrigin = 41;
+                    break;
+                case "META_AI_SETTINGS":
+                case 45:
+                    message.botEntryPointOrigin = 45;
+                    break;
                 }
                 if (object.forwardScore != null)
                     message.forwardScore = object.forwardScore >>> 0;
@@ -17756,6 +18480,9 @@
              * @property {proto.IAIThreadInfo|null} [botThreadInfo] BotMetadata botThreadInfo
              * @property {proto.IAIRegenerateMetadata|null} [regenerateMetadata] BotMetadata regenerateMetadata
              * @property {proto.ISessionTransparencyMetadata|null} [sessionTransparencyMetadata] BotMetadata sessionTransparencyMetadata
+             * @property {proto.IBotDocumentMessageMetadata|null} [botDocumentMessageMetadata] BotMetadata botDocumentMessageMetadata
+             * @property {proto.IBotGroupMetadata|null} [botGroupMetadata] BotMetadata botGroupMetadata
+             * @property {proto.IBotRenderingConfigMetadata|null} [botRenderingConfigMetadata] BotMetadata botRenderingConfigMetadata
              * @property {Uint8Array|null} [internalMetadata] BotMetadata internalMetadata
              */
     
@@ -18039,6 +18766,30 @@
             BotMetadata.prototype.sessionTransparencyMetadata = null;
     
             /**
+             * BotMetadata botDocumentMessageMetadata.
+             * @member {proto.IBotDocumentMessageMetadata|null|undefined} botDocumentMessageMetadata
+             * @memberof proto.BotMetadata
+             * @instance
+             */
+            BotMetadata.prototype.botDocumentMessageMetadata = null;
+    
+            /**
+             * BotMetadata botGroupMetadata.
+             * @member {proto.IBotGroupMetadata|null|undefined} botGroupMetadata
+             * @memberof proto.BotMetadata
+             * @instance
+             */
+            BotMetadata.prototype.botGroupMetadata = null;
+    
+            /**
+             * BotMetadata botRenderingConfigMetadata.
+             * @member {proto.IBotRenderingConfigMetadata|null|undefined} botRenderingConfigMetadata
+             * @memberof proto.BotMetadata
+             * @instance
+             */
+            BotMetadata.prototype.botRenderingConfigMetadata = null;
+    
+            /**
              * BotMetadata internalMetadata.
              * @member {Uint8Array} internalMetadata
              * @memberof proto.BotMetadata
@@ -18136,6 +18887,12 @@
                     $root.proto.AIRegenerateMetadata.encode(message.regenerateMetadata, writer.uint32(/* id 32, wireType 2 =*/258).fork()).ldelim();
                 if (message.sessionTransparencyMetadata != null && Object.hasOwnProperty.call(message, "sessionTransparencyMetadata"))
                     $root.proto.SessionTransparencyMetadata.encode(message.sessionTransparencyMetadata, writer.uint32(/* id 33, wireType 2 =*/266).fork()).ldelim();
+                if (message.botDocumentMessageMetadata != null && Object.hasOwnProperty.call(message, "botDocumentMessageMetadata"))
+                    $root.proto.BotDocumentMessageMetadata.encode(message.botDocumentMessageMetadata, writer.uint32(/* id 34, wireType 2 =*/274).fork()).ldelim();
+                if (message.botGroupMetadata != null && Object.hasOwnProperty.call(message, "botGroupMetadata"))
+                    $root.proto.BotGroupMetadata.encode(message.botGroupMetadata, writer.uint32(/* id 35, wireType 2 =*/282).fork()).ldelim();
+                if (message.botRenderingConfigMetadata != null && Object.hasOwnProperty.call(message, "botRenderingConfigMetadata"))
+                    $root.proto.BotRenderingConfigMetadata.encode(message.botRenderingConfigMetadata, writer.uint32(/* id 36, wireType 2 =*/290).fork()).ldelim();
                 if (message.internalMetadata != null && Object.hasOwnProperty.call(message, "internalMetadata"))
                     writer.uint32(/* id 999, wireType 2 =*/7994).bytes(message.internalMetadata);
                 return writer;
@@ -18304,6 +19061,18 @@
                         }
                     case 33: {
                             message.sessionTransparencyMetadata = $root.proto.SessionTransparencyMetadata.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 34: {
+                            message.botDocumentMessageMetadata = $root.proto.BotDocumentMessageMetadata.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 35: {
+                            message.botGroupMetadata = $root.proto.BotGroupMetadata.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 36: {
+                            message.botRenderingConfigMetadata = $root.proto.BotRenderingConfigMetadata.decode(reader, reader.uint32());
                             break;
                         }
                     case 999: {
@@ -18496,6 +19265,21 @@
                     if (error)
                         return "sessionTransparencyMetadata." + error;
                 }
+                if (message.botDocumentMessageMetadata != null && message.hasOwnProperty("botDocumentMessageMetadata")) {
+                    var error = $root.proto.BotDocumentMessageMetadata.verify(message.botDocumentMessageMetadata);
+                    if (error)
+                        return "botDocumentMessageMetadata." + error;
+                }
+                if (message.botGroupMetadata != null && message.hasOwnProperty("botGroupMetadata")) {
+                    var error = $root.proto.BotGroupMetadata.verify(message.botGroupMetadata);
+                    if (error)
+                        return "botGroupMetadata." + error;
+                }
+                if (message.botRenderingConfigMetadata != null && message.hasOwnProperty("botRenderingConfigMetadata")) {
+                    var error = $root.proto.BotRenderingConfigMetadata.verify(message.botRenderingConfigMetadata);
+                    if (error)
+                        return "botRenderingConfigMetadata." + error;
+                }
                 if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata"))
                     if (!(message.internalMetadata && typeof message.internalMetadata.length === "number" || $util.isString(message.internalMetadata)))
                         return "internalMetadata: buffer expected";
@@ -18661,6 +19445,21 @@
                         throw TypeError(".proto.BotMetadata.sessionTransparencyMetadata: object expected");
                     message.sessionTransparencyMetadata = $root.proto.SessionTransparencyMetadata.fromObject(object.sessionTransparencyMetadata);
                 }
+                if (object.botDocumentMessageMetadata != null) {
+                    if (typeof object.botDocumentMessageMetadata !== "object")
+                        throw TypeError(".proto.BotMetadata.botDocumentMessageMetadata: object expected");
+                    message.botDocumentMessageMetadata = $root.proto.BotDocumentMessageMetadata.fromObject(object.botDocumentMessageMetadata);
+                }
+                if (object.botGroupMetadata != null) {
+                    if (typeof object.botGroupMetadata !== "object")
+                        throw TypeError(".proto.BotMetadata.botGroupMetadata: object expected");
+                    message.botGroupMetadata = $root.proto.BotGroupMetadata.fromObject(object.botGroupMetadata);
+                }
+                if (object.botRenderingConfigMetadata != null) {
+                    if (typeof object.botRenderingConfigMetadata !== "object")
+                        throw TypeError(".proto.BotMetadata.botRenderingConfigMetadata: object expected");
+                    message.botRenderingConfigMetadata = $root.proto.BotRenderingConfigMetadata.fromObject(object.botRenderingConfigMetadata);
+                }
                 if (object.internalMetadata != null)
                     if (typeof object.internalMetadata === "string")
                         $util.base64.decode(object.internalMetadata, message.internalMetadata = $util.newBuffer($util.base64.length(object.internalMetadata)), 0);
@@ -18722,6 +19521,9 @@
                     object.botThreadInfo = null;
                     object.regenerateMetadata = null;
                     object.sessionTransparencyMetadata = null;
+                    object.botDocumentMessageMetadata = null;
+                    object.botGroupMetadata = null;
+                    object.botRenderingConfigMetadata = null;
                     if (options.bytes === String)
                         object.internalMetadata = "";
                     else {
@@ -18796,6 +19598,12 @@
                     object.regenerateMetadata = $root.proto.AIRegenerateMetadata.toObject(message.regenerateMetadata, options);
                 if (message.sessionTransparencyMetadata != null && message.hasOwnProperty("sessionTransparencyMetadata"))
                     object.sessionTransparencyMetadata = $root.proto.SessionTransparencyMetadata.toObject(message.sessionTransparencyMetadata, options);
+                if (message.botDocumentMessageMetadata != null && message.hasOwnProperty("botDocumentMessageMetadata"))
+                    object.botDocumentMessageMetadata = $root.proto.BotDocumentMessageMetadata.toObject(message.botDocumentMessageMetadata, options);
+                if (message.botGroupMetadata != null && message.hasOwnProperty("botGroupMetadata"))
+                    object.botGroupMetadata = $root.proto.BotGroupMetadata.toObject(message.botGroupMetadata, options);
+                if (message.botRenderingConfigMetadata != null && message.hasOwnProperty("botRenderingConfigMetadata"))
+                    object.botRenderingConfigMetadata = $root.proto.BotRenderingConfigMetadata.toObject(message.botRenderingConfigMetadata, options);
                 if (message.internalMetadata != null && message.hasOwnProperty("internalMetadata"))
                     object.internalMetadata = options.bytes === String ? $util.base64.encode(message.internalMetadata, 0, message.internalMetadata.length) : options.bytes === Array ? Array.prototype.slice.call(message.internalMetadata) : message.internalMetadata;
                 return object;
@@ -18873,6 +19681,10 @@
          * @property {number} ATTACHMENT_TRAY_GROUP_CHAT=36 ATTACHMENT_TRAY_GROUP_CHAT value
          * @property {number} ASK_META_AI_MEDIA_VIEWER_1ON1=37 ASK_META_AI_MEDIA_VIEWER_1ON1 value
          * @property {number} ASK_META_AI_MEDIA_VIEWER_GROUP=38 ASK_META_AI_MEDIA_VIEWER_GROUP value
+         * @property {number} MEDIA_PICKER_1_ON_1_CHAT=39 MEDIA_PICKER_1_ON_1_CHAT value
+         * @property {number} MEDIA_PICKER_GROUP_CHAT=40 MEDIA_PICKER_GROUP_CHAT value
+         * @property {number} ASK_META_AI_NO_SEARCH_RESULTS=41 ASK_META_AI_NO_SEARCH_RESULTS value
+         * @property {number} META_AI_SETTINGS=45 META_AI_SETTINGS value
          */
         proto.BotMetricsEntryPoint = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -18915,6 +19727,10 @@
             values[valuesById[36] = "ATTACHMENT_TRAY_GROUP_CHAT"] = 36;
             values[valuesById[37] = "ASK_META_AI_MEDIA_VIEWER_1ON1"] = 37;
             values[valuesById[38] = "ASK_META_AI_MEDIA_VIEWER_GROUP"] = 38;
+            values[valuesById[39] = "MEDIA_PICKER_1_ON_1_CHAT"] = 39;
+            values[valuesById[40] = "MEDIA_PICKER_GROUP_CHAT"] = 40;
+            values[valuesById[41] = "ASK_META_AI_NO_SEARCH_RESULTS"] = 41;
+            values[valuesById[45] = "META_AI_SETTINGS"] = 45;
             return values;
         })();
     
@@ -19127,6 +19943,10 @@
                     case 36:
                     case 37:
                     case 38:
+                    case 39:
+                    case 40:
+                    case 41:
+                    case 45:
                         break;
                     }
                 if (message.threadOrigin != null && message.hasOwnProperty("threadOrigin"))
@@ -19319,6 +20139,22 @@
                 case "ASK_META_AI_MEDIA_VIEWER_GROUP":
                 case 38:
                     message.destinationEntryPoint = 38;
+                    break;
+                case "MEDIA_PICKER_1_ON_1_CHAT":
+                case 39:
+                    message.destinationEntryPoint = 39;
+                    break;
+                case "MEDIA_PICKER_GROUP_CHAT":
+                case 40:
+                    message.destinationEntryPoint = 40;
+                    break;
+                case "ASK_META_AI_NO_SEARCH_RESULTS":
+                case 41:
+                    message.destinationEntryPoint = 41;
+                    break;
+                case "META_AI_SETTINGS":
+                case 45:
+                    message.destinationEntryPoint = 45;
                     break;
                 }
                 switch (object.threadOrigin) {
@@ -20629,6 +21465,7 @@
              * @interface IBotProgressIndicatorMetadata
              * @property {string|null} [progressDescription] BotProgressIndicatorMetadata progressDescription
              * @property {Array.<proto.BotProgressIndicatorMetadata.IBotPlanningStepMetadata>|null} [stepsMetadata] BotProgressIndicatorMetadata stepsMetadata
+             * @property {number|Long|null} [estimatedCompletionTime] BotProgressIndicatorMetadata estimatedCompletionTime
              */
     
             /**
@@ -20664,6 +21501,14 @@
             BotProgressIndicatorMetadata.prototype.stepsMetadata = $util.emptyArray;
     
             /**
+             * BotProgressIndicatorMetadata estimatedCompletionTime.
+             * @member {number|Long} estimatedCompletionTime
+             * @memberof proto.BotProgressIndicatorMetadata
+             * @instance
+             */
+            BotProgressIndicatorMetadata.prototype.estimatedCompletionTime = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+    
+            /**
              * Creates a new BotProgressIndicatorMetadata instance using the specified properties.
              * @function create
              * @memberof proto.BotProgressIndicatorMetadata
@@ -20692,6 +21537,8 @@
                 if (message.stepsMetadata != null && message.stepsMetadata.length)
                     for (var i = 0; i < message.stepsMetadata.length; ++i)
                         $root.proto.BotProgressIndicatorMetadata.BotPlanningStepMetadata.encode(message.stepsMetadata[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                if (message.estimatedCompletionTime != null && Object.hasOwnProperty.call(message, "estimatedCompletionTime"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int64(message.estimatedCompletionTime);
                 return writer;
             };
     
@@ -20736,6 +21583,10 @@
                             if (!(message.stepsMetadata && message.stepsMetadata.length))
                                 message.stepsMetadata = [];
                             message.stepsMetadata.push($root.proto.BotProgressIndicatorMetadata.BotPlanningStepMetadata.decode(reader, reader.uint32()));
+                            break;
+                        }
+                    case 3: {
+                            message.estimatedCompletionTime = reader.int64();
                             break;
                         }
                     default:
@@ -20785,6 +21636,9 @@
                             return "stepsMetadata." + error;
                     }
                 }
+                if (message.estimatedCompletionTime != null && message.hasOwnProperty("estimatedCompletionTime"))
+                    if (!$util.isInteger(message.estimatedCompletionTime) && !(message.estimatedCompletionTime && $util.isInteger(message.estimatedCompletionTime.low) && $util.isInteger(message.estimatedCompletionTime.high)))
+                        return "estimatedCompletionTime: integer|Long expected";
                 return null;
             };
     
@@ -20812,6 +21666,15 @@
                         message.stepsMetadata[i] = $root.proto.BotProgressIndicatorMetadata.BotPlanningStepMetadata.fromObject(object.stepsMetadata[i]);
                     }
                 }
+                if (object.estimatedCompletionTime != null)
+                    if ($util.Long)
+                        (message.estimatedCompletionTime = $util.Long.fromValue(object.estimatedCompletionTime)).unsigned = false;
+                    else if (typeof object.estimatedCompletionTime === "string")
+                        message.estimatedCompletionTime = parseInt(object.estimatedCompletionTime, 10);
+                    else if (typeof object.estimatedCompletionTime === "number")
+                        message.estimatedCompletionTime = object.estimatedCompletionTime;
+                    else if (typeof object.estimatedCompletionTime === "object")
+                        message.estimatedCompletionTime = new $util.LongBits(object.estimatedCompletionTime.low >>> 0, object.estimatedCompletionTime.high >>> 0).toNumber();
                 return message;
             };
     
@@ -20830,8 +21693,14 @@
                 var object = {};
                 if (options.arrays || options.defaults)
                     object.stepsMetadata = [];
-                if (options.defaults)
+                if (options.defaults) {
                     object.progressDescription = "";
+                    if ($util.Long) {
+                        var long = new $util.Long(0, 0, false);
+                        object.estimatedCompletionTime = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                    } else
+                        object.estimatedCompletionTime = options.longs === String ? "0" : 0;
+                }
                 if (message.progressDescription != null && message.hasOwnProperty("progressDescription"))
                     object.progressDescription = message.progressDescription;
                 if (message.stepsMetadata && message.stepsMetadata.length) {
@@ -20839,6 +21708,11 @@
                     for (var j = 0; j < message.stepsMetadata.length; ++j)
                         object.stepsMetadata[j] = $root.proto.BotProgressIndicatorMetadata.BotPlanningStepMetadata.toObject(message.stepsMetadata[j], options);
                 }
+                if (message.estimatedCompletionTime != null && message.hasOwnProperty("estimatedCompletionTime"))
+                    if (typeof message.estimatedCompletionTime === "number")
+                        object.estimatedCompletionTime = options.longs === String ? String(message.estimatedCompletionTime) : message.estimatedCompletionTime;
+                    else
+                        object.estimatedCompletionTime = options.longs === String ? $util.Long.prototype.toString.call(message.estimatedCompletionTime) : options.longs === Number ? new $util.LongBits(message.estimatedCompletionTime.low >>> 0, message.estimatedCompletionTime.high >>> 0).toNumber() : message.estimatedCompletionTime;
                 return object;
             };
     
@@ -23868,6 +24742,235 @@
             return BotReminderMetadata;
         })();
     
+        proto.BotRenderingConfigMetadata = (function() {
+    
+            /**
+             * Properties of a BotRenderingConfigMetadata.
+             * @memberof proto
+             * @interface IBotRenderingConfigMetadata
+             * @property {string|null} [bloksVersioningId] BotRenderingConfigMetadata bloksVersioningId
+             * @property {number|null} [pixelDensity] BotRenderingConfigMetadata pixelDensity
+             */
+    
+            /**
+             * Constructs a new BotRenderingConfigMetadata.
+             * @memberof proto
+             * @classdesc Represents a BotRenderingConfigMetadata.
+             * @implements IBotRenderingConfigMetadata
+             * @constructor
+             * @param {proto.IBotRenderingConfigMetadata=} [properties] Properties to set
+             */
+            function BotRenderingConfigMetadata(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+    
+            /**
+             * BotRenderingConfigMetadata bloksVersioningId.
+             * @member {string} bloksVersioningId
+             * @memberof proto.BotRenderingConfigMetadata
+             * @instance
+             */
+            BotRenderingConfigMetadata.prototype.bloksVersioningId = "";
+    
+            /**
+             * BotRenderingConfigMetadata pixelDensity.
+             * @member {number} pixelDensity
+             * @memberof proto.BotRenderingConfigMetadata
+             * @instance
+             */
+            BotRenderingConfigMetadata.prototype.pixelDensity = 0;
+    
+            /**
+             * Creates a new BotRenderingConfigMetadata instance using the specified properties.
+             * @function create
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {proto.IBotRenderingConfigMetadata=} [properties] Properties to set
+             * @returns {proto.BotRenderingConfigMetadata} BotRenderingConfigMetadata instance
+             */
+            BotRenderingConfigMetadata.create = function create(properties) {
+                return new BotRenderingConfigMetadata(properties);
+            };
+    
+            /**
+             * Encodes the specified BotRenderingConfigMetadata message. Does not implicitly {@link proto.BotRenderingConfigMetadata.verify|verify} messages.
+             * @function encode
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {proto.IBotRenderingConfigMetadata} message BotRenderingConfigMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotRenderingConfigMetadata.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.bloksVersioningId != null && Object.hasOwnProperty.call(message, "bloksVersioningId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.bloksVersioningId);
+                if (message.pixelDensity != null && Object.hasOwnProperty.call(message, "pixelDensity"))
+                    writer.uint32(/* id 2, wireType 1 =*/17).double(message.pixelDensity);
+                return writer;
+            };
+    
+            /**
+             * Encodes the specified BotRenderingConfigMetadata message, length delimited. Does not implicitly {@link proto.BotRenderingConfigMetadata.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {proto.IBotRenderingConfigMetadata} message BotRenderingConfigMetadata message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BotRenderingConfigMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+    
+            /**
+             * Decodes a BotRenderingConfigMetadata message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.BotRenderingConfigMetadata} BotRenderingConfigMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotRenderingConfigMetadata.decode = function decode(reader, length, error) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.BotRenderingConfigMetadata();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    if (tag === error)
+                        break;
+                    switch (tag >>> 3) {
+                    case 1: {
+                            message.bloksVersioningId = reader.string();
+                            break;
+                        }
+                    case 2: {
+                            message.pixelDensity = reader.double();
+                            break;
+                        }
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+    
+            /**
+             * Decodes a BotRenderingConfigMetadata message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.BotRenderingConfigMetadata} BotRenderingConfigMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BotRenderingConfigMetadata.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+    
+            /**
+             * Verifies a BotRenderingConfigMetadata message.
+             * @function verify
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BotRenderingConfigMetadata.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.bloksVersioningId != null && message.hasOwnProperty("bloksVersioningId"))
+                    if (!$util.isString(message.bloksVersioningId))
+                        return "bloksVersioningId: string expected";
+                if (message.pixelDensity != null && message.hasOwnProperty("pixelDensity"))
+                    if (typeof message.pixelDensity !== "number")
+                        return "pixelDensity: number expected";
+                return null;
+            };
+    
+            /**
+             * Creates a BotRenderingConfigMetadata message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.BotRenderingConfigMetadata} BotRenderingConfigMetadata
+             */
+            BotRenderingConfigMetadata.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.BotRenderingConfigMetadata)
+                    return object;
+                var message = new $root.proto.BotRenderingConfigMetadata();
+                if (object.bloksVersioningId != null)
+                    message.bloksVersioningId = String(object.bloksVersioningId);
+                if (object.pixelDensity != null)
+                    message.pixelDensity = Number(object.pixelDensity);
+                return message;
+            };
+    
+            /**
+             * Creates a plain object from a BotRenderingConfigMetadata message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {proto.BotRenderingConfigMetadata} message BotRenderingConfigMetadata
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BotRenderingConfigMetadata.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.bloksVersioningId = "";
+                    object.pixelDensity = 0;
+                }
+                if (message.bloksVersioningId != null && message.hasOwnProperty("bloksVersioningId"))
+                    object.bloksVersioningId = message.bloksVersioningId;
+                if (message.pixelDensity != null && message.hasOwnProperty("pixelDensity"))
+                    object.pixelDensity = options.json && !isFinite(message.pixelDensity) ? String(message.pixelDensity) : message.pixelDensity;
+                return object;
+            };
+    
+            /**
+             * Converts this BotRenderingConfigMetadata to JSON.
+             * @function toJSON
+             * @memberof proto.BotRenderingConfigMetadata
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BotRenderingConfigMetadata.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+    
+            /**
+             * Gets the default type url for BotRenderingConfigMetadata
+             * @function getTypeUrl
+             * @memberof proto.BotRenderingConfigMetadata
+             * @static
+             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns {string} The default type url
+             */
+            BotRenderingConfigMetadata.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                if (typeUrlPrefix === undefined) {
+                    typeUrlPrefix = "type.googleapis.com";
+                }
+                return typeUrlPrefix + "/proto.BotRenderingConfigMetadata";
+            };
+    
+            return BotRenderingConfigMetadata;
+        })();
+    
         proto.BotRenderingMetadata = (function() {
     
             /**
@@ -24501,6 +25604,7 @@
                     case 4:
                     case 5:
                     case 6:
+                    case 7:
                         break;
                     }
                 return null;
@@ -24554,6 +25658,10 @@
                 case "VOICE":
                 case 6:
                     message.sessionSource = 6;
+                    break;
+                case "AI_HOME_SESSION":
+                case 7:
+                    message.sessionSource = 7;
                     break;
                 }
                 return message;
@@ -24623,6 +25731,7 @@
          * @property {number} EMU_FLASH=4 EMU_FLASH value
          * @property {number} EMU_FLASH_FOLLOWUP=5 EMU_FLASH_FOLLOWUP value
          * @property {number} VOICE=6 VOICE value
+         * @property {number} AI_HOME_SESSION=7 AI_HOME_SESSION value
          */
         proto.BotSessionSource = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -24633,6 +25742,7 @@
             values[valuesById[4] = "EMU_FLASH"] = 4;
             values[valuesById[5] = "EMU_FLASH_FOLLOWUP"] = 5;
             values[valuesById[6] = "VOICE"] = 6;
+            values[valuesById[7] = "AI_HOME_SESSION"] = 7;
             return values;
         })();
     
@@ -30574,6 +31684,7 @@
              * @property {boolean|null} [isChatDbLidMigrated] ClientPairingProps isChatDbLidMigrated
              * @property {boolean|null} [isSyncdPureLidSession] ClientPairingProps isSyncdPureLidSession
              * @property {boolean|null} [isSyncdSnapshotRecoveryEnabled] ClientPairingProps isSyncdSnapshotRecoveryEnabled
+             * @property {boolean|null} [isHsThumbnailSyncEnabled] ClientPairingProps isHsThumbnailSyncEnabled
              */
     
             /**
@@ -30616,6 +31727,14 @@
             ClientPairingProps.prototype.isSyncdSnapshotRecoveryEnabled = false;
     
             /**
+             * ClientPairingProps isHsThumbnailSyncEnabled.
+             * @member {boolean} isHsThumbnailSyncEnabled
+             * @memberof proto.ClientPairingProps
+             * @instance
+             */
+            ClientPairingProps.prototype.isHsThumbnailSyncEnabled = false;
+    
+            /**
              * Creates a new ClientPairingProps instance using the specified properties.
              * @function create
              * @memberof proto.ClientPairingProps
@@ -30645,6 +31764,8 @@
                     writer.uint32(/* id 2, wireType 0 =*/16).bool(message.isSyncdPureLidSession);
                 if (message.isSyncdSnapshotRecoveryEnabled != null && Object.hasOwnProperty.call(message, "isSyncdSnapshotRecoveryEnabled"))
                     writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isSyncdSnapshotRecoveryEnabled);
+                if (message.isHsThumbnailSyncEnabled != null && Object.hasOwnProperty.call(message, "isHsThumbnailSyncEnabled"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).bool(message.isHsThumbnailSyncEnabled);
                 return writer;
             };
     
@@ -30693,6 +31814,10 @@
                             message.isSyncdSnapshotRecoveryEnabled = reader.bool();
                             break;
                         }
+                    case 4: {
+                            message.isHsThumbnailSyncEnabled = reader.bool();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -30737,6 +31862,9 @@
                 if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled"))
                     if (typeof message.isSyncdSnapshotRecoveryEnabled !== "boolean")
                         return "isSyncdSnapshotRecoveryEnabled: boolean expected";
+                if (message.isHsThumbnailSyncEnabled != null && message.hasOwnProperty("isHsThumbnailSyncEnabled"))
+                    if (typeof message.isHsThumbnailSyncEnabled !== "boolean")
+                        return "isHsThumbnailSyncEnabled: boolean expected";
                 return null;
             };
     
@@ -30758,6 +31886,8 @@
                     message.isSyncdPureLidSession = Boolean(object.isSyncdPureLidSession);
                 if (object.isSyncdSnapshotRecoveryEnabled != null)
                     message.isSyncdSnapshotRecoveryEnabled = Boolean(object.isSyncdSnapshotRecoveryEnabled);
+                if (object.isHsThumbnailSyncEnabled != null)
+                    message.isHsThumbnailSyncEnabled = Boolean(object.isHsThumbnailSyncEnabled);
                 return message;
             };
     
@@ -30778,6 +31908,7 @@
                     object.isChatDbLidMigrated = false;
                     object.isSyncdPureLidSession = false;
                     object.isSyncdSnapshotRecoveryEnabled = false;
+                    object.isHsThumbnailSyncEnabled = false;
                 }
                 if (message.isChatDbLidMigrated != null && message.hasOwnProperty("isChatDbLidMigrated"))
                     object.isChatDbLidMigrated = message.isChatDbLidMigrated;
@@ -30785,6 +31916,8 @@
                     object.isSyncdPureLidSession = message.isSyncdPureLidSession;
                 if (message.isSyncdSnapshotRecoveryEnabled != null && message.hasOwnProperty("isSyncdSnapshotRecoveryEnabled"))
                     object.isSyncdSnapshotRecoveryEnabled = message.isSyncdSnapshotRecoveryEnabled;
+                if (message.isHsThumbnailSyncEnabled != null && message.hasOwnProperty("isHsThumbnailSyncEnabled"))
+                    object.isHsThumbnailSyncEnabled = message.isHsThumbnailSyncEnabled;
                 return object;
             };
     
@@ -32353,6 +33486,8 @@
                         case 3:
                         case 4:
                         case 5:
+                        case 6:
+                        case 7:
                             break;
                         }
                     if (message.appCached != null && message.hasOwnProperty("appCached"))
@@ -32403,6 +33538,14 @@
                     case "MNS":
                     case 5:
                         message.dnsMethod = 5;
+                        break;
+                    case "MNS_SECONDARY":
+                    case 6:
+                        message.dnsMethod = 6;
+                        break;
+                    case "SOCKS_PROXY":
+                    case 7:
+                        message.dnsMethod = 7;
                         break;
                     }
                     if (object.appCached != null)
@@ -32470,6 +33613,8 @@
                  * @property {number} OVERRIDE=3 OVERRIDE value
                  * @property {number} FALLBACK=4 FALLBACK value
                  * @property {number} MNS=5 MNS value
+                 * @property {number} MNS_SECONDARY=6 MNS_SECONDARY value
+                 * @property {number} SOCKS_PROXY=7 SOCKS_PROXY value
                  */
                 DNSSource.DNSResolutionMethod = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
@@ -32479,6 +33624,8 @@
                     values[valuesById[3] = "OVERRIDE"] = 3;
                     values[valuesById[4] = "FALLBACK"] = 4;
                     values[valuesById[5] = "MNS"] = 5;
+                    values[valuesById[6] = "MNS_SECONDARY"] = 6;
+                    values[valuesById[7] = "SOCKS_PROXY"] = 7;
                     return values;
                 })();
     
@@ -34499,6 +35646,8 @@
                  * @property {string|null} [version] WebInfo version
                  * @property {proto.ClientPayload.WebInfo.IWebdPayload|null} [webdPayload] WebInfo webdPayload
                  * @property {proto.ClientPayload.WebInfo.WebSubPlatform|null} [webSubPlatform] WebInfo webSubPlatform
+                 * @property {string|null} [browser] WebInfo browser
+                 * @property {string|null} [browserVersion] WebInfo browserVersion
                  */
     
                 /**
@@ -34549,6 +35698,22 @@
                 WebInfo.prototype.webSubPlatform = 0;
     
                 /**
+                 * WebInfo browser.
+                 * @member {string} browser
+                 * @memberof proto.ClientPayload.WebInfo
+                 * @instance
+                 */
+                WebInfo.prototype.browser = "";
+    
+                /**
+                 * WebInfo browserVersion.
+                 * @member {string} browserVersion
+                 * @memberof proto.ClientPayload.WebInfo
+                 * @instance
+                 */
+                WebInfo.prototype.browserVersion = "";
+    
+                /**
                  * Creates a new WebInfo instance using the specified properties.
                  * @function create
                  * @memberof proto.ClientPayload.WebInfo
@@ -34580,6 +35745,10 @@
                         $root.proto.ClientPayload.WebInfo.WebdPayload.encode(message.webdPayload, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                     if (message.webSubPlatform != null && Object.hasOwnProperty.call(message, "webSubPlatform"))
                         writer.uint32(/* id 4, wireType 0 =*/32).int32(message.webSubPlatform);
+                    if (message.browser != null && Object.hasOwnProperty.call(message, "browser"))
+                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.browser);
+                    if (message.browserVersion != null && Object.hasOwnProperty.call(message, "browserVersion"))
+                        writer.uint32(/* id 6, wireType 2 =*/50).string(message.browserVersion);
                     return writer;
                 };
     
@@ -34630,6 +35799,14 @@
                             }
                         case 4: {
                                 message.webSubPlatform = reader.int32();
+                                break;
+                            }
+                        case 5: {
+                                message.browser = reader.string();
+                                break;
+                            }
+                        case 6: {
+                                message.browserVersion = reader.string();
                                 break;
                             }
                         default:
@@ -34690,6 +35867,12 @@
                         case 5:
                             break;
                         }
+                    if (message.browser != null && message.hasOwnProperty("browser"))
+                        if (!$util.isString(message.browser))
+                            return "browser: string expected";
+                    if (message.browserVersion != null && message.hasOwnProperty("browserVersion"))
+                        if (!$util.isString(message.browserVersion))
+                            return "browserVersion: string expected";
                     return null;
                 };
     
@@ -34746,6 +35929,10 @@
                         message.webSubPlatform = 5;
                         break;
                     }
+                    if (object.browser != null)
+                        message.browser = String(object.browser);
+                    if (object.browserVersion != null)
+                        message.browserVersion = String(object.browserVersion);
                     return message;
                 };
     
@@ -34767,6 +35954,8 @@
                         object.version = "";
                         object.webdPayload = null;
                         object.webSubPlatform = options.enums === String ? "WEB_BROWSER" : 0;
+                        object.browser = "";
+                        object.browserVersion = "";
                     }
                     if (message.refToken != null && message.hasOwnProperty("refToken"))
                         object.refToken = message.refToken;
@@ -34776,6 +35965,10 @@
                         object.webdPayload = $root.proto.ClientPayload.WebInfo.WebdPayload.toObject(message.webdPayload, options);
                     if (message.webSubPlatform != null && message.hasOwnProperty("webSubPlatform"))
                         object.webSubPlatform = options.enums === String ? $root.proto.ClientPayload.WebInfo.WebSubPlatform[message.webSubPlatform] === undefined ? message.webSubPlatform : $root.proto.ClientPayload.WebInfo.WebSubPlatform[message.webSubPlatform] : message.webSubPlatform;
+                    if (message.browser != null && message.hasOwnProperty("browser"))
+                        object.browser = message.browser;
+                    if (message.browserVersion != null && message.hasOwnProperty("browserVersion"))
+                        object.browserVersion = message.browserVersion;
                     return object;
                 };
     
@@ -40608,6 +41801,7 @@
                  * @property {string|null} [newsletterName] ForwardedNewsletterMessageInfo newsletterName
                  * @property {proto.ContextInfo.ForwardedNewsletterMessageInfo.ContentType|null} [contentType] ForwardedNewsletterMessageInfo contentType
                  * @property {string|null} [accessibilityText] ForwardedNewsletterMessageInfo accessibilityText
+                 * @property {string|null} [profileName] ForwardedNewsletterMessageInfo profileName
                  */
     
                 /**
@@ -40666,6 +41860,14 @@
                 ForwardedNewsletterMessageInfo.prototype.accessibilityText = "";
     
                 /**
+                 * ForwardedNewsletterMessageInfo profileName.
+                 * @member {string} profileName
+                 * @memberof proto.ContextInfo.ForwardedNewsletterMessageInfo
+                 * @instance
+                 */
+                ForwardedNewsletterMessageInfo.prototype.profileName = "";
+    
+                /**
                  * Creates a new ForwardedNewsletterMessageInfo instance using the specified properties.
                  * @function create
                  * @memberof proto.ContextInfo.ForwardedNewsletterMessageInfo
@@ -40699,6 +41901,8 @@
                         writer.uint32(/* id 4, wireType 0 =*/32).int32(message.contentType);
                     if (message.accessibilityText != null && Object.hasOwnProperty.call(message, "accessibilityText"))
                         writer.uint32(/* id 5, wireType 2 =*/42).string(message.accessibilityText);
+                    if (message.profileName != null && Object.hasOwnProperty.call(message, "profileName"))
+                        writer.uint32(/* id 6, wireType 2 =*/50).string(message.profileName);
                     return writer;
                 };
     
@@ -40753,6 +41957,10 @@
                             }
                         case 5: {
                                 message.accessibilityText = reader.string();
+                                break;
+                            }
+                        case 6: {
+                                message.profileName = reader.string();
                                 break;
                             }
                         default:
@@ -40811,6 +42019,9 @@
                     if (message.accessibilityText != null && message.hasOwnProperty("accessibilityText"))
                         if (!$util.isString(message.accessibilityText))
                             return "accessibilityText: string expected";
+                    if (message.profileName != null && message.hasOwnProperty("profileName"))
+                        if (!$util.isString(message.profileName))
+                            return "profileName: string expected";
                     return null;
                 };
     
@@ -40854,6 +42065,8 @@
                     }
                     if (object.accessibilityText != null)
                         message.accessibilityText = String(object.accessibilityText);
+                    if (object.profileName != null)
+                        message.profileName = String(object.profileName);
                     return message;
                 };
     
@@ -40876,6 +42089,7 @@
                         object.newsletterName = "";
                         object.contentType = options.enums === String ? "UPDATE" : 1;
                         object.accessibilityText = "";
+                        object.profileName = "";
                     }
                     if (message.newsletterJid != null && message.hasOwnProperty("newsletterJid"))
                         object.newsletterJid = message.newsletterJid;
@@ -40887,6 +42101,8 @@
                         object.contentType = options.enums === String ? $root.proto.ContextInfo.ForwardedNewsletterMessageInfo.ContentType[message.contentType] === undefined ? message.contentType : $root.proto.ContextInfo.ForwardedNewsletterMessageInfo.ContentType[message.contentType] : message.contentType;
                     if (message.accessibilityText != null && message.hasOwnProperty("accessibilityText"))
                         object.accessibilityText = message.accessibilityText;
+                    if (message.profileName != null && message.hasOwnProperty("profileName"))
+                        object.profileName = message.profileName;
                     return object;
                 };
     
@@ -42730,6 +43946,7 @@
                     case 0:
                     case 1:
                     case 2:
+                    case 3:
                         break;
                     }
                 if (message.conversationTimestamp != null && message.hasOwnProperty("conversationTimestamp"))
@@ -42965,6 +44182,10 @@
                 case "COMPLETE_ON_DEMAND_SYNC_BUT_MORE_MSG_REMAIN_ON_PRIMARY":
                 case 2:
                     message.endOfHistoryTransferType = 2;
+                    break;
+                case "COMPLETE_ON_DEMAND_SYNC_WITH_MORE_MSG_ON_PRIMARY_BUT_NO_ACCESS":
+                case 3:
+                    message.endOfHistoryTransferType = 3;
                     break;
                 }
                 if (object.conversationTimestamp != null)
@@ -43465,12 +44686,14 @@
              * @property {number} COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY=0 COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY value
              * @property {number} COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY=1 COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY value
              * @property {number} COMPLETE_ON_DEMAND_SYNC_BUT_MORE_MSG_REMAIN_ON_PRIMARY=2 COMPLETE_ON_DEMAND_SYNC_BUT_MORE_MSG_REMAIN_ON_PRIMARY value
+             * @property {number} COMPLETE_ON_DEMAND_SYNC_WITH_MORE_MSG_ON_PRIMARY_BUT_NO_ACCESS=3 COMPLETE_ON_DEMAND_SYNC_WITH_MORE_MSG_ON_PRIMARY_BUT_NO_ACCESS value
              */
             Conversation.EndOfHistoryTransferType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
                 values[valuesById[0] = "COMPLETE_BUT_MORE_MESSAGES_REMAIN_ON_PRIMARY"] = 0;
                 values[valuesById[1] = "COMPLETE_AND_NO_MORE_MESSAGE_REMAIN_ON_PRIMARY"] = 1;
                 values[valuesById[2] = "COMPLETE_ON_DEMAND_SYNC_BUT_MORE_MSG_REMAIN_ON_PRIMARY"] = 2;
+                values[valuesById[3] = "COMPLETE_ON_DEMAND_SYNC_WITH_MORE_MSG_ON_PRIMARY_BUT_NO_ACCESS"] = 3;
                 return values;
             })();
     
@@ -56052,6 +57275,7 @@
              * @property {string|null} [privacyStatementFull] InThreadSurveyMetadata privacyStatementFull
              * @property {Array.<proto.InThreadSurveyMetadata.IInThreadSurveyPrivacyStatementPart>|null} [privacyStatementParts] InThreadSurveyMetadata privacyStatementParts
              * @property {string|null} [feedbackToastText] InThreadSurveyMetadata feedbackToastText
+             * @property {number|null} [startQuestionIndex] InThreadSurveyMetadata startQuestionIndex
              */
     
             /**
@@ -56208,6 +57432,14 @@
             InThreadSurveyMetadata.prototype.feedbackToastText = "";
     
             /**
+             * InThreadSurveyMetadata startQuestionIndex.
+             * @member {number} startQuestionIndex
+             * @memberof proto.InThreadSurveyMetadata
+             * @instance
+             */
+            InThreadSurveyMetadata.prototype.startQuestionIndex = 0;
+    
+            /**
              * Creates a new InThreadSurveyMetadata instance using the specified properties.
              * @function create
              * @memberof proto.InThreadSurveyMetadata
@@ -56267,6 +57499,8 @@
                         $root.proto.InThreadSurveyMetadata.InThreadSurveyPrivacyStatementPart.encode(message.privacyStatementParts[i], writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
                 if (message.feedbackToastText != null && Object.hasOwnProperty.call(message, "feedbackToastText"))
                     writer.uint32(/* id 17, wireType 2 =*/138).string(message.feedbackToastText);
+                if (message.startQuestionIndex != null && Object.hasOwnProperty.call(message, "startQuestionIndex"))
+                    writer.uint32(/* id 18, wireType 0 =*/144).int32(message.startQuestionIndex);
                 return writer;
             };
     
@@ -56375,6 +57609,10 @@
                             message.feedbackToastText = reader.string();
                             break;
                         }
+                    case 18: {
+                            message.startQuestionIndex = reader.int32();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -56473,6 +57711,9 @@
                 if (message.feedbackToastText != null && message.hasOwnProperty("feedbackToastText"))
                     if (!$util.isString(message.feedbackToastText))
                         return "feedbackToastText: string expected";
+                if (message.startQuestionIndex != null && message.hasOwnProperty("startQuestionIndex"))
+                    if (!$util.isInteger(message.startQuestionIndex))
+                        return "startQuestionIndex: integer expected";
                 return null;
             };
     
@@ -56538,6 +57779,8 @@
                 }
                 if (object.feedbackToastText != null)
                     message.feedbackToastText = String(object.feedbackToastText);
+                if (object.startQuestionIndex != null)
+                    message.startQuestionIndex = object.startQuestionIndex | 0;
                 return message;
             };
     
@@ -56574,6 +57817,7 @@
                     object.surveySubmitButtonText = "";
                     object.privacyStatementFull = "";
                     object.feedbackToastText = "";
+                    object.startQuestionIndex = 0;
                 }
                 if (message.tessaSessionId != null && message.hasOwnProperty("tessaSessionId"))
                     object.tessaSessionId = message.tessaSessionId;
@@ -56615,6 +57859,8 @@
                 }
                 if (message.feedbackToastText != null && message.hasOwnProperty("feedbackToastText"))
                     object.feedbackToastText = message.feedbackToastText;
+                if (message.startQuestionIndex != null && message.hasOwnProperty("startQuestionIndex"))
+                    object.startQuestionIndex = message.startQuestionIndex;
                 return object;
             };
     
@@ -62074,6 +63320,7 @@
              * @property {proto.Message.IPollCreationMessage|null} [pollCreationMessageV5] Message pollCreationMessageV5
              * @property {proto.Message.INewsletterFollowerInviteMessage|null} [newsletterFollowerInviteMessageV2] Message newsletterFollowerInviteMessageV2
              * @property {proto.Message.IPollResultSnapshotMessage|null} [pollResultSnapshotMessageV3] Message pollResultSnapshotMessageV3
+             * @property {proto.Message.IFutureProofMessage|null} [newsletterAdminProfileMessage] Message newsletterAdminProfileMessage
              */
     
             /**
@@ -62852,6 +64099,14 @@
             Message.prototype.pollResultSnapshotMessageV3 = null;
     
             /**
+             * Message newsletterAdminProfileMessage.
+             * @member {proto.Message.IFutureProofMessage|null|undefined} newsletterAdminProfileMessage
+             * @memberof proto.Message
+             * @instance
+             */
+            Message.prototype.newsletterAdminProfileMessage = null;
+    
+            /**
              * Creates a new Message instance using the specified properties.
              * @function create
              * @memberof proto.Message
@@ -63064,7 +64319,9 @@
                 if (message.newsletterFollowerInviteMessageV2 != null && Object.hasOwnProperty.call(message, "newsletterFollowerInviteMessageV2"))
                     $root.proto.Message.NewsletterFollowerInviteMessage.encode(message.newsletterFollowerInviteMessageV2, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
                 if (message.pollResultSnapshotMessageV3 != null && Object.hasOwnProperty.call(message, "pollResultSnapshotMessageV3"))
-                    $root.proto.Message.PollResultSnapshotMessage.encode(message.pollResultSnapshotMessageV3, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                    $root.proto.Message.PollResultSnapshotMessage.encode(message.pollResultSnapshotMessageV3, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                if (message.newsletterAdminProfileMessage != null && Object.hasOwnProperty.call(message, "newsletterAdminProfileMessage"))
+                    $root.proto.Message.FutureProofMessage.encode(message.newsletterAdminProfileMessage, writer.uint32(/* id 116, wireType 2 =*/930).fork()).ldelim();
                 return writer;
             };
     
@@ -63477,8 +64734,12 @@
                             message.newsletterFollowerInviteMessageV2 = $root.proto.Message.NewsletterFollowerInviteMessage.decode(reader, reader.uint32());
                             break;
                         }
-                    case 114: {
+                    case 115: {
                             message.pollResultSnapshotMessageV3 = $root.proto.Message.PollResultSnapshotMessage.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 116: {
+                            message.newsletterAdminProfileMessage = $root.proto.Message.FutureProofMessage.decode(reader, reader.uint32());
                             break;
                         }
                     default:
@@ -63989,6 +65250,11 @@
                     if (error)
                         return "pollResultSnapshotMessageV3." + error;
                 }
+                if (message.newsletterAdminProfileMessage != null && message.hasOwnProperty("newsletterAdminProfileMessage")) {
+                    var error = $root.proto.Message.FutureProofMessage.verify(message.newsletterAdminProfileMessage);
+                    if (error)
+                        return "newsletterAdminProfileMessage." + error;
+                }
                 return null;
             };
     
@@ -64476,6 +65742,11 @@
                         throw TypeError(".proto.Message.pollResultSnapshotMessageV3: object expected");
                     message.pollResultSnapshotMessageV3 = $root.proto.Message.PollResultSnapshotMessage.fromObject(object.pollResultSnapshotMessageV3);
                 }
+                if (object.newsletterAdminProfileMessage != null) {
+                    if (typeof object.newsletterAdminProfileMessage !== "object")
+                        throw TypeError(".proto.Message.newsletterAdminProfileMessage: object expected");
+                    message.newsletterAdminProfileMessage = $root.proto.Message.FutureProofMessage.fromObject(object.newsletterAdminProfileMessage);
+                }
                 return message;
             };
     
@@ -64588,6 +65859,7 @@
                     object.pollCreationMessageV5 = null;
                     object.newsletterFollowerInviteMessageV2 = null;
                     object.pollResultSnapshotMessageV3 = null;
+                    object.newsletterAdminProfileMessage = null;
                 }
                 if (message.conversation != null && message.hasOwnProperty("conversation"))
                     object.conversation = message.conversation;
@@ -64779,6 +66051,8 @@
                     object.newsletterFollowerInviteMessageV2 = $root.proto.Message.NewsletterFollowerInviteMessage.toObject(message.newsletterFollowerInviteMessageV2, options);
                 if (message.pollResultSnapshotMessageV3 != null && message.hasOwnProperty("pollResultSnapshotMessageV3"))
                     object.pollResultSnapshotMessageV3 = $root.proto.Message.PollResultSnapshotMessage.toObject(message.pollResultSnapshotMessageV3, options);
+                if (message.newsletterAdminProfileMessage != null && message.hasOwnProperty("newsletterAdminProfileMessage"))
+                    object.newsletterAdminProfileMessage = $root.proto.Message.FutureProofMessage.toObject(message.newsletterAdminProfileMessage, options);
                 return object;
             };
     
@@ -69477,6 +70751,7 @@
                  * @property {proto.IContextInfo|null} [contextInfo] Call contextInfo
                  * @property {string|null} [nativeFlowCallButtonPayload] Call nativeFlowCallButtonPayload
                  * @property {string|null} [deeplinkPayload] Call deeplinkPayload
+                 * @property {proto.IMessageContextInfo|null} [messageContextInfo] Call messageContextInfo
                  */
     
                 /**
@@ -69567,6 +70842,14 @@
                 Call.prototype.deeplinkPayload = "";
     
                 /**
+                 * Call messageContextInfo.
+                 * @member {proto.IMessageContextInfo|null|undefined} messageContextInfo
+                 * @memberof proto.Message.Call
+                 * @instance
+                 */
+                Call.prototype.messageContextInfo = null;
+    
+                /**
                  * Creates a new Call instance using the specified properties.
                  * @function create
                  * @memberof proto.Message.Call
@@ -69608,6 +70891,8 @@
                         writer.uint32(/* id 8, wireType 2 =*/66).string(message.nativeFlowCallButtonPayload);
                     if (message.deeplinkPayload != null && Object.hasOwnProperty.call(message, "deeplinkPayload"))
                         writer.uint32(/* id 9, wireType 2 =*/74).string(message.deeplinkPayload);
+                    if (message.messageContextInfo != null && Object.hasOwnProperty.call(message, "messageContextInfo"))
+                        $root.proto.MessageContextInfo.encode(message.messageContextInfo, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
                     return writer;
                 };
     
@@ -69680,6 +70965,10 @@
                                 message.deeplinkPayload = reader.string();
                                 break;
                             }
+                        case 10: {
+                                message.messageContextInfo = $root.proto.MessageContextInfo.decode(reader, reader.uint32());
+                                break;
+                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -69744,6 +71033,11 @@
                     if (message.deeplinkPayload != null && message.hasOwnProperty("deeplinkPayload"))
                         if (!$util.isString(message.deeplinkPayload))
                             return "deeplinkPayload: string expected";
+                    if (message.messageContextInfo != null && message.hasOwnProperty("messageContextInfo")) {
+                        var error = $root.proto.MessageContextInfo.verify(message.messageContextInfo);
+                        if (error)
+                            return "messageContextInfo." + error;
+                    }
                     return null;
                 };
     
@@ -69789,6 +71083,11 @@
                         message.nativeFlowCallButtonPayload = String(object.nativeFlowCallButtonPayload);
                     if (object.deeplinkPayload != null)
                         message.deeplinkPayload = String(object.deeplinkPayload);
+                    if (object.messageContextInfo != null) {
+                        if (typeof object.messageContextInfo !== "object")
+                            throw TypeError(".proto.Message.Call.messageContextInfo: object expected");
+                        message.messageContextInfo = $root.proto.MessageContextInfo.fromObject(object.messageContextInfo);
+                    }
                     return message;
                 };
     
@@ -69833,6 +71132,7 @@
                         object.contextInfo = null;
                         object.nativeFlowCallButtonPayload = "";
                         object.deeplinkPayload = "";
+                        object.messageContextInfo = null;
                     }
                     if (message.callKey != null && message.hasOwnProperty("callKey"))
                         object.callKey = options.bytes === String ? $util.base64.encode(message.callKey, 0, message.callKey.length) : options.bytes === Array ? Array.prototype.slice.call(message.callKey) : message.callKey;
@@ -69852,6 +71152,8 @@
                         object.nativeFlowCallButtonPayload = message.nativeFlowCallButtonPayload;
                     if (message.deeplinkPayload != null && message.hasOwnProperty("deeplinkPayload"))
                         object.deeplinkPayload = message.deeplinkPayload;
+                    if (message.messageContextInfo != null && message.hasOwnProperty("messageContextInfo"))
+                        object.messageContextInfo = $root.proto.MessageContextInfo.toObject(message.messageContextInfo, options);
                     return object;
                 };
     
@@ -92541,7 +93843,6 @@
                  * @interface IPaymentExtendedMetadata
                  * @property {number|null} [type] PaymentExtendedMetadata type
                  * @property {string|null} [platform] PaymentExtendedMetadata platform
-                 * @property {string|null} [messageParamsJson] PaymentExtendedMetadata messageParamsJson
                  */
     
                 /**
@@ -92576,14 +93877,6 @@
                 PaymentExtendedMetadata.prototype.platform = "";
     
                 /**
-                 * PaymentExtendedMetadata messageParamsJson.
-                 * @member {string} messageParamsJson
-                 * @memberof proto.Message.PaymentExtendedMetadata
-                 * @instance
-                 */
-                PaymentExtendedMetadata.prototype.messageParamsJson = "";
-    
-                /**
                  * Creates a new PaymentExtendedMetadata instance using the specified properties.
                  * @function create
                  * @memberof proto.Message.PaymentExtendedMetadata
@@ -92611,8 +93904,6 @@
                         writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.type);
                     if (message.platform != null && Object.hasOwnProperty.call(message, "platform"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.platform);
-                    if (message.messageParamsJson != null && Object.hasOwnProperty.call(message, "messageParamsJson"))
-                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.messageParamsJson);
                     return writer;
                 };
     
@@ -92657,10 +93948,6 @@
                                 message.platform = reader.string();
                                 break;
                             }
-                        case 3: {
-                                message.messageParamsJson = reader.string();
-                                break;
-                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -92702,9 +93989,6 @@
                     if (message.platform != null && message.hasOwnProperty("platform"))
                         if (!$util.isString(message.platform))
                             return "platform: string expected";
-                    if (message.messageParamsJson != null && message.hasOwnProperty("messageParamsJson"))
-                        if (!$util.isString(message.messageParamsJson))
-                            return "messageParamsJson: string expected";
                     return null;
                 };
     
@@ -92724,8 +94008,6 @@
                         message.type = object.type >>> 0;
                     if (object.platform != null)
                         message.platform = String(object.platform);
-                    if (object.messageParamsJson != null)
-                        message.messageParamsJson = String(object.messageParamsJson);
                     return message;
                 };
     
@@ -92745,14 +94027,11 @@
                     if (options.defaults) {
                         object.type = 0;
                         object.platform = "";
-                        object.messageParamsJson = "";
                     }
                     if (message.type != null && message.hasOwnProperty("type"))
                         object.type = message.type;
                     if (message.platform != null && message.hasOwnProperty("platform"))
                         object.platform = message.platform;
-                    if (message.messageParamsJson != null && message.hasOwnProperty("messageParamsJson"))
-                        object.messageParamsJson = message.messageParamsJson;
                     return object;
                 };
     
@@ -120142,8 +121421,10 @@
          * @property {number} NEWSLETTER_SAVED_INTERESTS_ACTION=75 NEWSLETTER_SAVED_INTERESTS_ACTION value
          * @property {number} AI_THREAD_RENAME_ACTION=76 AI_THREAD_RENAME_ACTION value
          * @property {number} INTERACTIVE_MESSAGE_ACTION=77 INTERACTIVE_MESSAGE_ACTION value
+         * @property {number} SETTINGS_SYNC_ACTION=78 SETTINGS_SYNC_ACTION value
          * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
          * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
+         * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
          */
         proto.MutationProps = (function() {
             var valuesById = {}, values = Object.create(valuesById);
@@ -120218,8 +121499,10 @@
             values[valuesById[75] = "NEWSLETTER_SAVED_INTERESTS_ACTION"] = 75;
             values[valuesById[76] = "AI_THREAD_RENAME_ACTION"] = 76;
             values[valuesById[77] = "INTERACTIVE_MESSAGE_ACTION"] = 77;
+            values[valuesById[78] = "SETTINGS_SYNC_ACTION"] = 78;
             values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
             values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
+            values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
             return values;
         })();
     
@@ -138911,7 +140194,6 @@
              * @property {proto.SyncActionValue.ICtwaPerCustomerDataSharingAction|null} [ctwaPerCustomerDataSharingAction] SyncActionValue ctwaPerCustomerDataSharingAction
              * @property {proto.SyncActionValue.IPaymentTosAction|null} [paymentTosAction] SyncActionValue paymentTosAction
              * @property {proto.SyncActionValue.IPrivacySettingChannelsPersonalisedRecommendationAction|null} [privacySettingChannelsPersonalisedRecommendationAction] SyncActionValue privacySettingChannelsPersonalisedRecommendationAction
-             * @property {proto.SyncActionValue.IBusinessBroadcastAssociationAction|null} [businessBroadcastAssociationAction] SyncActionValue businessBroadcastAssociationAction
              * @property {proto.SyncActionValue.IDetectedOutcomesStatusAction|null} [detectedOutcomesStatusAction] SyncActionValue detectedOutcomesStatusAction
              * @property {proto.SyncActionValue.IMaibaAIFeaturesControlAction|null} [maibaAiFeaturesControlAction] SyncActionValue maibaAiFeaturesControlAction
              * @property {proto.SyncActionValue.IBusinessBroadcastListAction|null} [businessBroadcastListAction] SyncActionValue businessBroadcastListAction
@@ -138922,6 +140204,7 @@
              * @property {proto.SyncActionValue.INewsletterSavedInterestsAction|null} [newsletterSavedInterestsAction] SyncActionValue newsletterSavedInterestsAction
              * @property {proto.SyncActionValue.IAiThreadRenameAction|null} [aiThreadRenameAction] SyncActionValue aiThreadRenameAction
              * @property {proto.SyncActionValue.IInteractiveMessageAction|null} [interactiveMessageAction] SyncActionValue interactiveMessageAction
+             * @property {proto.SyncActionValue.ISettingsSyncAction|null} [settingsSyncAction] SyncActionValue settingsSyncAction
              */
     
             /**
@@ -139404,14 +140687,6 @@
             SyncActionValue.prototype.privacySettingChannelsPersonalisedRecommendationAction = null;
     
             /**
-             * SyncActionValue businessBroadcastAssociationAction.
-             * @member {proto.SyncActionValue.IBusinessBroadcastAssociationAction|null|undefined} businessBroadcastAssociationAction
-             * @memberof proto.SyncActionValue
-             * @instance
-             */
-            SyncActionValue.prototype.businessBroadcastAssociationAction = null;
-    
-            /**
              * SyncActionValue detectedOutcomesStatusAction.
              * @member {proto.SyncActionValue.IDetectedOutcomesStatusAction|null|undefined} detectedOutcomesStatusAction
              * @memberof proto.SyncActionValue
@@ -139490,6 +140765,14 @@
              * @instance
              */
             SyncActionValue.prototype.interactiveMessageAction = null;
+    
+            /**
+             * SyncActionValue settingsSyncAction.
+             * @member {proto.SyncActionValue.ISettingsSyncAction|null|undefined} settingsSyncAction
+             * @memberof proto.SyncActionValue
+             * @instance
+             */
+            SyncActionValue.prototype.settingsSyncAction = null;
     
             /**
              * Creates a new SyncActionValue instance using the specified properties.
@@ -139631,8 +140914,6 @@
                     $root.proto.SyncActionValue.PaymentTosAction.encode(message.paymentTosAction, writer.uint32(/* id 63, wireType 2 =*/506).fork()).ldelim();
                 if (message.privacySettingChannelsPersonalisedRecommendationAction != null && Object.hasOwnProperty.call(message, "privacySettingChannelsPersonalisedRecommendationAction"))
                     $root.proto.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.encode(message.privacySettingChannelsPersonalisedRecommendationAction, writer.uint32(/* id 64, wireType 2 =*/514).fork()).ldelim();
-                if (message.businessBroadcastAssociationAction != null && Object.hasOwnProperty.call(message, "businessBroadcastAssociationAction"))
-                    $root.proto.SyncActionValue.BusinessBroadcastAssociationAction.encode(message.businessBroadcastAssociationAction, writer.uint32(/* id 65, wireType 2 =*/522).fork()).ldelim();
                 if (message.detectedOutcomesStatusAction != null && Object.hasOwnProperty.call(message, "detectedOutcomesStatusAction"))
                     $root.proto.SyncActionValue.DetectedOutcomesStatusAction.encode(message.detectedOutcomesStatusAction, writer.uint32(/* id 66, wireType 2 =*/530).fork()).ldelim();
                 if (message.maibaAiFeaturesControlAction != null && Object.hasOwnProperty.call(message, "maibaAiFeaturesControlAction"))
@@ -139653,6 +140934,8 @@
                     $root.proto.SyncActionValue.AiThreadRenameAction.encode(message.aiThreadRenameAction, writer.uint32(/* id 76, wireType 2 =*/610).fork()).ldelim();
                 if (message.interactiveMessageAction != null && Object.hasOwnProperty.call(message, "interactiveMessageAction"))
                     $root.proto.SyncActionValue.InteractiveMessageAction.encode(message.interactiveMessageAction, writer.uint32(/* id 77, wireType 2 =*/618).fork()).ldelim();
+                if (message.settingsSyncAction != null && Object.hasOwnProperty.call(message, "settingsSyncAction"))
+                    $root.proto.SyncActionValue.SettingsSyncAction.encode(message.settingsSyncAction, writer.uint32(/* id 78, wireType 2 =*/626).fork()).ldelim();
                 return writer;
             };
     
@@ -139921,10 +141204,6 @@
                             message.privacySettingChannelsPersonalisedRecommendationAction = $root.proto.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.decode(reader, reader.uint32());
                             break;
                         }
-                    case 65: {
-                            message.businessBroadcastAssociationAction = $root.proto.SyncActionValue.BusinessBroadcastAssociationAction.decode(reader, reader.uint32());
-                            break;
-                        }
                     case 66: {
                             message.detectedOutcomesStatusAction = $root.proto.SyncActionValue.DetectedOutcomesStatusAction.decode(reader, reader.uint32());
                             break;
@@ -139963,6 +141242,10 @@
                         }
                     case 77: {
                             message.interactiveMessageAction = $root.proto.SyncActionValue.InteractiveMessageAction.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 78: {
+                            message.settingsSyncAction = $root.proto.SyncActionValue.SettingsSyncAction.decode(reader, reader.uint32());
                             break;
                         }
                     default:
@@ -140288,11 +141571,6 @@
                     if (error)
                         return "privacySettingChannelsPersonalisedRecommendationAction." + error;
                 }
-                if (message.businessBroadcastAssociationAction != null && message.hasOwnProperty("businessBroadcastAssociationAction")) {
-                    var error = $root.proto.SyncActionValue.BusinessBroadcastAssociationAction.verify(message.businessBroadcastAssociationAction);
-                    if (error)
-                        return "businessBroadcastAssociationAction." + error;
-                }
                 if (message.detectedOutcomesStatusAction != null && message.hasOwnProperty("detectedOutcomesStatusAction")) {
                     var error = $root.proto.SyncActionValue.DetectedOutcomesStatusAction.verify(message.detectedOutcomesStatusAction);
                     if (error)
@@ -140342,6 +141620,11 @@
                     var error = $root.proto.SyncActionValue.InteractiveMessageAction.verify(message.interactiveMessageAction);
                     if (error)
                         return "interactiveMessageAction." + error;
+                }
+                if (message.settingsSyncAction != null && message.hasOwnProperty("settingsSyncAction")) {
+                    var error = $root.proto.SyncActionValue.SettingsSyncAction.verify(message.settingsSyncAction);
+                    if (error)
+                        return "settingsSyncAction." + error;
                 }
                 return null;
             };
@@ -140652,11 +141935,6 @@
                         throw TypeError(".proto.SyncActionValue.privacySettingChannelsPersonalisedRecommendationAction: object expected");
                     message.privacySettingChannelsPersonalisedRecommendationAction = $root.proto.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.fromObject(object.privacySettingChannelsPersonalisedRecommendationAction);
                 }
-                if (object.businessBroadcastAssociationAction != null) {
-                    if (typeof object.businessBroadcastAssociationAction !== "object")
-                        throw TypeError(".proto.SyncActionValue.businessBroadcastAssociationAction: object expected");
-                    message.businessBroadcastAssociationAction = $root.proto.SyncActionValue.BusinessBroadcastAssociationAction.fromObject(object.businessBroadcastAssociationAction);
-                }
                 if (object.detectedOutcomesStatusAction != null) {
                     if (typeof object.detectedOutcomesStatusAction !== "object")
                         throw TypeError(".proto.SyncActionValue.detectedOutcomesStatusAction: object expected");
@@ -140706,6 +141984,11 @@
                     if (typeof object.interactiveMessageAction !== "object")
                         throw TypeError(".proto.SyncActionValue.interactiveMessageAction: object expected");
                     message.interactiveMessageAction = $root.proto.SyncActionValue.InteractiveMessageAction.fromObject(object.interactiveMessageAction);
+                }
+                if (object.settingsSyncAction != null) {
+                    if (typeof object.settingsSyncAction !== "object")
+                        throw TypeError(".proto.SyncActionValue.settingsSyncAction: object expected");
+                    message.settingsSyncAction = $root.proto.SyncActionValue.SettingsSyncAction.fromObject(object.settingsSyncAction);
                 }
                 return message;
             };
@@ -140786,7 +142069,6 @@
                     object.ctwaPerCustomerDataSharingAction = null;
                     object.paymentTosAction = null;
                     object.privacySettingChannelsPersonalisedRecommendationAction = null;
-                    object.businessBroadcastAssociationAction = null;
                     object.detectedOutcomesStatusAction = null;
                     object.maibaAiFeaturesControlAction = null;
                     object.businessBroadcastListAction = null;
@@ -140797,6 +142079,7 @@
                     object.newsletterSavedInterestsAction = null;
                     object.aiThreadRenameAction = null;
                     object.interactiveMessageAction = null;
+                    object.settingsSyncAction = null;
                 }
                 if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                     if (typeof message.timestamp === "number")
@@ -140917,8 +142200,6 @@
                     object.paymentTosAction = $root.proto.SyncActionValue.PaymentTosAction.toObject(message.paymentTosAction, options);
                 if (message.privacySettingChannelsPersonalisedRecommendationAction != null && message.hasOwnProperty("privacySettingChannelsPersonalisedRecommendationAction"))
                     object.privacySettingChannelsPersonalisedRecommendationAction = $root.proto.SyncActionValue.PrivacySettingChannelsPersonalisedRecommendationAction.toObject(message.privacySettingChannelsPersonalisedRecommendationAction, options);
-                if (message.businessBroadcastAssociationAction != null && message.hasOwnProperty("businessBroadcastAssociationAction"))
-                    object.businessBroadcastAssociationAction = $root.proto.SyncActionValue.BusinessBroadcastAssociationAction.toObject(message.businessBroadcastAssociationAction, options);
                 if (message.detectedOutcomesStatusAction != null && message.hasOwnProperty("detectedOutcomesStatusAction"))
                     object.detectedOutcomesStatusAction = $root.proto.SyncActionValue.DetectedOutcomesStatusAction.toObject(message.detectedOutcomesStatusAction, options);
                 if (message.maibaAiFeaturesControlAction != null && message.hasOwnProperty("maibaAiFeaturesControlAction"))
@@ -140939,6 +142220,8 @@
                     object.aiThreadRenameAction = $root.proto.SyncActionValue.AiThreadRenameAction.toObject(message.aiThreadRenameAction, options);
                 if (message.interactiveMessageAction != null && message.hasOwnProperty("interactiveMessageAction"))
                     object.interactiveMessageAction = $root.proto.SyncActionValue.InteractiveMessageAction.toObject(message.interactiveMessageAction, options);
+                if (message.settingsSyncAction != null && message.hasOwnProperty("settingsSyncAction"))
+                    object.settingsSyncAction = $root.proto.SyncActionValue.SettingsSyncAction.toObject(message.settingsSyncAction, options);
                 return object;
             };
     
@@ -141227,7 +142510,6 @@
                  * @memberof proto.SyncActionValue
                  * @interface IAiThreadRenameAction
                  * @property {string|null} [newTitle] AiThreadRenameAction newTitle
-                 * @property {boolean|null} [isFromServer] AiThreadRenameAction isFromServer
                  */
     
                 /**
@@ -141252,14 +142534,6 @@
                  * @instance
                  */
                 AiThreadRenameAction.prototype.newTitle = "";
-    
-                /**
-                 * AiThreadRenameAction isFromServer.
-                 * @member {boolean} isFromServer
-                 * @memberof proto.SyncActionValue.AiThreadRenameAction
-                 * @instance
-                 */
-                AiThreadRenameAction.prototype.isFromServer = false;
     
                 /**
                  * Creates a new AiThreadRenameAction instance using the specified properties.
@@ -141287,8 +142561,6 @@
                         writer = $Writer.create();
                     if (message.newTitle != null && Object.hasOwnProperty.call(message, "newTitle"))
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.newTitle);
-                    if (message.isFromServer != null && Object.hasOwnProperty.call(message, "isFromServer"))
-                        writer.uint32(/* id 2, wireType 0 =*/16).bool(message.isFromServer);
                     return writer;
                 };
     
@@ -141329,10 +142601,6 @@
                                 message.newTitle = reader.string();
                                 break;
                             }
-                        case 2: {
-                                message.isFromServer = reader.bool();
-                                break;
-                            }
                         default:
                             reader.skipType(tag & 7);
                             break;
@@ -141371,9 +142639,6 @@
                     if (message.newTitle != null && message.hasOwnProperty("newTitle"))
                         if (!$util.isString(message.newTitle))
                             return "newTitle: string expected";
-                    if (message.isFromServer != null && message.hasOwnProperty("isFromServer"))
-                        if (typeof message.isFromServer !== "boolean")
-                            return "isFromServer: boolean expected";
                     return null;
                 };
     
@@ -141391,8 +142656,6 @@
                     var message = new $root.proto.SyncActionValue.AiThreadRenameAction();
                     if (object.newTitle != null)
                         message.newTitle = String(object.newTitle);
-                    if (object.isFromServer != null)
-                        message.isFromServer = Boolean(object.isFromServer);
                     return message;
                 };
     
@@ -141409,14 +142672,10 @@
                     if (!options)
                         options = {};
                     var object = {};
-                    if (options.defaults) {
+                    if (options.defaults)
                         object.newTitle = "";
-                        object.isFromServer = false;
-                    }
                     if (message.newTitle != null && message.hasOwnProperty("newTitle"))
                         object.newTitle = message.newTitle;
-                    if (message.isFromServer != null && message.hasOwnProperty("isFromServer"))
-                        object.isFromServer = message.isFromServer;
                     return object;
                 };
     
@@ -154795,6 +156054,872 @@
                 return RemoveRecentStickerAction;
             })();
     
+            SyncActionValue.SettingsSyncAction = (function() {
+    
+                /**
+                 * Properties of a SettingsSyncAction.
+                 * @memberof proto.SyncActionValue
+                 * @interface ISettingsSyncAction
+                 * @property {boolean|null} [startAtLogin] SettingsSyncAction startAtLogin
+                 * @property {boolean|null} [minimizeToTray] SettingsSyncAction minimizeToTray
+                 * @property {string|null} [language] SettingsSyncAction language
+                 * @property {boolean|null} [replaceTextWithEmoji] SettingsSyncAction replaceTextWithEmoji
+                 * @property {proto.SyncActionValue.SettingsSyncAction.DisplayMode|null} [bannerNotificationDisplayMode] SettingsSyncAction bannerNotificationDisplayMode
+                 * @property {proto.SyncActionValue.SettingsSyncAction.DisplayMode|null} [unreadCounterBadgeDisplayMode] SettingsSyncAction unreadCounterBadgeDisplayMode
+                 * @property {boolean|null} [isMessagesNotificationEnabled] SettingsSyncAction isMessagesNotificationEnabled
+                 * @property {boolean|null} [isCallsNotificationEnabled] SettingsSyncAction isCallsNotificationEnabled
+                 * @property {boolean|null} [isReactionsNotificationEnabled] SettingsSyncAction isReactionsNotificationEnabled
+                 * @property {boolean|null} [isStatusReactionsNotificationEnabled] SettingsSyncAction isStatusReactionsNotificationEnabled
+                 * @property {boolean|null} [isTextPreviewForNotificationEnabled] SettingsSyncAction isTextPreviewForNotificationEnabled
+                 * @property {number|null} [defaultNotificationToneId] SettingsSyncAction defaultNotificationToneId
+                 * @property {number|null} [groupDefaultNotificationToneId] SettingsSyncAction groupDefaultNotificationToneId
+                 * @property {number|null} [appTheme] SettingsSyncAction appTheme
+                 * @property {number|null} [wallpaperId] SettingsSyncAction wallpaperId
+                 * @property {boolean|null} [isDoodleWallpaperEnabled] SettingsSyncAction isDoodleWallpaperEnabled
+                 * @property {number|null} [fontSize] SettingsSyncAction fontSize
+                 * @property {boolean|null} [isPhotosAutodownloadEnabled] SettingsSyncAction isPhotosAutodownloadEnabled
+                 * @property {boolean|null} [isAudiosAutodownloadEnabled] SettingsSyncAction isAudiosAutodownloadEnabled
+                 * @property {boolean|null} [isVideosAutodownloadEnabled] SettingsSyncAction isVideosAutodownloadEnabled
+                 * @property {boolean|null} [isDocumentsAutodownloadEnabled] SettingsSyncAction isDocumentsAutodownloadEnabled
+                 * @property {boolean|null} [disableLinkPreviews] SettingsSyncAction disableLinkPreviews
+                 * @property {number|null} [notificationToneId] SettingsSyncAction notificationToneId
+                 */
+    
+                /**
+                 * Constructs a new SettingsSyncAction.
+                 * @memberof proto.SyncActionValue
+                 * @classdesc Represents a SettingsSyncAction.
+                 * @implements ISettingsSyncAction
+                 * @constructor
+                 * @param {proto.SyncActionValue.ISettingsSyncAction=} [properties] Properties to set
+                 */
+                function SettingsSyncAction(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * SettingsSyncAction startAtLogin.
+                 * @member {boolean} startAtLogin
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.startAtLogin = false;
+    
+                /**
+                 * SettingsSyncAction minimizeToTray.
+                 * @member {boolean} minimizeToTray
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.minimizeToTray = false;
+    
+                /**
+                 * SettingsSyncAction language.
+                 * @member {string} language
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.language = "";
+    
+                /**
+                 * SettingsSyncAction replaceTextWithEmoji.
+                 * @member {boolean} replaceTextWithEmoji
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.replaceTextWithEmoji = false;
+    
+                /**
+                 * SettingsSyncAction bannerNotificationDisplayMode.
+                 * @member {proto.SyncActionValue.SettingsSyncAction.DisplayMode} bannerNotificationDisplayMode
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.bannerNotificationDisplayMode = 0;
+    
+                /**
+                 * SettingsSyncAction unreadCounterBadgeDisplayMode.
+                 * @member {proto.SyncActionValue.SettingsSyncAction.DisplayMode} unreadCounterBadgeDisplayMode
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.unreadCounterBadgeDisplayMode = 0;
+    
+                /**
+                 * SettingsSyncAction isMessagesNotificationEnabled.
+                 * @member {boolean} isMessagesNotificationEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isMessagesNotificationEnabled = false;
+    
+                /**
+                 * SettingsSyncAction isCallsNotificationEnabled.
+                 * @member {boolean} isCallsNotificationEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isCallsNotificationEnabled = false;
+    
+                /**
+                 * SettingsSyncAction isReactionsNotificationEnabled.
+                 * @member {boolean} isReactionsNotificationEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isReactionsNotificationEnabled = false;
+    
+                /**
+                 * SettingsSyncAction isStatusReactionsNotificationEnabled.
+                 * @member {boolean} isStatusReactionsNotificationEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isStatusReactionsNotificationEnabled = false;
+    
+                /**
+                 * SettingsSyncAction isTextPreviewForNotificationEnabled.
+                 * @member {boolean} isTextPreviewForNotificationEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isTextPreviewForNotificationEnabled = false;
+    
+                /**
+                 * SettingsSyncAction defaultNotificationToneId.
+                 * @member {number} defaultNotificationToneId
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.defaultNotificationToneId = 0;
+    
+                /**
+                 * SettingsSyncAction groupDefaultNotificationToneId.
+                 * @member {number} groupDefaultNotificationToneId
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.groupDefaultNotificationToneId = 0;
+    
+                /**
+                 * SettingsSyncAction appTheme.
+                 * @member {number} appTheme
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.appTheme = 0;
+    
+                /**
+                 * SettingsSyncAction wallpaperId.
+                 * @member {number} wallpaperId
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.wallpaperId = 0;
+    
+                /**
+                 * SettingsSyncAction isDoodleWallpaperEnabled.
+                 * @member {boolean} isDoodleWallpaperEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isDoodleWallpaperEnabled = false;
+    
+                /**
+                 * SettingsSyncAction fontSize.
+                 * @member {number} fontSize
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.fontSize = 0;
+    
+                /**
+                 * SettingsSyncAction isPhotosAutodownloadEnabled.
+                 * @member {boolean} isPhotosAutodownloadEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isPhotosAutodownloadEnabled = false;
+    
+                /**
+                 * SettingsSyncAction isAudiosAutodownloadEnabled.
+                 * @member {boolean} isAudiosAutodownloadEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isAudiosAutodownloadEnabled = false;
+    
+                /**
+                 * SettingsSyncAction isVideosAutodownloadEnabled.
+                 * @member {boolean} isVideosAutodownloadEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isVideosAutodownloadEnabled = false;
+    
+                /**
+                 * SettingsSyncAction isDocumentsAutodownloadEnabled.
+                 * @member {boolean} isDocumentsAutodownloadEnabled
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.isDocumentsAutodownloadEnabled = false;
+    
+                /**
+                 * SettingsSyncAction disableLinkPreviews.
+                 * @member {boolean} disableLinkPreviews
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.disableLinkPreviews = false;
+    
+                /**
+                 * SettingsSyncAction notificationToneId.
+                 * @member {number} notificationToneId
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 */
+                SettingsSyncAction.prototype.notificationToneId = 0;
+    
+                /**
+                 * Creates a new SettingsSyncAction instance using the specified properties.
+                 * @function create
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {proto.SyncActionValue.ISettingsSyncAction=} [properties] Properties to set
+                 * @returns {proto.SyncActionValue.SettingsSyncAction} SettingsSyncAction instance
+                 */
+                SettingsSyncAction.create = function create(properties) {
+                    return new SettingsSyncAction(properties);
+                };
+    
+                /**
+                 * Encodes the specified SettingsSyncAction message. Does not implicitly {@link proto.SyncActionValue.SettingsSyncAction.verify|verify} messages.
+                 * @function encode
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {proto.SyncActionValue.ISettingsSyncAction} message SettingsSyncAction message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SettingsSyncAction.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.startAtLogin != null && Object.hasOwnProperty.call(message, "startAtLogin"))
+                        writer.uint32(/* id 1, wireType 0 =*/8).bool(message.startAtLogin);
+                    if (message.minimizeToTray != null && Object.hasOwnProperty.call(message, "minimizeToTray"))
+                        writer.uint32(/* id 2, wireType 0 =*/16).bool(message.minimizeToTray);
+                    if (message.language != null && Object.hasOwnProperty.call(message, "language"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.language);
+                    if (message.replaceTextWithEmoji != null && Object.hasOwnProperty.call(message, "replaceTextWithEmoji"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).bool(message.replaceTextWithEmoji);
+                    if (message.bannerNotificationDisplayMode != null && Object.hasOwnProperty.call(message, "bannerNotificationDisplayMode"))
+                        writer.uint32(/* id 5, wireType 0 =*/40).int32(message.bannerNotificationDisplayMode);
+                    if (message.unreadCounterBadgeDisplayMode != null && Object.hasOwnProperty.call(message, "unreadCounterBadgeDisplayMode"))
+                        writer.uint32(/* id 6, wireType 0 =*/48).int32(message.unreadCounterBadgeDisplayMode);
+                    if (message.isMessagesNotificationEnabled != null && Object.hasOwnProperty.call(message, "isMessagesNotificationEnabled"))
+                        writer.uint32(/* id 7, wireType 0 =*/56).bool(message.isMessagesNotificationEnabled);
+                    if (message.isCallsNotificationEnabled != null && Object.hasOwnProperty.call(message, "isCallsNotificationEnabled"))
+                        writer.uint32(/* id 8, wireType 0 =*/64).bool(message.isCallsNotificationEnabled);
+                    if (message.isReactionsNotificationEnabled != null && Object.hasOwnProperty.call(message, "isReactionsNotificationEnabled"))
+                        writer.uint32(/* id 9, wireType 0 =*/72).bool(message.isReactionsNotificationEnabled);
+                    if (message.isStatusReactionsNotificationEnabled != null && Object.hasOwnProperty.call(message, "isStatusReactionsNotificationEnabled"))
+                        writer.uint32(/* id 10, wireType 0 =*/80).bool(message.isStatusReactionsNotificationEnabled);
+                    if (message.isTextPreviewForNotificationEnabled != null && Object.hasOwnProperty.call(message, "isTextPreviewForNotificationEnabled"))
+                        writer.uint32(/* id 11, wireType 0 =*/88).bool(message.isTextPreviewForNotificationEnabled);
+                    if (message.defaultNotificationToneId != null && Object.hasOwnProperty.call(message, "defaultNotificationToneId"))
+                        writer.uint32(/* id 12, wireType 0 =*/96).int32(message.defaultNotificationToneId);
+                    if (message.groupDefaultNotificationToneId != null && Object.hasOwnProperty.call(message, "groupDefaultNotificationToneId"))
+                        writer.uint32(/* id 13, wireType 0 =*/104).int32(message.groupDefaultNotificationToneId);
+                    if (message.appTheme != null && Object.hasOwnProperty.call(message, "appTheme"))
+                        writer.uint32(/* id 14, wireType 0 =*/112).int32(message.appTheme);
+                    if (message.wallpaperId != null && Object.hasOwnProperty.call(message, "wallpaperId"))
+                        writer.uint32(/* id 15, wireType 0 =*/120).int32(message.wallpaperId);
+                    if (message.isDoodleWallpaperEnabled != null && Object.hasOwnProperty.call(message, "isDoodleWallpaperEnabled"))
+                        writer.uint32(/* id 16, wireType 0 =*/128).bool(message.isDoodleWallpaperEnabled);
+                    if (message.fontSize != null && Object.hasOwnProperty.call(message, "fontSize"))
+                        writer.uint32(/* id 17, wireType 0 =*/136).int32(message.fontSize);
+                    if (message.isPhotosAutodownloadEnabled != null && Object.hasOwnProperty.call(message, "isPhotosAutodownloadEnabled"))
+                        writer.uint32(/* id 18, wireType 0 =*/144).bool(message.isPhotosAutodownloadEnabled);
+                    if (message.isAudiosAutodownloadEnabled != null && Object.hasOwnProperty.call(message, "isAudiosAutodownloadEnabled"))
+                        writer.uint32(/* id 19, wireType 0 =*/152).bool(message.isAudiosAutodownloadEnabled);
+                    if (message.isVideosAutodownloadEnabled != null && Object.hasOwnProperty.call(message, "isVideosAutodownloadEnabled"))
+                        writer.uint32(/* id 20, wireType 0 =*/160).bool(message.isVideosAutodownloadEnabled);
+                    if (message.isDocumentsAutodownloadEnabled != null && Object.hasOwnProperty.call(message, "isDocumentsAutodownloadEnabled"))
+                        writer.uint32(/* id 21, wireType 0 =*/168).bool(message.isDocumentsAutodownloadEnabled);
+                    if (message.disableLinkPreviews != null && Object.hasOwnProperty.call(message, "disableLinkPreviews"))
+                        writer.uint32(/* id 22, wireType 0 =*/176).bool(message.disableLinkPreviews);
+                    if (message.notificationToneId != null && Object.hasOwnProperty.call(message, "notificationToneId"))
+                        writer.uint32(/* id 23, wireType 0 =*/184).int32(message.notificationToneId);
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified SettingsSyncAction message, length delimited. Does not implicitly {@link proto.SyncActionValue.SettingsSyncAction.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {proto.SyncActionValue.ISettingsSyncAction} message SettingsSyncAction message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                SettingsSyncAction.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes a SettingsSyncAction message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {proto.SyncActionValue.SettingsSyncAction} SettingsSyncAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SettingsSyncAction.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.SyncActionValue.SettingsSyncAction();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.startAtLogin = reader.bool();
+                                break;
+                            }
+                        case 2: {
+                                message.minimizeToTray = reader.bool();
+                                break;
+                            }
+                        case 3: {
+                                message.language = reader.string();
+                                break;
+                            }
+                        case 4: {
+                                message.replaceTextWithEmoji = reader.bool();
+                                break;
+                            }
+                        case 5: {
+                                message.bannerNotificationDisplayMode = reader.int32();
+                                break;
+                            }
+                        case 6: {
+                                message.unreadCounterBadgeDisplayMode = reader.int32();
+                                break;
+                            }
+                        case 7: {
+                                message.isMessagesNotificationEnabled = reader.bool();
+                                break;
+                            }
+                        case 8: {
+                                message.isCallsNotificationEnabled = reader.bool();
+                                break;
+                            }
+                        case 9: {
+                                message.isReactionsNotificationEnabled = reader.bool();
+                                break;
+                            }
+                        case 10: {
+                                message.isStatusReactionsNotificationEnabled = reader.bool();
+                                break;
+                            }
+                        case 11: {
+                                message.isTextPreviewForNotificationEnabled = reader.bool();
+                                break;
+                            }
+                        case 12: {
+                                message.defaultNotificationToneId = reader.int32();
+                                break;
+                            }
+                        case 13: {
+                                message.groupDefaultNotificationToneId = reader.int32();
+                                break;
+                            }
+                        case 14: {
+                                message.appTheme = reader.int32();
+                                break;
+                            }
+                        case 15: {
+                                message.wallpaperId = reader.int32();
+                                break;
+                            }
+                        case 16: {
+                                message.isDoodleWallpaperEnabled = reader.bool();
+                                break;
+                            }
+                        case 17: {
+                                message.fontSize = reader.int32();
+                                break;
+                            }
+                        case 18: {
+                                message.isPhotosAutodownloadEnabled = reader.bool();
+                                break;
+                            }
+                        case 19: {
+                                message.isAudiosAutodownloadEnabled = reader.bool();
+                                break;
+                            }
+                        case 20: {
+                                message.isVideosAutodownloadEnabled = reader.bool();
+                                break;
+                            }
+                        case 21: {
+                                message.isDocumentsAutodownloadEnabled = reader.bool();
+                                break;
+                            }
+                        case 22: {
+                                message.disableLinkPreviews = reader.bool();
+                                break;
+                            }
+                        case 23: {
+                                message.notificationToneId = reader.int32();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes a SettingsSyncAction message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {proto.SyncActionValue.SettingsSyncAction} SettingsSyncAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                SettingsSyncAction.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies a SettingsSyncAction message.
+                 * @function verify
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                SettingsSyncAction.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.startAtLogin != null && message.hasOwnProperty("startAtLogin"))
+                        if (typeof message.startAtLogin !== "boolean")
+                            return "startAtLogin: boolean expected";
+                    if (message.minimizeToTray != null && message.hasOwnProperty("minimizeToTray"))
+                        if (typeof message.minimizeToTray !== "boolean")
+                            return "minimizeToTray: boolean expected";
+                    if (message.language != null && message.hasOwnProperty("language"))
+                        if (!$util.isString(message.language))
+                            return "language: string expected";
+                    if (message.replaceTextWithEmoji != null && message.hasOwnProperty("replaceTextWithEmoji"))
+                        if (typeof message.replaceTextWithEmoji !== "boolean")
+                            return "replaceTextWithEmoji: boolean expected";
+                    if (message.bannerNotificationDisplayMode != null && message.hasOwnProperty("bannerNotificationDisplayMode"))
+                        switch (message.bannerNotificationDisplayMode) {
+                        default:
+                            return "bannerNotificationDisplayMode: enum value expected";
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                            break;
+                        }
+                    if (message.unreadCounterBadgeDisplayMode != null && message.hasOwnProperty("unreadCounterBadgeDisplayMode"))
+                        switch (message.unreadCounterBadgeDisplayMode) {
+                        default:
+                            return "unreadCounterBadgeDisplayMode: enum value expected";
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                            break;
+                        }
+                    if (message.isMessagesNotificationEnabled != null && message.hasOwnProperty("isMessagesNotificationEnabled"))
+                        if (typeof message.isMessagesNotificationEnabled !== "boolean")
+                            return "isMessagesNotificationEnabled: boolean expected";
+                    if (message.isCallsNotificationEnabled != null && message.hasOwnProperty("isCallsNotificationEnabled"))
+                        if (typeof message.isCallsNotificationEnabled !== "boolean")
+                            return "isCallsNotificationEnabled: boolean expected";
+                    if (message.isReactionsNotificationEnabled != null && message.hasOwnProperty("isReactionsNotificationEnabled"))
+                        if (typeof message.isReactionsNotificationEnabled !== "boolean")
+                            return "isReactionsNotificationEnabled: boolean expected";
+                    if (message.isStatusReactionsNotificationEnabled != null && message.hasOwnProperty("isStatusReactionsNotificationEnabled"))
+                        if (typeof message.isStatusReactionsNotificationEnabled !== "boolean")
+                            return "isStatusReactionsNotificationEnabled: boolean expected";
+                    if (message.isTextPreviewForNotificationEnabled != null && message.hasOwnProperty("isTextPreviewForNotificationEnabled"))
+                        if (typeof message.isTextPreviewForNotificationEnabled !== "boolean")
+                            return "isTextPreviewForNotificationEnabled: boolean expected";
+                    if (message.defaultNotificationToneId != null && message.hasOwnProperty("defaultNotificationToneId"))
+                        if (!$util.isInteger(message.defaultNotificationToneId))
+                            return "defaultNotificationToneId: integer expected";
+                    if (message.groupDefaultNotificationToneId != null && message.hasOwnProperty("groupDefaultNotificationToneId"))
+                        if (!$util.isInteger(message.groupDefaultNotificationToneId))
+                            return "groupDefaultNotificationToneId: integer expected";
+                    if (message.appTheme != null && message.hasOwnProperty("appTheme"))
+                        if (!$util.isInteger(message.appTheme))
+                            return "appTheme: integer expected";
+                    if (message.wallpaperId != null && message.hasOwnProperty("wallpaperId"))
+                        if (!$util.isInteger(message.wallpaperId))
+                            return "wallpaperId: integer expected";
+                    if (message.isDoodleWallpaperEnabled != null && message.hasOwnProperty("isDoodleWallpaperEnabled"))
+                        if (typeof message.isDoodleWallpaperEnabled !== "boolean")
+                            return "isDoodleWallpaperEnabled: boolean expected";
+                    if (message.fontSize != null && message.hasOwnProperty("fontSize"))
+                        if (!$util.isInteger(message.fontSize))
+                            return "fontSize: integer expected";
+                    if (message.isPhotosAutodownloadEnabled != null && message.hasOwnProperty("isPhotosAutodownloadEnabled"))
+                        if (typeof message.isPhotosAutodownloadEnabled !== "boolean")
+                            return "isPhotosAutodownloadEnabled: boolean expected";
+                    if (message.isAudiosAutodownloadEnabled != null && message.hasOwnProperty("isAudiosAutodownloadEnabled"))
+                        if (typeof message.isAudiosAutodownloadEnabled !== "boolean")
+                            return "isAudiosAutodownloadEnabled: boolean expected";
+                    if (message.isVideosAutodownloadEnabled != null && message.hasOwnProperty("isVideosAutodownloadEnabled"))
+                        if (typeof message.isVideosAutodownloadEnabled !== "boolean")
+                            return "isVideosAutodownloadEnabled: boolean expected";
+                    if (message.isDocumentsAutodownloadEnabled != null && message.hasOwnProperty("isDocumentsAutodownloadEnabled"))
+                        if (typeof message.isDocumentsAutodownloadEnabled !== "boolean")
+                            return "isDocumentsAutodownloadEnabled: boolean expected";
+                    if (message.disableLinkPreviews != null && message.hasOwnProperty("disableLinkPreviews"))
+                        if (typeof message.disableLinkPreviews !== "boolean")
+                            return "disableLinkPreviews: boolean expected";
+                    if (message.notificationToneId != null && message.hasOwnProperty("notificationToneId"))
+                        if (!$util.isInteger(message.notificationToneId))
+                            return "notificationToneId: integer expected";
+                    return null;
+                };
+    
+                /**
+                 * Creates a SettingsSyncAction message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {proto.SyncActionValue.SettingsSyncAction} SettingsSyncAction
+                 */
+                SettingsSyncAction.fromObject = function fromObject(object) {
+                    if (object instanceof $root.proto.SyncActionValue.SettingsSyncAction)
+                        return object;
+                    var message = new $root.proto.SyncActionValue.SettingsSyncAction();
+                    if (object.startAtLogin != null)
+                        message.startAtLogin = Boolean(object.startAtLogin);
+                    if (object.minimizeToTray != null)
+                        message.minimizeToTray = Boolean(object.minimizeToTray);
+                    if (object.language != null)
+                        message.language = String(object.language);
+                    if (object.replaceTextWithEmoji != null)
+                        message.replaceTextWithEmoji = Boolean(object.replaceTextWithEmoji);
+                    switch (object.bannerNotificationDisplayMode) {
+                    default:
+                        if (typeof object.bannerNotificationDisplayMode === "number") {
+                            message.bannerNotificationDisplayMode = object.bannerNotificationDisplayMode;
+                            break;
+                        }
+                        break;
+                    case "DISPLAY_MODE_UNKNOWN":
+                    case 0:
+                        message.bannerNotificationDisplayMode = 0;
+                        break;
+                    case "ALWAYS":
+                    case 1:
+                        message.bannerNotificationDisplayMode = 1;
+                        break;
+                    case "NEVER":
+                    case 2:
+                        message.bannerNotificationDisplayMode = 2;
+                        break;
+                    case "ONLY_WHEN_APP_IS_OPEN":
+                    case 3:
+                        message.bannerNotificationDisplayMode = 3;
+                        break;
+                    }
+                    switch (object.unreadCounterBadgeDisplayMode) {
+                    default:
+                        if (typeof object.unreadCounterBadgeDisplayMode === "number") {
+                            message.unreadCounterBadgeDisplayMode = object.unreadCounterBadgeDisplayMode;
+                            break;
+                        }
+                        break;
+                    case "DISPLAY_MODE_UNKNOWN":
+                    case 0:
+                        message.unreadCounterBadgeDisplayMode = 0;
+                        break;
+                    case "ALWAYS":
+                    case 1:
+                        message.unreadCounterBadgeDisplayMode = 1;
+                        break;
+                    case "NEVER":
+                    case 2:
+                        message.unreadCounterBadgeDisplayMode = 2;
+                        break;
+                    case "ONLY_WHEN_APP_IS_OPEN":
+                    case 3:
+                        message.unreadCounterBadgeDisplayMode = 3;
+                        break;
+                    }
+                    if (object.isMessagesNotificationEnabled != null)
+                        message.isMessagesNotificationEnabled = Boolean(object.isMessagesNotificationEnabled);
+                    if (object.isCallsNotificationEnabled != null)
+                        message.isCallsNotificationEnabled = Boolean(object.isCallsNotificationEnabled);
+                    if (object.isReactionsNotificationEnabled != null)
+                        message.isReactionsNotificationEnabled = Boolean(object.isReactionsNotificationEnabled);
+                    if (object.isStatusReactionsNotificationEnabled != null)
+                        message.isStatusReactionsNotificationEnabled = Boolean(object.isStatusReactionsNotificationEnabled);
+                    if (object.isTextPreviewForNotificationEnabled != null)
+                        message.isTextPreviewForNotificationEnabled = Boolean(object.isTextPreviewForNotificationEnabled);
+                    if (object.defaultNotificationToneId != null)
+                        message.defaultNotificationToneId = object.defaultNotificationToneId | 0;
+                    if (object.groupDefaultNotificationToneId != null)
+                        message.groupDefaultNotificationToneId = object.groupDefaultNotificationToneId | 0;
+                    if (object.appTheme != null)
+                        message.appTheme = object.appTheme | 0;
+                    if (object.wallpaperId != null)
+                        message.wallpaperId = object.wallpaperId | 0;
+                    if (object.isDoodleWallpaperEnabled != null)
+                        message.isDoodleWallpaperEnabled = Boolean(object.isDoodleWallpaperEnabled);
+                    if (object.fontSize != null)
+                        message.fontSize = object.fontSize | 0;
+                    if (object.isPhotosAutodownloadEnabled != null)
+                        message.isPhotosAutodownloadEnabled = Boolean(object.isPhotosAutodownloadEnabled);
+                    if (object.isAudiosAutodownloadEnabled != null)
+                        message.isAudiosAutodownloadEnabled = Boolean(object.isAudiosAutodownloadEnabled);
+                    if (object.isVideosAutodownloadEnabled != null)
+                        message.isVideosAutodownloadEnabled = Boolean(object.isVideosAutodownloadEnabled);
+                    if (object.isDocumentsAutodownloadEnabled != null)
+                        message.isDocumentsAutodownloadEnabled = Boolean(object.isDocumentsAutodownloadEnabled);
+                    if (object.disableLinkPreviews != null)
+                        message.disableLinkPreviews = Boolean(object.disableLinkPreviews);
+                    if (object.notificationToneId != null)
+                        message.notificationToneId = object.notificationToneId | 0;
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from a SettingsSyncAction message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {proto.SyncActionValue.SettingsSyncAction} message SettingsSyncAction
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                SettingsSyncAction.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.startAtLogin = false;
+                        object.minimizeToTray = false;
+                        object.language = "";
+                        object.replaceTextWithEmoji = false;
+                        object.bannerNotificationDisplayMode = options.enums === String ? "DISPLAY_MODE_UNKNOWN" : 0;
+                        object.unreadCounterBadgeDisplayMode = options.enums === String ? "DISPLAY_MODE_UNKNOWN" : 0;
+                        object.isMessagesNotificationEnabled = false;
+                        object.isCallsNotificationEnabled = false;
+                        object.isReactionsNotificationEnabled = false;
+                        object.isStatusReactionsNotificationEnabled = false;
+                        object.isTextPreviewForNotificationEnabled = false;
+                        object.defaultNotificationToneId = 0;
+                        object.groupDefaultNotificationToneId = 0;
+                        object.appTheme = 0;
+                        object.wallpaperId = 0;
+                        object.isDoodleWallpaperEnabled = false;
+                        object.fontSize = 0;
+                        object.isPhotosAutodownloadEnabled = false;
+                        object.isAudiosAutodownloadEnabled = false;
+                        object.isVideosAutodownloadEnabled = false;
+                        object.isDocumentsAutodownloadEnabled = false;
+                        object.disableLinkPreviews = false;
+                        object.notificationToneId = 0;
+                    }
+                    if (message.startAtLogin != null && message.hasOwnProperty("startAtLogin"))
+                        object.startAtLogin = message.startAtLogin;
+                    if (message.minimizeToTray != null && message.hasOwnProperty("minimizeToTray"))
+                        object.minimizeToTray = message.minimizeToTray;
+                    if (message.language != null && message.hasOwnProperty("language"))
+                        object.language = message.language;
+                    if (message.replaceTextWithEmoji != null && message.hasOwnProperty("replaceTextWithEmoji"))
+                        object.replaceTextWithEmoji = message.replaceTextWithEmoji;
+                    if (message.bannerNotificationDisplayMode != null && message.hasOwnProperty("bannerNotificationDisplayMode"))
+                        object.bannerNotificationDisplayMode = options.enums === String ? $root.proto.SyncActionValue.SettingsSyncAction.DisplayMode[message.bannerNotificationDisplayMode] === undefined ? message.bannerNotificationDisplayMode : $root.proto.SyncActionValue.SettingsSyncAction.DisplayMode[message.bannerNotificationDisplayMode] : message.bannerNotificationDisplayMode;
+                    if (message.unreadCounterBadgeDisplayMode != null && message.hasOwnProperty("unreadCounterBadgeDisplayMode"))
+                        object.unreadCounterBadgeDisplayMode = options.enums === String ? $root.proto.SyncActionValue.SettingsSyncAction.DisplayMode[message.unreadCounterBadgeDisplayMode] === undefined ? message.unreadCounterBadgeDisplayMode : $root.proto.SyncActionValue.SettingsSyncAction.DisplayMode[message.unreadCounterBadgeDisplayMode] : message.unreadCounterBadgeDisplayMode;
+                    if (message.isMessagesNotificationEnabled != null && message.hasOwnProperty("isMessagesNotificationEnabled"))
+                        object.isMessagesNotificationEnabled = message.isMessagesNotificationEnabled;
+                    if (message.isCallsNotificationEnabled != null && message.hasOwnProperty("isCallsNotificationEnabled"))
+                        object.isCallsNotificationEnabled = message.isCallsNotificationEnabled;
+                    if (message.isReactionsNotificationEnabled != null && message.hasOwnProperty("isReactionsNotificationEnabled"))
+                        object.isReactionsNotificationEnabled = message.isReactionsNotificationEnabled;
+                    if (message.isStatusReactionsNotificationEnabled != null && message.hasOwnProperty("isStatusReactionsNotificationEnabled"))
+                        object.isStatusReactionsNotificationEnabled = message.isStatusReactionsNotificationEnabled;
+                    if (message.isTextPreviewForNotificationEnabled != null && message.hasOwnProperty("isTextPreviewForNotificationEnabled"))
+                        object.isTextPreviewForNotificationEnabled = message.isTextPreviewForNotificationEnabled;
+                    if (message.defaultNotificationToneId != null && message.hasOwnProperty("defaultNotificationToneId"))
+                        object.defaultNotificationToneId = message.defaultNotificationToneId;
+                    if (message.groupDefaultNotificationToneId != null && message.hasOwnProperty("groupDefaultNotificationToneId"))
+                        object.groupDefaultNotificationToneId = message.groupDefaultNotificationToneId;
+                    if (message.appTheme != null && message.hasOwnProperty("appTheme"))
+                        object.appTheme = message.appTheme;
+                    if (message.wallpaperId != null && message.hasOwnProperty("wallpaperId"))
+                        object.wallpaperId = message.wallpaperId;
+                    if (message.isDoodleWallpaperEnabled != null && message.hasOwnProperty("isDoodleWallpaperEnabled"))
+                        object.isDoodleWallpaperEnabled = message.isDoodleWallpaperEnabled;
+                    if (message.fontSize != null && message.hasOwnProperty("fontSize"))
+                        object.fontSize = message.fontSize;
+                    if (message.isPhotosAutodownloadEnabled != null && message.hasOwnProperty("isPhotosAutodownloadEnabled"))
+                        object.isPhotosAutodownloadEnabled = message.isPhotosAutodownloadEnabled;
+                    if (message.isAudiosAutodownloadEnabled != null && message.hasOwnProperty("isAudiosAutodownloadEnabled"))
+                        object.isAudiosAutodownloadEnabled = message.isAudiosAutodownloadEnabled;
+                    if (message.isVideosAutodownloadEnabled != null && message.hasOwnProperty("isVideosAutodownloadEnabled"))
+                        object.isVideosAutodownloadEnabled = message.isVideosAutodownloadEnabled;
+                    if (message.isDocumentsAutodownloadEnabled != null && message.hasOwnProperty("isDocumentsAutodownloadEnabled"))
+                        object.isDocumentsAutodownloadEnabled = message.isDocumentsAutodownloadEnabled;
+                    if (message.disableLinkPreviews != null && message.hasOwnProperty("disableLinkPreviews"))
+                        object.disableLinkPreviews = message.disableLinkPreviews;
+                    if (message.notificationToneId != null && message.hasOwnProperty("notificationToneId"))
+                        object.notificationToneId = message.notificationToneId;
+                    return object;
+                };
+    
+                /**
+                 * Converts this SettingsSyncAction to JSON.
+                 * @function toJSON
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                SettingsSyncAction.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for SettingsSyncAction
+                 * @function getTypeUrl
+                 * @memberof proto.SyncActionValue.SettingsSyncAction
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                SettingsSyncAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/proto.SyncActionValue.SettingsSyncAction";
+                };
+    
+                /**
+                 * DisplayMode enum.
+                 * @name proto.SyncActionValue.SettingsSyncAction.DisplayMode
+                 * @enum {number}
+                 * @property {number} DISPLAY_MODE_UNKNOWN=0 DISPLAY_MODE_UNKNOWN value
+                 * @property {number} ALWAYS=1 ALWAYS value
+                 * @property {number} NEVER=2 NEVER value
+                 * @property {number} ONLY_WHEN_APP_IS_OPEN=3 ONLY_WHEN_APP_IS_OPEN value
+                 */
+                SettingsSyncAction.DisplayMode = (function() {
+                    var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "DISPLAY_MODE_UNKNOWN"] = 0;
+                    values[valuesById[1] = "ALWAYS"] = 1;
+                    values[valuesById[2] = "NEVER"] = 2;
+                    values[valuesById[3] = "ONLY_WHEN_APP_IS_OPEN"] = 3;
+                    return values;
+                })();
+    
+                /**
+                 * SettingKey enum.
+                 * @name proto.SyncActionValue.SettingsSyncAction.SettingKey
+                 * @enum {number}
+                 * @property {number} SETTING_KEY_UNKNOWN=0 SETTING_KEY_UNKNOWN value
+                 * @property {number} START_AT_LOGIN=1 START_AT_LOGIN value
+                 * @property {number} MINIMIZE_TO_TRAY=2 MINIMIZE_TO_TRAY value
+                 * @property {number} LANGUAGE=3 LANGUAGE value
+                 * @property {number} REPLACE_TEXT_WITH_EMOJI=4 REPLACE_TEXT_WITH_EMOJI value
+                 * @property {number} BANNER_NOTIFICATION_DISPLAY_MODE=5 BANNER_NOTIFICATION_DISPLAY_MODE value
+                 * @property {number} UNREAD_COUNTER_BADGE_DISPLAY_MODE=6 UNREAD_COUNTER_BADGE_DISPLAY_MODE value
+                 * @property {number} IS_MESSAGES_NOTIFICATION_ENABLED=7 IS_MESSAGES_NOTIFICATION_ENABLED value
+                 * @property {number} IS_CALLS_NOTIFICATION_ENABLED=8 IS_CALLS_NOTIFICATION_ENABLED value
+                 * @property {number} IS_REACTIONS_NOTIFICATION_ENABLED=9 IS_REACTIONS_NOTIFICATION_ENABLED value
+                 * @property {number} IS_STATUS_REACTIONS_NOTIFICATION_ENABLED=10 IS_STATUS_REACTIONS_NOTIFICATION_ENABLED value
+                 * @property {number} IS_TEXT_PREVIEW_FOR_NOTIFICATION_ENABLED=11 IS_TEXT_PREVIEW_FOR_NOTIFICATION_ENABLED value
+                 * @property {number} DEFAULT_NOTIFICATION_TONE_ID=12 DEFAULT_NOTIFICATION_TONE_ID value
+                 * @property {number} GROUP_DEFAULT_NOTIFICATION_TONE_ID=13 GROUP_DEFAULT_NOTIFICATION_TONE_ID value
+                 * @property {number} APP_THEME=14 APP_THEME value
+                 * @property {number} WALLPAPER_ID=15 WALLPAPER_ID value
+                 * @property {number} IS_DOODLE_WALLPAPER_ENABLED=16 IS_DOODLE_WALLPAPER_ENABLED value
+                 * @property {number} FONT_SIZE=17 FONT_SIZE value
+                 * @property {number} IS_PHOTOS_AUTODOWNLOAD_ENABLED=18 IS_PHOTOS_AUTODOWNLOAD_ENABLED value
+                 * @property {number} IS_AUDIOS_AUTODOWNLOAD_ENABLED=19 IS_AUDIOS_AUTODOWNLOAD_ENABLED value
+                 * @property {number} IS_VIDEOS_AUTODOWNLOAD_ENABLED=20 IS_VIDEOS_AUTODOWNLOAD_ENABLED value
+                 * @property {number} IS_DOCUMENTS_AUTODOWNLOAD_ENABLED=21 IS_DOCUMENTS_AUTODOWNLOAD_ENABLED value
+                 * @property {number} DISABLE_LINK_PREVIEWS=22 DISABLE_LINK_PREVIEWS value
+                 * @property {number} NOTIFICATION_TONE_ID=23 NOTIFICATION_TONE_ID value
+                 */
+                SettingsSyncAction.SettingKey = (function() {
+                    var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "SETTING_KEY_UNKNOWN"] = 0;
+                    values[valuesById[1] = "START_AT_LOGIN"] = 1;
+                    values[valuesById[2] = "MINIMIZE_TO_TRAY"] = 2;
+                    values[valuesById[3] = "LANGUAGE"] = 3;
+                    values[valuesById[4] = "REPLACE_TEXT_WITH_EMOJI"] = 4;
+                    values[valuesById[5] = "BANNER_NOTIFICATION_DISPLAY_MODE"] = 5;
+                    values[valuesById[6] = "UNREAD_COUNTER_BADGE_DISPLAY_MODE"] = 6;
+                    values[valuesById[7] = "IS_MESSAGES_NOTIFICATION_ENABLED"] = 7;
+                    values[valuesById[8] = "IS_CALLS_NOTIFICATION_ENABLED"] = 8;
+                    values[valuesById[9] = "IS_REACTIONS_NOTIFICATION_ENABLED"] = 9;
+                    values[valuesById[10] = "IS_STATUS_REACTIONS_NOTIFICATION_ENABLED"] = 10;
+                    values[valuesById[11] = "IS_TEXT_PREVIEW_FOR_NOTIFICATION_ENABLED"] = 11;
+                    values[valuesById[12] = "DEFAULT_NOTIFICATION_TONE_ID"] = 12;
+                    values[valuesById[13] = "GROUP_DEFAULT_NOTIFICATION_TONE_ID"] = 13;
+                    values[valuesById[14] = "APP_THEME"] = 14;
+                    values[valuesById[15] = "WALLPAPER_ID"] = 15;
+                    values[valuesById[16] = "IS_DOODLE_WALLPAPER_ENABLED"] = 16;
+                    values[valuesById[17] = "FONT_SIZE"] = 17;
+                    values[valuesById[18] = "IS_PHOTOS_AUTODOWNLOAD_ENABLED"] = 18;
+                    values[valuesById[19] = "IS_AUDIOS_AUTODOWNLOAD_ENABLED"] = 19;
+                    values[valuesById[20] = "IS_VIDEOS_AUTODOWNLOAD_ENABLED"] = 20;
+                    values[valuesById[21] = "IS_DOCUMENTS_AUTODOWNLOAD_ENABLED"] = 21;
+                    values[valuesById[22] = "DISABLE_LINK_PREVIEWS"] = 22;
+                    values[valuesById[23] = "NOTIFICATION_TONE_ID"] = 23;
+                    return values;
+                })();
+    
+                /**
+                 * SettingPlatform enum.
+                 * @name proto.SyncActionValue.SettingsSyncAction.SettingPlatform
+                 * @enum {number}
+                 * @property {number} PLATFORM_UNKNOWN=0 PLATFORM_UNKNOWN value
+                 * @property {number} WEB=1 WEB value
+                 * @property {number} HYBRID=2 HYBRID value
+                 * @property {number} WINDOWS=3 WINDOWS value
+                 * @property {number} MAC=4 MAC value
+                 */
+                SettingsSyncAction.SettingPlatform = (function() {
+                    var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "PLATFORM_UNKNOWN"] = 0;
+                    values[valuesById[1] = "WEB"] = 1;
+                    values[valuesById[2] = "HYBRID"] = 2;
+                    values[valuesById[3] = "WINDOWS"] = 3;
+                    values[valuesById[4] = "MAC"] = 4;
+                    return values;
+                })();
+    
+                return SettingsSyncAction;
+            })();
+    
             SyncActionValue.StarAction = (function() {
     
                 /**
@@ -167316,6 +169441,7 @@
              * @property {proto.IGroupHistoryBundleInfo|null} [groupHistoryBundleInfo] WebMessageInfo groupHistoryBundleInfo
              * @property {proto.IInteractiveMessageAdditionalMetadata|null} [interactiveMessageAdditionalMetadata] WebMessageInfo interactiveMessageAdditionalMetadata
              * @property {proto.IQuarantinedMessage|null} [quarantinedMessage] WebMessageInfo quarantinedMessage
+             * @property {number|null} [nonJidMentions] WebMessageInfo nonJidMentions
              */
     
             /**
@@ -167872,6 +169998,14 @@
             WebMessageInfo.prototype.quarantinedMessage = null;
     
             /**
+             * WebMessageInfo nonJidMentions.
+             * @member {number} nonJidMentions
+             * @memberof proto.WebMessageInfo
+             * @instance
+             */
+            WebMessageInfo.prototype.nonJidMentions = 0;
+    
+            /**
              * Creates a new WebMessageInfo instance using the specified properties.
              * @function create
              * @memberof proto.WebMessageInfo
@@ -168037,6 +170171,8 @@
                     $root.proto.InteractiveMessageAdditionalMetadata.encode(message.interactiveMessageAdditionalMetadata, writer.uint32(/* id 76, wireType 2 =*/610).fork()).ldelim();
                 if (message.quarantinedMessage != null && Object.hasOwnProperty.call(message, "quarantinedMessage"))
                     $root.proto.QuarantinedMessage.encode(message.quarantinedMessage, writer.uint32(/* id 77, wireType 2 =*/618).fork()).ldelim();
+                if (message.nonJidMentions != null && Object.hasOwnProperty.call(message, "nonJidMentions"))
+                    writer.uint32(/* id 78, wireType 0 =*/624).uint32(message.nonJidMentions);
                 return writer;
             };
     
@@ -168357,6 +170493,10 @@
                             message.quarantinedMessage = $root.proto.QuarantinedMessage.decode(reader, reader.uint32());
                             break;
                         }
+                    case 78: {
+                            message.nonJidMentions = reader.uint32();
+                            break;
+                        }
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -168673,6 +170813,8 @@
                     case 219:
                     case 220:
                     case 221:
+                    case 222:
+                    case 223:
                         break;
                     }
                 if (message.clearMedia != null && message.hasOwnProperty("clearMedia"))
@@ -168927,6 +171069,9 @@
                     if (error)
                         return "quarantinedMessage." + error;
                 }
+                if (message.nonJidMentions != null && message.hasOwnProperty("nonJidMentions"))
+                    if (!$util.isInteger(message.nonJidMentions))
+                        return "nonJidMentions: integer expected";
                 return null;
             };
     
@@ -169918,6 +172063,14 @@
                 case 221:
                     message.messageStubType = 221;
                     break;
+                case "GROUP_OPEN_BOT_ADDED":
+                case 222:
+                    message.messageStubType = 222;
+                    break;
+                case "GROUP_TEE_BOT_ADDED":
+                case 223:
+                    message.messageStubType = 223;
+                    break;
                 }
                 if (object.clearMedia != null)
                     message.clearMedia = Boolean(object.clearMedia);
@@ -170198,6 +172351,8 @@
                         throw TypeError(".proto.WebMessageInfo.quarantinedMessage: object expected");
                     message.quarantinedMessage = $root.proto.QuarantinedMessage.fromObject(object.quarantinedMessage);
                 }
+                if (object.nonJidMentions != null)
+                    message.nonJidMentions = object.nonJidMentions >>> 0;
                 return message;
             };
     
@@ -170321,6 +172476,7 @@
                     object.groupHistoryBundleInfo = null;
                     object.interactiveMessageAdditionalMetadata = null;
                     object.quarantinedMessage = null;
+                    object.nonJidMentions = 0;
                 }
                 if (message.key != null && message.hasOwnProperty("key"))
                     object.key = $root.proto.MessageKey.toObject(message.key, options);
@@ -170499,6 +172655,8 @@
                     object.interactiveMessageAdditionalMetadata = $root.proto.InteractiveMessageAdditionalMetadata.toObject(message.interactiveMessageAdditionalMetadata, options);
                 if (message.quarantinedMessage != null && message.hasOwnProperty("quarantinedMessage"))
                     object.quarantinedMessage = $root.proto.QuarantinedMessage.toObject(message.quarantinedMessage, options);
+                if (message.nonJidMentions != null && message.hasOwnProperty("nonJidMentions"))
+                    object.nonJidMentions = message.nonJidMentions;
                 return object;
             };
     
@@ -170794,6 +172952,8 @@
              * @property {number} PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE=219 PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE value
              * @property {number} QUARANTINED_MESSAGE=220 QUARANTINED_MESSAGE value
              * @property {number} GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE=221 GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE value
+             * @property {number} GROUP_OPEN_BOT_ADDED=222 GROUP_OPEN_BOT_ADDED value
+             * @property {number} GROUP_TEE_BOT_ADDED=223 GROUP_TEE_BOT_ADDED value
              */
             WebMessageInfo.StubType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -171019,6 +173179,8 @@
                 values[valuesById[219] = "PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE"] = 219;
                 values[valuesById[220] = "QUARANTINED_MESSAGE"] = 220;
                 values[valuesById[221] = "GROUP_MEMBER_SHARE_GROUP_HISTORY_MODE"] = 221;
+                values[valuesById[222] = "GROUP_OPEN_BOT_ADDED"] = 222;
+                values[valuesById[223] = "GROUP_TEE_BOT_ADDED"] = 223;
                 return values;
             })();
     
