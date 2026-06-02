@@ -7,8 +7,7 @@
   "type": "commonjs",
   "scripts": {
     "build": "node src/scripts/build.js",
-    "prepublishOnly": "npm run build",
-    "postpublish": "echo 'Published successfully!'"
+    "prepublishOnly": "npm run build"
   },
   "publishConfig": {
     "access": "public"
