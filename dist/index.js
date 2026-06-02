@@ -14493,6 +14493,7 @@
              * BotFeedbackKindMultipleNegative enum.
              * @name proto.BotFeedbackMessage.BotFeedbackKindMultipleNegative
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC=1 BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC value
              * @property {number} BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL=2 BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL value
              * @property {number} BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING=4 BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING value
@@ -14505,6 +14506,7 @@
              */
             BotFeedbackMessage.BotFeedbackKindMultipleNegative = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC"] = 1;
                 values[valuesById[2] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL"] = 2;
                 values[valuesById[4] = "BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING"] = 4;
@@ -14521,10 +14523,12 @@
              * BotFeedbackKindMultiplePositive enum.
              * @name proto.BotFeedbackMessage.BotFeedbackKindMultiplePositive
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC=1 BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC value
              */
             BotFeedbackMessage.BotFeedbackKindMultiplePositive = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC"] = 1;
                 return values;
             })();
@@ -18272,7 +18276,7 @@
              * @memberof proto.BotMediaMetadata
              * @instance
              */
-            BotMediaMetadata.prototype.orientationType = 1;
+            BotMediaMetadata.prototype.orientationType = 0;
     
             /**
              * Creates a new BotMediaMetadata instance using the specified properties.
@@ -18433,6 +18437,7 @@
                     switch (message.orientationType) {
                     default:
                         return "orientationType: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                     case 3:
@@ -18479,6 +18484,10 @@
                         break;
                     }
                     break;
+                case "UNKNOWN":
+                case 0:
+                    message.orientationType = 0;
+                    break;
                 case "CENTER":
                 case 1:
                     message.orientationType = 1;
@@ -18519,7 +18528,7 @@
                     } else
                         object.mediaKeyTimestamp = options.longs === String ? "0" : 0;
                     object.mimetype = "";
-                    object.orientationType = options.enums === String ? "CENTER" : 1;
+                    object.orientationType = options.enums === String ? "UNKNOWN" : 0;
                 }
                 if (message.fileSha256 != null && message.hasOwnProperty("fileSha256"))
                     object.fileSha256 = message.fileSha256;
@@ -18571,12 +18580,14 @@
              * OrientationType enum.
              * @name proto.BotMediaMetadata.OrientationType
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} CENTER=1 CENTER value
              * @property {number} LEFT=2 LEFT value
              * @property {number} RIGHT=3 RIGHT value
              */
             BotMediaMetadata.OrientationType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "CENTER"] = 1;
                 values[valuesById[2] = "LEFT"] = 2;
                 values[valuesById[3] = "RIGHT"] = 3;
@@ -21762,7 +21773,7 @@
              * @memberof proto.BotMetricsMetadata
              * @instance
              */
-            BotMetricsMetadata.prototype.threadOrigin = 1;
+            BotMetricsMetadata.prototype.threadOrigin = 0;
     
             /**
              * Creates a new BotMetricsMetadata instance using the specified properties.
@@ -21938,6 +21949,7 @@
                     switch (message.threadOrigin) {
                     default:
                         return "threadOrigin: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                     case 3:
@@ -22169,6 +22181,10 @@
                         break;
                     }
                     break;
+                case "UNKNOWN":
+                case 0:
+                    message.threadOrigin = 0;
+                    break;
                 case "AI_TAB_THREAD":
                 case 1:
                     message.threadOrigin = 1;
@@ -22209,7 +22225,7 @@
                 if (options.defaults) {
                     object.destinationId = "";
                     object.destinationEntryPoint = options.enums === String ? "UNDEFINED_ENTRY_POINT" : 0;
-                    object.threadOrigin = options.enums === String ? "AI_TAB_THREAD" : 1;
+                    object.threadOrigin = options.enums === String ? "UNKNOWN" : 0;
                 }
                 if (message.destinationId != null && message.hasOwnProperty("destinationId"))
                     object.destinationId = message.destinationId;
@@ -22253,6 +22269,7 @@
          * BotMetricsThreadEntryPoint enum.
          * @name proto.BotMetricsThreadEntryPoint
          * @enum {number}
+         * @property {number} UNKNOWN=0 UNKNOWN value
          * @property {number} AI_TAB_THREAD=1 AI_TAB_THREAD value
          * @property {number} AI_HOME_THREAD=2 AI_HOME_THREAD value
          * @property {number} AI_DEEPLINK_IMMERSIVE_THREAD=3 AI_DEEPLINK_IMMERSIVE_THREAD value
@@ -22261,6 +22278,7 @@
          */
         proto.BotMetricsThreadEntryPoint = (function() {
             var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "AI_TAB_THREAD"] = 1;
             values[valuesById[2] = "AI_HOME_THREAD"] = 2;
             values[valuesById[3] = "AI_DEEPLINK_IMMERSIVE_THREAD"] = 3;
@@ -26624,7 +26642,7 @@
              * @memberof proto.BotReminderMetadata
              * @instance
              */
-            BotReminderMetadata.prototype.action = 1;
+            BotReminderMetadata.prototype.action = 0;
     
             /**
              * BotReminderMetadata name.
@@ -26648,7 +26666,7 @@
              * @memberof proto.BotReminderMetadata
              * @instance
              */
-            BotReminderMetadata.prototype.frequency = 1;
+            BotReminderMetadata.prototype.frequency = 0;
     
             /**
              * Creates a new BotReminderMetadata instance using the specified properties.
@@ -26784,6 +26802,7 @@
                     switch (message.action) {
                     default:
                         return "action: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                     case 3:
@@ -26800,6 +26819,7 @@
                     switch (message.frequency) {
                     default:
                         return "frequency: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                     case 3:
@@ -26833,6 +26853,10 @@
                         message.action = object.action;
                         break;
                     }
+                    break;
+                case "UNKNOWN":
+                case 0:
+                    message.action = 0;
                     break;
                 case "NOTIFY":
                 case 1:
@@ -26868,6 +26892,10 @@
                         message.frequency = object.frequency;
                         break;
                     }
+                    break;
+                case "UNKNOWN":
+                case 0:
+                    message.frequency = 0;
                     break;
                 case "ONCE":
                 case 1:
@@ -26908,14 +26936,14 @@
                 var object = {};
                 if (options.defaults) {
                     object.requestMessageKey = null;
-                    object.action = options.enums === String ? "NOTIFY" : 1;
+                    object.action = options.enums === String ? "UNKNOWN" : 0;
                     object.name = "";
                     if ($util.Long) {
                         var long = new $util.Long(0, 0, true);
                         object.nextTriggerTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                     } else
                         object.nextTriggerTimestamp = options.longs === String ? "0" : 0;
-                    object.frequency = options.enums === String ? "ONCE" : 1;
+                    object.frequency = options.enums === String ? "UNKNOWN" : 0;
                 }
                 if (message.requestMessageKey != null && message.hasOwnProperty("requestMessageKey"))
                     object.requestMessageKey = $root.proto.MessageKey.toObject(message.requestMessageKey, options);
@@ -26963,6 +26991,7 @@
              * ReminderAction enum.
              * @name proto.BotReminderMetadata.ReminderAction
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} NOTIFY=1 NOTIFY value
              * @property {number} CREATE=2 CREATE value
              * @property {number} DELETE=3 DELETE value
@@ -26970,6 +26999,7 @@
              */
             BotReminderMetadata.ReminderAction = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "NOTIFY"] = 1;
                 values[valuesById[2] = "CREATE"] = 2;
                 values[valuesById[3] = "DELETE"] = 3;
@@ -26981,6 +27011,7 @@
              * ReminderFrequency enum.
              * @name proto.BotReminderMetadata.ReminderFrequency
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} ONCE=1 ONCE value
              * @property {number} DAILY=2 DAILY value
              * @property {number} WEEKLY=3 WEEKLY value
@@ -26989,6 +27020,7 @@
              */
             BotReminderMetadata.ReminderFrequency = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "ONCE"] = 1;
                 values[valuesById[2] = "DAILY"] = 2;
                 values[valuesById[3] = "WEEKLY"] = 3;
@@ -43812,11 +43844,13 @@
                  * DataSharingFlags enum.
                  * @name proto.ContextInfo.DataSharingContext.DataSharingFlags
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} SHOW_MM_DISCLOSURE_ON_CLICK=1 SHOW_MM_DISCLOSURE_ON_CLICK value
                  * @property {number} SHOW_MM_DISCLOSURE_ON_READ=2 SHOW_MM_DISCLOSURE_ON_READ value
                  */
                 DataSharingContext.DataSharingFlags = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "SHOW_MM_DISCLOSURE_ON_CLICK"] = 1;
                     values[valuesById[2] = "SHOW_MM_DISCLOSURE_ON_READ"] = 2;
                     return values;
@@ -45522,7 +45556,7 @@
                  * @memberof proto.ContextInfo.ForwardedNewsletterMessageInfo
                  * @instance
                  */
-                ForwardedNewsletterMessageInfo.prototype.contentType = 1;
+                ForwardedNewsletterMessageInfo.prototype.contentType = 0;
     
                 /**
                  * ForwardedNewsletterMessageInfo accessibilityText.
@@ -45684,6 +45718,7 @@
                         switch (message.contentType) {
                         default:
                             return "contentType: enum value expected";
+                        case 0:
                         case 1:
                         case 2:
                         case 3:
@@ -45723,6 +45758,10 @@
                             break;
                         }
                         break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.contentType = 0;
+                        break;
                     case "UPDATE":
                     case 1:
                         message.contentType = 1;
@@ -45760,7 +45799,7 @@
                         object.newsletterJid = "";
                         object.serverMessageId = 0;
                         object.newsletterName = "";
-                        object.contentType = options.enums === String ? "UPDATE" : 1;
+                        object.contentType = options.enums === String ? "UNKNOWN" : 0;
                         object.accessibilityText = "";
                         object.profileName = "";
                     }
@@ -45809,12 +45848,14 @@
                  * ContentType enum.
                  * @name proto.ContextInfo.ForwardedNewsletterMessageInfo.ContentType
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} UPDATE=1 UPDATE value
                  * @property {number} UPDATE_CARD=2 UPDATE_CARD value
                  * @property {number} LINK_CARD=3 LINK_CARD value
                  */
                 ForwardedNewsletterMessageInfo.ContentType = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "UPDATE"] = 1;
                     values[valuesById[2] = "UPDATE_CARD"] = 2;
                     values[valuesById[3] = "LINK_CARD"] = 3;
@@ -47353,7 +47394,7 @@
              * @memberof proto.Conversation
              * @instance
              */
-            Conversation.prototype.systemMessageToInsert = 1;
+            Conversation.prototype.systemMessageToInsert = 0;
     
             /**
              * Conversation capiCreatedGroup.
@@ -48119,6 +48160,7 @@
                     switch (message.systemMessageToInsert) {
                     default:
                         return "systemMessageToInsert: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                     case 3:
@@ -48414,6 +48456,10 @@
                         break;
                     }
                     break;
+                case "UNKNOWN":
+                case 0:
+                    message.systemMessageToInsert = 0;
+                    break;
                 case "E2EE_MSG":
                 case 1:
                     message.systemMessageToInsert = 1;
@@ -48620,7 +48666,7 @@
                     object.lidOriginType = "";
                     object.commentsCount = 0;
                     object.locked = false;
-                    object.systemMessageToInsert = options.enums === String ? "E2EE_MSG" : 1;
+                    object.systemMessageToInsert = options.enums === String ? "UNKNOWN" : 0;
                     object.capiCreatedGroup = false;
                     object.accountLid = "";
                     object.limitSharing = false;
@@ -62402,7 +62448,7 @@
                  * @memberof proto.HydratedTemplateButton.HydratedURLButton
                  * @instance
                  */
-                HydratedURLButton.prototype.webviewPresentation = 1;
+                HydratedURLButton.prototype.webviewPresentation = 0;
     
                 /**
                  * Creates a new HydratedURLButton instance using the specified properties.
@@ -62536,6 +62582,7 @@
                         switch (message.webviewPresentation) {
                         default:
                             return "webviewPresentation: enum value expected";
+                        case 0:
                         case 1:
                         case 2:
                         case 3:
@@ -62568,6 +62615,10 @@
                             message.webviewPresentation = object.webviewPresentation;
                             break;
                         }
+                        break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.webviewPresentation = 0;
                         break;
                     case "FULL":
                     case 1:
@@ -62602,7 +62653,7 @@
                         object.displayText = "";
                         object.url = "";
                         object.consentedUsersUrl = "";
-                        object.webviewPresentation = options.enums === String ? "FULL" : 1;
+                        object.webviewPresentation = options.enums === String ? "UNKNOWN" : 0;
                     }
                     if (message.displayText != null && message.hasOwnProperty("displayText"))
                         object.displayText = message.displayText;
@@ -62645,12 +62696,14 @@
                  * WebviewPresentationType enum.
                  * @name proto.HydratedTemplateButton.HydratedURLButton.WebviewPresentationType
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} FULL=1 FULL value
                  * @property {number} TALL=2 TALL value
                  * @property {number} COMPACT=3 COMPACT value
                  */
                 HydratedURLButton.WebviewPresentationType = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "FULL"] = 1;
                     values[valuesById[2] = "TALL"] = 2;
                     values[valuesById[3] = "COMPACT"] = 3;
@@ -64666,7 +64719,7 @@
              * @memberof proto.InteractiveAnnotation
              * @instance
              */
-            InteractiveAnnotation.prototype.statusLinkType = 1;
+            InteractiveAnnotation.prototype.statusLinkType = 0;
     
             /**
              * InteractiveAnnotation location.
@@ -64882,6 +64935,7 @@
                     switch (message.statusLinkType) {
                     default:
                         return "statusLinkType: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                     case 3:
@@ -64961,6 +65015,10 @@
                         break;
                     }
                     break;
+                case "UNKNOWN":
+                case 0:
+                    message.statusLinkType = 0;
+                    break;
                 case "RASTERIZED_LINK_PREVIEW":
                 case 1:
                     message.statusLinkType = 1;
@@ -65012,7 +65070,7 @@
                 if (options.defaults) {
                     object.shouldSkipConfirmation = false;
                     object.embeddedContent = null;
-                    object.statusLinkType = options.enums === String ? "RASTERIZED_LINK_PREVIEW" : 1;
+                    object.statusLinkType = options.enums === String ? "UNKNOWN" : 0;
                 }
                 if (message.polygonVertices && message.polygonVertices.length) {
                     object.polygonVertices = [];
@@ -65078,12 +65136,14 @@
              * StatusLinkType enum.
              * @name proto.InteractiveAnnotation.StatusLinkType
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} RASTERIZED_LINK_PREVIEW=1 RASTERIZED_LINK_PREVIEW value
              * @property {number} RASTERIZED_LINK_TRUNCATED=2 RASTERIZED_LINK_TRUNCATED value
              * @property {number} RASTERIZED_LINK_FULL_URL=3 RASTERIZED_LINK_FULL_URL value
              */
             InteractiveAnnotation.StatusLinkType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "RASTERIZED_LINK_PREVIEW"] = 1;
                 values[valuesById[2] = "RASTERIZED_LINK_TRUNCATED"] = 2;
                 values[valuesById[3] = "RASTERIZED_LINK_FULL_URL"] = 3;
@@ -88943,7 +89003,7 @@
                              * @memberof proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
                              * @instance
                              */
-                            HSMDateTimeComponent.prototype.dayOfWeek = 1;
+                            HSMDateTimeComponent.prototype.dayOfWeek = 0;
     
                             /**
                              * HSMDateTimeComponent year.
@@ -88991,7 +89051,7 @@
                              * @memberof proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent
                              * @instance
                              */
-                            HSMDateTimeComponent.prototype.calendar = 1;
+                            HSMDateTimeComponent.prototype.calendar = 0;
     
                             /**
                              * Creates a new HSMDateTimeComponent instance using the specified properties.
@@ -89134,6 +89194,7 @@
                                     switch (message.dayOfWeek) {
                                     default:
                                         return "dayOfWeek: enum value expected";
+                                    case 0:
                                     case 1:
                                     case 2:
                                     case 3:
@@ -89162,6 +89223,7 @@
                                     switch (message.calendar) {
                                     default:
                                         return "calendar: enum value expected";
+                                    case 0:
                                     case 1:
                                     case 2:
                                         break;
@@ -89187,6 +89249,10 @@
                                         message.dayOfWeek = object.dayOfWeek;
                                         break;
                                     }
+                                    break;
+                                case "UNKNOWN":
+                                case 0:
+                                    message.dayOfWeek = 0;
                                     break;
                                 case "MONDAY":
                                 case 1:
@@ -89234,6 +89300,10 @@
                                         break;
                                     }
                                     break;
+                                case "UNKNOWN":
+                                case 0:
+                                    message.calendar = 0;
+                                    break;
                                 case "GREGORIAN":
                                 case 1:
                                     message.calendar = 1;
@@ -89260,13 +89330,13 @@
                                     options = {};
                                 var object = {};
                                 if (options.defaults) {
-                                    object.dayOfWeek = options.enums === String ? "MONDAY" : 1;
+                                    object.dayOfWeek = options.enums === String ? "UNKNOWN" : 0;
                                     object.year = 0;
                                     object.month = 0;
                                     object.dayOfMonth = 0;
                                     object.hour = 0;
                                     object.minute = 0;
-                                    object.calendar = options.enums === String ? "GREGORIAN" : 1;
+                                    object.calendar = options.enums === String ? "UNKNOWN" : 0;
                                 }
                                 if (message.dayOfWeek != null && message.hasOwnProperty("dayOfWeek"))
                                     object.dayOfWeek = options.enums === String ? $root.proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.DayOfWeekType[message.dayOfWeek] === undefined ? message.dayOfWeek : $root.proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.DayOfWeekType[message.dayOfWeek] : message.dayOfWeek;
@@ -89315,11 +89385,13 @@
                              * CalendarType enum.
                              * @name proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.CalendarType
                              * @enum {number}
+                             * @property {number} UNKNOWN=0 UNKNOWN value
                              * @property {number} GREGORIAN=1 GREGORIAN value
                              * @property {number} SOLAR_HIJRI=2 SOLAR_HIJRI value
                              */
                             HSMDateTimeComponent.CalendarType = (function() {
                                 var valuesById = {}, values = Object.create(valuesById);
+                                values[valuesById[0] = "UNKNOWN"] = 0;
                                 values[valuesById[1] = "GREGORIAN"] = 1;
                                 values[valuesById[2] = "SOLAR_HIJRI"] = 2;
                                 return values;
@@ -89329,6 +89401,7 @@
                              * DayOfWeekType enum.
                              * @name proto.Message.HighlyStructuredMessage.HSMLocalizableParameter.HSMDateTime.HSMDateTimeComponent.DayOfWeekType
                              * @enum {number}
+                             * @property {number} UNKNOWN=0 UNKNOWN value
                              * @property {number} MONDAY=1 MONDAY value
                              * @property {number} TUESDAY=2 TUESDAY value
                              * @property {number} WEDNESDAY=3 WEDNESDAY value
@@ -89339,6 +89412,7 @@
                              */
                             HSMDateTimeComponent.DayOfWeekType = (function() {
                                 var valuesById = {}, values = Object.create(valuesById);
+                                values[valuesById[0] = "UNKNOWN"] = 0;
                                 values[valuesById[1] = "MONDAY"] = 1;
                                 values[valuesById[2] = "TUESDAY"] = 2;
                                 values[valuesById[3] = "WEDNESDAY"] = 3;
@@ -102510,7 +102584,7 @@
                  * @memberof proto.Message.OrderMessage
                  * @instance
                  */
-                OrderMessage.prototype.status = 1;
+                OrderMessage.prototype.status = 0;
     
                 /**
                  * OrderMessage surface.
@@ -102518,7 +102592,7 @@
                  * @memberof proto.Message.OrderMessage
                  * @instance
                  */
-                OrderMessage.prototype.surface = 1;
+                OrderMessage.prototype.surface = 0;
     
                 /**
                  * OrderMessage message.
@@ -102798,6 +102872,7 @@
                         switch (message.status) {
                         default:
                             return "status: enum value expected";
+                        case 0:
                         case 1:
                         case 2:
                         case 3:
@@ -102807,6 +102882,7 @@
                         switch (message.surface) {
                         default:
                             return "surface: enum value expected";
+                        case 0:
                         case 1:
                             break;
                         }
@@ -102875,6 +102951,10 @@
                             break;
                         }
                         break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.status = 0;
+                        break;
                     case "INQUIRY":
                     case 1:
                         message.status = 1;
@@ -102894,6 +102974,10 @@
                             message.surface = object.surface;
                             break;
                         }
+                        break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.surface = 0;
                         break;
                     case "CATALOG":
                     case 1:
@@ -102959,8 +103043,8 @@
                                 object.thumbnail = $util.newBuffer(object.thumbnail);
                         }
                         object.itemCount = 0;
-                        object.status = options.enums === String ? "INQUIRY" : 1;
-                        object.surface = options.enums === String ? "CATALOG" : 1;
+                        object.status = options.enums === String ? "UNKNOWN" : 0;
+                        object.surface = options.enums === String ? "UNKNOWN" : 0;
                         object.message = "";
                         object.orderTitle = "";
                         object.sellerJid = "";
@@ -103042,12 +103126,14 @@
                  * OrderStatus enum.
                  * @name proto.Message.OrderMessage.OrderStatus
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} INQUIRY=1 INQUIRY value
                  * @property {number} ACCEPTED=2 ACCEPTED value
                  * @property {number} DECLINED=3 DECLINED value
                  */
                 OrderMessage.OrderStatus = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "INQUIRY"] = 1;
                     values[valuesById[2] = "ACCEPTED"] = 2;
                     values[valuesById[3] = "DECLINED"] = 3;
@@ -103058,10 +103144,12 @@
                  * OrderSurface enum.
                  * @name proto.Message.OrderMessage.OrderSurface
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} CATALOG=1 CATALOG value
                  */
                 OrderMessage.OrderSurface = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "CATALOG"] = 1;
                     return values;
                 })();
@@ -106671,7 +106759,7 @@
                      * @memberof proto.Message.PeerDataOperationRequestMessage.GalaxyFlowAction
                      * @instance
                      */
-                    GalaxyFlowAction.prototype.type = 1;
+                    GalaxyFlowAction.prototype.type = 0;
     
                     /**
                      * GalaxyFlowAction flowId.
@@ -106834,6 +106922,7 @@
                             switch (message.type) {
                             default:
                                 return "type: enum value expected";
+                            case 0:
                             case 1:
                             case 2:
                                 break;
@@ -106872,6 +106961,10 @@
                                 break;
                             }
                             break;
+                        case "UNKNOWN":
+                        case 0:
+                            message.type = 0;
+                            break;
                         case "NOTIFY_LAUNCH":
                         case 1:
                             message.type = 1;
@@ -106906,7 +106999,7 @@
                             options = {};
                         var object = {};
                         if (options.defaults) {
-                            object.type = options.enums === String ? "NOTIFY_LAUNCH" : 1;
+                            object.type = options.enums === String ? "UNKNOWN" : 0;
                             object.flowId = "";
                             object.stanzaId = "";
                             object.galaxyFlowDownloadRequestId = "";
@@ -106955,11 +107048,13 @@
                      * GalaxyFlowActionType enum.
                      * @name proto.Message.PeerDataOperationRequestMessage.GalaxyFlowAction.GalaxyFlowActionType
                      * @enum {number}
+                     * @property {number} UNKNOWN=0 UNKNOWN value
                      * @property {number} NOTIFY_LAUNCH=1 NOTIFY_LAUNCH value
                      * @property {number} DOWNLOAD_RESPONSES=2 DOWNLOAD_RESPONSES value
                      */
                     GalaxyFlowAction.GalaxyFlowActionType = (function() {
                         var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "UNKNOWN"] = 0;
                         values[valuesById[1] = "NOTIFY_LAUNCH"] = 1;
                         values[valuesById[2] = "DOWNLOAD_RESPONSES"] = 2;
                         return values;
@@ -111278,7 +111373,7 @@
                          * @memberof proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponse
                          * @instance
                          */
-                        HistorySyncChunkRetryResponse.prototype.responseCode = 1;
+                        HistorySyncChunkRetryResponse.prototype.responseCode = 0;
     
                         /**
                          * HistorySyncChunkRetryResponse canRecover.
@@ -111438,6 +111533,7 @@
                                 switch (message.responseCode) {
                                 default:
                                     return "responseCode: enum value expected";
+                                case 0:
                                 case 1:
                                 case 2:
                                 case 3:
@@ -111519,6 +111615,10 @@
                                     break;
                                 }
                                 break;
+                            case "UNKNOWN":
+                            case 0:
+                                message.responseCode = 0;
+                                break;
                             case "GENERATION_ERROR":
                             case 1:
                                 message.responseCode = 1;
@@ -111566,7 +111666,7 @@
                                 object.syncType = options.enums === String ? "INITIAL_BOOTSTRAP" : 0;
                                 object.chunkOrder = 0;
                                 object.requestId = "";
-                                object.responseCode = options.enums === String ? "GENERATION_ERROR" : 1;
+                                object.responseCode = options.enums === String ? "UNKNOWN" : 0;
                                 object.canRecover = false;
                             }
                             if (message.syncType != null && message.hasOwnProperty("syncType"))
@@ -111615,6 +111715,7 @@
                      * HistorySyncChunkRetryResponseCode enum.
                      * @name proto.Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponseCode
                      * @enum {number}
+                     * @property {number} UNKNOWN=0 UNKNOWN value
                      * @property {number} GENERATION_ERROR=1 GENERATION_ERROR value
                      * @property {number} CHUNK_CONSUMED=2 CHUNK_CONSUMED value
                      * @property {number} TIMEOUT=3 TIMEOUT value
@@ -111624,6 +111725,7 @@
                      */
                     PeerDataOperationResult.HistorySyncChunkRetryResponseCode = (function() {
                         var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "UNKNOWN"] = 0;
                         values[valuesById[1] = "GENERATION_ERROR"] = 1;
                         values[valuesById[2] = "CHUNK_CONSUMED"] = 2;
                         values[valuesById[3] = "TIMEOUT"] = 3;
@@ -122969,7 +123071,7 @@
                  * @memberof proto.Message.StatusQuotedMessage
                  * @instance
                  */
-                StatusQuotedMessage.prototype.type = 1;
+                StatusQuotedMessage.prototype.type = 0;
     
                 /**
                  * StatusQuotedMessage text.
@@ -123118,6 +123220,7 @@
                         switch (message.type) {
                         default:
                             return "type: enum value expected";
+                        case 0:
                         case 1:
                             break;
                         }
@@ -123154,6 +123257,10 @@
                             break;
                         }
                         break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.type = 0;
+                        break;
                     case "QUESTION_ANSWER":
                     case 1:
                         message.type = 1;
@@ -123188,7 +123295,7 @@
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.type = options.enums === String ? "QUESTION_ANSWER" : 1;
+                        object.type = options.enums === String ? "UNKNOWN" : 0;
                         object.text = "";
                         if (options.bytes === String)
                             object.thumbnail = "";
@@ -123240,10 +123347,12 @@
                  * StatusQuotedMessageType enum.
                  * @name proto.Message.StatusQuotedMessage.StatusQuotedMessageType
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} QUESTION_ANSWER=1 QUESTION_ANSWER value
                  */
                 StatusQuotedMessage.StatusQuotedMessageType = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "QUESTION_ANSWER"] = 1;
                     return values;
                 })();
@@ -129624,7 +129733,7 @@
              * @memberof proto.MessageAddOnContextInfo
              * @instance
              */
-            MessageAddOnContextInfo.prototype.messageAddOnExpiryType = 1;
+            MessageAddOnContextInfo.prototype.messageAddOnExpiryType = 0;
     
             /**
              * Creates a new MessageAddOnContextInfo instance using the specified properties.
@@ -129740,6 +129849,7 @@
                     switch (message.messageAddOnExpiryType) {
                     default:
                         return "messageAddOnExpiryType: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                         break;
@@ -129768,6 +129878,10 @@
                         break;
                     }
                     break;
+                case "UNKNOWN":
+                case 0:
+                    message.messageAddOnExpiryType = 0;
+                    break;
                 case "STATIC":
                 case 1:
                     message.messageAddOnExpiryType = 1;
@@ -129795,7 +129909,7 @@
                 var object = {};
                 if (options.defaults) {
                     object.messageAddOnDurationInSecs = 0;
-                    object.messageAddOnExpiryType = options.enums === String ? "STATIC" : 1;
+                    object.messageAddOnExpiryType = options.enums === String ? "UNKNOWN" : 0;
                 }
                 if (message.messageAddOnDurationInSecs != null && message.hasOwnProperty("messageAddOnDurationInSecs"))
                     object.messageAddOnDurationInSecs = message.messageAddOnDurationInSecs;
@@ -130367,7 +130481,7 @@
              * @memberof proto.MessageContextInfo
              * @instance
              */
-            MessageContextInfo.prototype.messageAddOnExpiryType = 1;
+            MessageContextInfo.prototype.messageAddOnExpiryType = 0;
     
             /**
              * MessageContextInfo messageAssociation.
@@ -130665,6 +130779,7 @@
                     switch (message.messageAddOnExpiryType) {
                     default:
                         return "messageAddOnExpiryType: enum value expected";
+                    case 0:
                     case 1:
                     case 2:
                         break;
@@ -130762,6 +130877,10 @@
                         message.messageAddOnExpiryType = object.messageAddOnExpiryType;
                         break;
                     }
+                    break;
+                case "UNKNOWN":
+                case 0:
+                    message.messageAddOnExpiryType = 0;
                     break;
                 case "STATIC":
                 case 1:
@@ -130867,7 +130986,7 @@
                     }
                     object.botMetadata = null;
                     object.reportingTokenVersion = 0;
-                    object.messageAddOnExpiryType = options.enums === String ? "STATIC" : 1;
+                    object.messageAddOnExpiryType = options.enums === String ? "UNKNOWN" : 0;
                     object.messageAssociation = null;
                     object.capiCreatedGroup = false;
                     object.supportPayload = "";
@@ -130952,11 +131071,13 @@
              * MessageAddonExpiryType enum.
              * @name proto.MessageContextInfo.MessageAddonExpiryType
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} STATIC=1 STATIC value
              * @property {number} DEPENDENT_ON_PARENT=2 DEPENDENT_ON_PARENT value
              */
             MessageContextInfo.MessageAddonExpiryType = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "STATIC"] = 1;
                 values[valuesById[2] = "DEPENDENT_ON_PARENT"] = 2;
                 return values;
@@ -134761,6 +134882,7 @@
          * MutationProps enum.
          * @name proto.MutationProps
          * @enum {number}
+         * @property {number} UNKNOWN=0 UNKNOWN value
          * @property {number} STAR_ACTION=2 STAR_ACTION value
          * @property {number} CONTACT_ACTION=3 CONTACT_ACTION value
          * @property {number} MUTE_ACTION=4 MUTE_ACTION value
@@ -134848,6 +134970,7 @@
          */
         proto.MutationProps = (function() {
             var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[2] = "STAR_ACTION"] = 2;
             values[valuesById[3] = "CONTACT_ACTION"] = 3;
             values[valuesById[4] = "MUTE_ACTION"] = 4;
@@ -142278,12 +142401,14 @@
          * PrivacySystemMessage enum.
          * @name proto.PrivacySystemMessage
          * @enum {number}
+         * @property {number} UNKNOWN=0 UNKNOWN value
          * @property {number} E2EE_MSG=1 E2EE_MSG value
          * @property {number} NE2EE_SELF=2 NE2EE_SELF value
          * @property {number} NE2EE_OTHER=3 NE2EE_OTHER value
          */
         proto.PrivacySystemMessage = (function() {
             var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "UNKNOWN"] = 0;
             values[valuesById[1] = "E2EE_MSG"] = 1;
             values[valuesById[2] = "NE2EE_SELF"] = 2;
             values[valuesById[3] = "NE2EE_OTHER"] = 3;
@@ -158715,7 +158840,7 @@
                  * @memberof proto.SyncActionValue.BusinessBroadcastCampaignAction
                  * @instance
                  */
-                BusinessBroadcastCampaignAction.prototype.status = 1;
+                BusinessBroadcastCampaignAction.prototype.status = 0;
     
                 /**
                  * Creates a new BusinessBroadcastCampaignAction instance using the specified properties.
@@ -158894,6 +159019,7 @@
                         switch (message.status) {
                         default:
                             return "status: enum value expected";
+                        case 0:
                         case 1:
                         case 2:
                         case 3:
@@ -158953,6 +159079,10 @@
                             break;
                         }
                         break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.status = 0;
+                        break;
                     case "DRAFT":
                     case 1:
                         message.status = 1;
@@ -159007,7 +159137,7 @@
                             object.createTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                         } else
                             object.createTimestamp = options.longs === String ? "0" : 0;
-                        object.status = options.enums === String ? "DRAFT" : 1;
+                        object.status = options.enums === String ? "UNKNOWN" : 0;
                     }
                     if (message.deviceId != null && message.hasOwnProperty("deviceId"))
                         object.deviceId = message.deviceId;
@@ -159069,6 +159199,7 @@
              * BusinessBroadcastCampaignStatus enum.
              * @name proto.SyncActionValue.BusinessBroadcastCampaignStatus
              * @enum {number}
+             * @property {number} UNKNOWN=0 UNKNOWN value
              * @property {number} DRAFT=1 DRAFT value
              * @property {number} SCHEDULED=2 SCHEDULED value
              * @property {number} PROCESSING=3 PROCESSING value
@@ -159077,6 +159208,7 @@
              */
             SyncActionValue.BusinessBroadcastCampaignStatus = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "UNKNOWN"] = 0;
                 values[valuesById[1] = "DRAFT"] = 1;
                 values[valuesById[2] = "SCHEDULED"] = 2;
                 values[valuesById[3] = "PROCESSING"] = 3;
@@ -163874,7 +164006,7 @@
                  * @memberof proto.SyncActionValue.InteractiveMessageAction
                  * @instance
                  */
-                InteractiveMessageAction.prototype.type = 1;
+                InteractiveMessageAction.prototype.type = 0;
     
                 /**
                  * InteractiveMessageAction agmId.
@@ -163995,6 +164127,7 @@
                         switch (message.type) {
                         default:
                             return "type: enum value expected";
+                        case 0:
                         case 1:
                             break;
                         }
@@ -164023,6 +164156,10 @@
                             break;
                         }
                         break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.type = 0;
+                        break;
                     case "DISABLE_CTA":
                     case 1:
                         message.type = 1;
@@ -164047,7 +164184,7 @@
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.type = options.enums === String ? "DISABLE_CTA" : 1;
+                        object.type = options.enums === String ? "UNKNOWN" : 0;
                         object.agmId = "";
                     }
                     if (message.type != null && message.hasOwnProperty("type"))
@@ -164087,10 +164224,12 @@
                  * InteractiveMessageActionMode enum.
                  * @name proto.SyncActionValue.InteractiveMessageAction.InteractiveMessageActionMode
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} DISABLE_CTA=1 DISABLE_CTA value
                  */
                 InteractiveMessageAction.InteractiveMessageActionMode = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "DISABLE_CTA"] = 1;
                     return values;
                 })();
@@ -168641,7 +168780,7 @@
                  * @memberof proto.SyncActionValue.NoteEditAction
                  * @instance
                  */
-                NoteEditAction.prototype.type = 1;
+                NoteEditAction.prototype.type = 0;
     
                 /**
                  * NoteEditAction chatJid.
@@ -168804,6 +168943,7 @@
                         switch (message.type) {
                         default:
                             return "type: enum value expected";
+                        case 0:
                         case 1:
                         case 2:
                             break;
@@ -168841,6 +168981,10 @@
                             message.type = object.type;
                             break;
                         }
+                        break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.type = 0;
                         break;
                     case "UNSTRUCTURED":
                     case 1:
@@ -168883,7 +169027,7 @@
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.type = options.enums === String ? "UNSTRUCTURED" : 1;
+                        object.type = options.enums === String ? "UNKNOWN" : 0;
                         object.chatJid = "";
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
@@ -168939,11 +169083,13 @@
                  * NoteType enum.
                  * @name proto.SyncActionValue.NoteEditAction.NoteType
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} UNSTRUCTURED=1 UNSTRUCTURED value
                  * @property {number} STRUCTURED=2 STRUCTURED value
                  */
                 NoteEditAction.NoteType = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "UNSTRUCTURED"] = 1;
                     values[valuesById[2] = "STRUCTURED"] = 2;
                     return values;
@@ -178515,7 +178661,7 @@
                  * @memberof proto.SyncActionValue.UsernameChatStartModeAction
                  * @instance
                  */
-                UsernameChatStartModeAction.prototype.chatStartMode = 1;
+                UsernameChatStartModeAction.prototype.chatStartMode = 0;
     
                 /**
                  * Creates a new UsernameChatStartModeAction instance using the specified properties.
@@ -178622,6 +178768,7 @@
                         switch (message.chatStartMode) {
                         default:
                             return "chatStartMode: enum value expected";
+                        case 0:
                         case 1:
                         case 2:
                             break;
@@ -178647,6 +178794,10 @@
                             message.chatStartMode = object.chatStartMode;
                             break;
                         }
+                        break;
+                    case "UNKNOWN":
+                    case 0:
+                        message.chatStartMode = 0;
                         break;
                     case "LID":
                     case 1:
@@ -178674,7 +178825,7 @@
                         options = {};
                     var object = {};
                     if (options.defaults)
-                        object.chatStartMode = options.enums === String ? "LID" : 1;
+                        object.chatStartMode = options.enums === String ? "UNKNOWN" : 0;
                     if (message.chatStartMode != null && message.hasOwnProperty("chatStartMode"))
                         object.chatStartMode = options.enums === String ? $root.proto.SyncActionValue.UsernameChatStartModeAction.ChatStartMode[message.chatStartMode] === undefined ? message.chatStartMode : $root.proto.SyncActionValue.UsernameChatStartModeAction.ChatStartMode[message.chatStartMode] : message.chatStartMode;
                     return object;
@@ -178710,11 +178861,13 @@
                  * ChatStartMode enum.
                  * @name proto.SyncActionValue.UsernameChatStartModeAction.ChatStartMode
                  * @enum {number}
+                 * @property {number} UNKNOWN=0 UNKNOWN value
                  * @property {number} LID=1 LID value
                  * @property {number} PN=2 PN value
                  */
                 UsernameChatStartModeAction.ChatStartMode = (function() {
                     var valuesById = {}, values = Object.create(valuesById);
+                    values[valuesById[0] = "UNKNOWN"] = 0;
                     values[valuesById[1] = "LID"] = 1;
                     values[valuesById[2] = "PN"] = 2;
                     return values;

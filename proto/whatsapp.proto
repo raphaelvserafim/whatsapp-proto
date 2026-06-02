@@ -2,7 +2,7 @@ syntax = "proto3";
 package proto;
 
 /// WhatsApp Version: 2.3000.1040677438
-/// Generated on: 2026-06-02T19:25:18.208Z
+/// Generated on: 2026-06-02T19:43:18.050Z
 /// Entities found: 223
 
 message ADVDeviceIdentity {
@@ -483,6 +483,7 @@ message BotFeedbackMessage {
     BOT_FEEDBACK_NEGATIVE = 14;
   }
   enum BotFeedbackKindMultipleNegative {
+    UNKNOWN = 0;
     BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC = 1;
     BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL = 2;
     BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING = 4;
@@ -494,6 +495,7 @@ message BotFeedbackMessage {
     BOT_FEEDBACK_MULTIPLE_NEGATIVE_NOT_RELEVANT_TO_TEXT = 256;
   }
   enum BotFeedbackKindMultiplePositive {
+    UNKNOWN = 0;
     BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC = 1;
   }
   enum ReportKind {
@@ -605,6 +607,7 @@ message BotMediaMetadata {
   string mimetype = 6;
   OrientationType orientationType = 7;
   enum OrientationType {
+    UNKNOWN = 0;
     CENTER = 1;
     LEFT = 2;
     RIGHT = 3;
@@ -744,6 +747,7 @@ message BotMetricsMetadata {
 }
 
 enum BotMetricsThreadEntryPoint {
+  UNKNOWN = 0;
   AI_TAB_THREAD = 1;
   AI_HOME_THREAD = 2;
   AI_DEEPLINK_IMMERSIVE_THREAD = 3;
@@ -898,12 +902,14 @@ message BotReminderMetadata {
   uint64 nextTriggerTimestamp = 4;
   ReminderFrequency frequency = 5;
   enum ReminderAction {
+    UNKNOWN = 0;
     NOTIFY = 1;
     CREATE = 2;
     DELETE = 3;
     UPDATE = 4;
   }
   enum ReminderFrequency {
+    UNKNOWN = 0;
     ONCE = 1;
     DAILY = 2;
     WEEKLY = 3;
@@ -1517,6 +1523,7 @@ message ContextInfo {
     repeated Parameters parameters = 3;
     int32 dataSharingFlags = 4;
     enum DataSharingFlags {
+      UNKNOWN = 0;
       SHOW_MM_DISCLOSURE_ON_CLICK = 1;
       SHOW_MM_DISCLOSURE_ON_READ = 2;
     }
@@ -1598,6 +1605,7 @@ message ContextInfo {
     string accessibilityText = 5;
     string profileName = 6;
     enum ContentType {
+      UNKNOWN = 0;
       UPDATE = 1;
       UPDATE_CARD = 2;
       LINK_CARD = 3;
@@ -2152,6 +2160,7 @@ message HydratedTemplateButton {
     string consentedUsersUrl = 3;
     WebviewPresentationType webviewPresentation = 4;
     enum WebviewPresentationType {
+      UNKNOWN = 0;
       FULL = 1;
       TALL = 2;
       COMPACT = 3;
@@ -2223,6 +2232,7 @@ message InteractiveAnnotation {
     TapLinkAction tapAction = 7;
   }
   enum StatusLinkType {
+    UNKNOWN = 0;
     RASTERIZED_LINK_PREVIEW = 1;
     RASTERIZED_LINK_TRUNCATED = 2;
     RASTERIZED_LINK_FULL_URL = 3;
@@ -2933,10 +2943,12 @@ message Message {
           uint32 minute = 6;
           CalendarType calendar = 7;
           enum CalendarType {
+            UNKNOWN = 0;
             GREGORIAN = 1;
             SOLAR_HIJRI = 2;
           }
           enum DayOfWeekType {
+            UNKNOWN = 0;
             MONDAY = 1;
             TUESDAY = 2;
             WEDNESDAY = 3;
@@ -3354,11 +3366,13 @@ message Message {
     MessageKey orderRequestMessageId = 13;
     string catalogType = 15;
     enum OrderStatus {
+      UNKNOWN = 0;
       INQUIRY = 1;
       ACCEPTED = 2;
       DECLINED = 3;
     }
     enum OrderSurface {
+      UNKNOWN = 0;
       CATALOG = 1;
     }
   }
@@ -3473,6 +3487,7 @@ message Message {
       string galaxyFlowDownloadRequestId = 4;
       string agmId = 5;
       enum GalaxyFlowActionType {
+        UNKNOWN = 0;
         NOTIFY_LAUNCH = 1;
         DOWNLOAD_RESPONSES = 2;
       }
@@ -3590,6 +3605,7 @@ message Message {
       }
       
       enum HistorySyncChunkRetryResponseCode {
+        UNKNOWN = 0;
         GENERATION_ERROR = 1;
         CHUNK_CONSUMED = 2;
         TIMEOUT = 3;
@@ -3966,6 +3982,7 @@ message Message {
     bytes thumbnail = 3;
     MessageKey originalStatusId = 4;
     enum StatusQuotedMessageType {
+      UNKNOWN = 0;
       QUESTION_ANSWER = 1;
     }
   }
@@ -4225,6 +4242,7 @@ message MessageContextInfo {
   WebLinkRenderConfig weblinkRenderConfig = 16;
   bytes teeBotMetadata = 17;
   enum MessageAddonExpiryType {
+    UNKNOWN = 0;
     STATIC = 1;
     DEPENDENT_ON_PARENT = 2;
   }
@@ -4345,6 +4363,7 @@ message MsgRowOpaqueData {
 }
 
 enum MutationProps {
+  UNKNOWN = 0;
   STAR_ACTION = 2;
   CONTACT_ACTION = 3;
   MUTE_ACTION = 4;
@@ -4674,6 +4693,7 @@ message PrimaryEphemeralIdentity {
 }
 
 enum PrivacySystemMessage {
+  UNKNOWN = 0;
   E2EE_MSG = 1;
   NE2EE_SELF = 2;
   NE2EE_OTHER = 3;
@@ -5148,6 +5168,7 @@ message SyncActionValue {
   }
   
   enum BusinessBroadcastCampaignStatus {
+    UNKNOWN = 0;
     DRAFT = 1;
     SCHEDULED = 2;
     PROCESSING = 3;
@@ -5263,6 +5284,7 @@ message SyncActionValue {
     InteractiveMessageActionMode type = 1;
     string agmId = 2;
     enum InteractiveMessageActionMode {
+      UNKNOWN = 0;
       DISABLE_CTA = 1;
     }
   }
@@ -5399,6 +5421,7 @@ message SyncActionValue {
     bool deleted = 4;
     string unstructuredContent = 5;
     enum NoteType {
+      UNKNOWN = 0;
       UNSTRUCTURED = 1;
       STRUCTURED = 2;
     }
@@ -5694,6 +5717,7 @@ message SyncActionValue {
   message UsernameChatStartModeAction {
     ChatStartMode chatStartMode = 1;
     enum ChatStartMode {
+      UNKNOWN = 0;
       LID = 1;
       PN = 2;
     }

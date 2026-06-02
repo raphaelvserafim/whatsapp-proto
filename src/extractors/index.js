@@ -143,7 +143,11 @@ async function extractWhatsAppVersion(serviceworker) {
   const version = versionMatches[0][1];
   const waVersion = `2.3000.${version}`;
 
-  await writeFile(resolve(projectRoot, 'data/whatsapp_version.json'), JSON.stringify([2, 3000, Number(version)]), 'utf8');
+  const dataDir = resolve(projectRoot, 'data');
+  if (!existsSync(dataDir)) {
+    await mkdir(dataDir, { recursive: true });
+  }
+  await writeFile(resolve(dataDir, 'whatsapp_version.json'), JSON.stringify([2, 3000, Number(version)]), 'utf8');
 
   console.log(`📱 Current WhatsApp version: ${waVersion}`);
 
@@ -546,15 +550,21 @@ function generateProtobufStrings(modules, modulesInfo, moduleIndentationMap) {
   const spaceIndent = ' '.repeat(CONFIG.indentSize);
 
   // Helper functions for string generation
-  const stringifyEnum = (ident, overrideName = null) =>
-    [].concat(
+  const stringifyEnum = (ident, overrideName = null) => {
+    const values = [...ident.enumValues];
+    const hasZero = values.some((v) => v.id === 0);
+    if (!hasZero) {
+      values.unshift({ name: 'UNKNOWN', id: 0 });
+    }
+    return [].concat(
       [`enum ${overrideName || ident.displayName || ident.name} {`],
       addPrefix(
-        ident.enumValues.map((v) => `${v.name} = ${v.id};`),
+        values.map((v) => `${v.name} = ${v.id};`),
         spaceIndent
       ),
       ['}']
     );
+  };
 
   const stringifyMessageSpecMember = (info, completeFlags, parentName = undefined) => {
     if (info.type === '__oneof__') {

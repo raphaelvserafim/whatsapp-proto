@@ -5582,6 +5582,7 @@ export namespace proto {
 
         /** BotFeedbackKindMultipleNegative enum. */
         enum BotFeedbackKindMultipleNegative {
+            UNKNOWN = 0,
             BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC = 1,
             BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL = 2,
             BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING = 4,
@@ -5595,6 +5596,7 @@ export namespace proto {
 
         /** BotFeedbackKindMultiplePositive enum. */
         enum BotFeedbackKindMultiplePositive {
+            UNKNOWN = 0,
             BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC = 1
         }
 
@@ -7279,6 +7281,7 @@ export namespace proto {
 
         /** OrientationType enum. */
         enum OrientationType {
+            UNKNOWN = 0,
             CENTER = 1,
             LEFT = 2,
             RIGHT = 3
@@ -8405,6 +8408,7 @@ export namespace proto {
 
     /** BotMetricsThreadEntryPoint enum. */
     enum BotMetricsThreadEntryPoint {
+        UNKNOWN = 0,
         AI_TAB_THREAD = 1,
         AI_HOME_THREAD = 2,
         AI_DEEPLINK_IMMERSIVE_THREAD = 3,
@@ -10192,6 +10196,7 @@ export namespace proto {
 
         /** ReminderAction enum. */
         enum ReminderAction {
+            UNKNOWN = 0,
             NOTIFY = 1,
             CREATE = 2,
             DELETE = 3,
@@ -10200,6 +10205,7 @@ export namespace proto {
 
         /** ReminderFrequency enum. */
         enum ReminderFrequency {
+            UNKNOWN = 0,
             ONCE = 1,
             DAILY = 2,
             WEEKLY = 3,
@@ -16025,6 +16031,7 @@ export namespace proto {
 
             /** DataSharingFlags enum. */
             enum DataSharingFlags {
+                UNKNOWN = 0,
                 SHOW_MM_DISCLOSURE_ON_CLICK = 1,
                 SHOW_MM_DISCLOSURE_ON_READ = 2
             }
@@ -16712,6 +16719,7 @@ export namespace proto {
 
             /** ContentType enum. */
             enum ContentType {
+                UNKNOWN = 0,
                 UPDATE = 1,
                 UPDATE_CARD = 2,
                 LINK_CARD = 3
@@ -22657,6 +22665,7 @@ export namespace proto {
 
             /** WebviewPresentationType enum. */
             enum WebviewPresentationType {
+                UNKNOWN = 0,
                 FULL = 1,
                 TALL = 2,
                 COMPACT = 3
@@ -23557,6 +23566,7 @@ export namespace proto {
 
         /** StatusLinkType enum. */
         enum StatusLinkType {
+            UNKNOWN = 0,
             RASTERIZED_LINK_PREVIEW = 1,
             RASTERIZED_LINK_TRUNCATED = 2,
             RASTERIZED_LINK_FULL_URL = 3
@@ -32226,12 +32236,14 @@ export namespace proto {
 
                         /** CalendarType enum. */
                         enum CalendarType {
+                            UNKNOWN = 0,
                             GREGORIAN = 1,
                             SOLAR_HIJRI = 2
                         }
 
                         /** DayOfWeekType enum. */
                         enum DayOfWeekType {
+                            UNKNOWN = 0,
                             MONDAY = 1,
                             TUESDAY = 2,
                             WEDNESDAY = 3,
@@ -37225,6 +37237,7 @@ export namespace proto {
 
             /** OrderStatus enum. */
             enum OrderStatus {
+                UNKNOWN = 0,
                 INQUIRY = 1,
                 ACCEPTED = 2,
                 DECLINED = 3
@@ -37232,6 +37245,7 @@ export namespace proto {
 
             /** OrderSurface enum. */
             enum OrderSurface {
+                UNKNOWN = 0,
                 CATALOG = 1
             }
         }
@@ -38746,6 +38760,7 @@ export namespace proto {
 
                 /** GalaxyFlowActionType enum. */
                 enum GalaxyFlowActionType {
+                    UNKNOWN = 0,
                     NOTIFY_LAUNCH = 1,
                     DOWNLOAD_RESPONSES = 2
                 }
@@ -40483,6 +40498,7 @@ export namespace proto {
 
                 /** HistorySyncChunkRetryResponseCode enum. */
                 enum HistorySyncChunkRetryResponseCode {
+                    UNKNOWN = 0,
                     GENERATION_ERROR = 1,
                     CHUNK_CONSUMED = 2,
                     TIMEOUT = 3,
@@ -44886,6 +44902,7 @@ export namespace proto {
 
             /** StatusQuotedMessageType enum. */
             enum StatusQuotedMessageType {
+                UNKNOWN = 0,
                 QUESTION_ANSWER = 1
             }
         }
@@ -47345,6 +47362,7 @@ export namespace proto {
 
         /** MessageAddonExpiryType enum. */
         enum MessageAddonExpiryType {
+            UNKNOWN = 0,
             STATIC = 1,
             DEPENDENT_ON_PARENT = 2
         }
@@ -48655,6 +48673,7 @@ export namespace proto {
 
     /** MutationProps enum. */
     enum MutationProps {
+        UNKNOWN = 0,
         STAR_ACTION = 2,
         CONTACT_ACTION = 3,
         MUTE_ACTION = 4,
@@ -51444,6 +51463,7 @@ export namespace proto {
 
     /** PrivacySystemMessage enum. */
     enum PrivacySystemMessage {
+        UNKNOWN = 0,
         E2EE_MSG = 1,
         NE2EE_SELF = 2,
         NE2EE_OTHER = 3
@@ -57699,6 +57719,7 @@ export namespace proto {
 
         /** BusinessBroadcastCampaignStatus enum. */
         enum BusinessBroadcastCampaignStatus {
+            UNKNOWN = 0,
             DRAFT = 1,
             SCHEDULED = 2,
             PROCESSING = 3,
@@ -59833,6 +59854,7 @@ export namespace proto {
 
             /** InteractiveMessageActionMode enum. */
             enum InteractiveMessageActionMode {
+                UNKNOWN = 0,
                 DISABLE_CTA = 1
             }
         }
@@ -61823,6 +61845,7 @@ export namespace proto {
 
             /** NoteType enum. */
             enum NoteType {
+                UNKNOWN = 0,
                 UNSTRUCTURED = 1,
                 STRUCTURED = 2
             }
@@ -65792,6 +65815,7 @@ export namespace proto {
 
             /** ChatStartMode enum. */
             enum ChatStartMode {
+                UNKNOWN = 0,
                 LID = 1,
                 PN = 2
             }

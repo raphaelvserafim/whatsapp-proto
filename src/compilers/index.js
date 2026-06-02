@@ -11,8 +11,8 @@ async function compileProtobuf() {
     }
 
     console.log('🔄 Generating JavaScript code (CommonJS)...');
-    // Mudança: removido -w es6 para gerar CommonJS ao invés de ES6 modules
-    execSync(`yarn pbjs -t static-module --no-bundle -o ${resolve(projectRoot, 'dist/index.js')} ${resolve(projectRoot, 'proto/whatsapp.proto')}`, {
+    const pbjsPath = resolve(projectRoot, 'node_modules/.bin/pbjs');
+    execSync(`"${pbjsPath}" -t static-module -o ${resolve(projectRoot, 'dist/index.js')} ${resolve(projectRoot, 'proto/whatsapp.proto')}`, {
       stdio: 'inherit'
     });
 
@@ -36,7 +36,8 @@ async function compileProtobuf() {
     console.log(`✅ Fixed imports in ${filePath}`);
 
     console.log('🔄 Generating TypeScript definitions...');
-    execSync(`yarn pbts -o ${resolve(projectRoot, 'dist/index.d.ts')} ${resolve(projectRoot, 'dist/index.js')}`, {
+    const pbtsPath = resolve(projectRoot, 'node_modules/.bin/pbts');
+    execSync(`"${pbtsPath}" -o ${resolve(projectRoot, 'dist/index.d.ts')} ${resolve(projectRoot, 'dist/index.js')}`, {
       stdio: 'inherit'
     });
 
