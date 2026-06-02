@@ -1061,6 +1061,103 @@ export namespace proto {
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
+    /** Properties of a AIMetadataOperation. */
+    interface IAIMetadataOperation {
+
+        /** AIMetadataOperation hatchMetadataSync */
+        hatchMetadataSync?: (proto.IHatchMetadataSync|null);
+    }
+
+    /** Represents a AIMetadataOperation. */
+    class AIMetadataOperation implements IAIMetadataOperation {
+
+        /**
+         * Constructs a new AIMetadataOperation.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.IAIMetadataOperation);
+
+        /** AIMetadataOperation hatchMetadataSync. */
+        public hatchMetadataSync?: (proto.IHatchMetadataSync|null);
+
+        /**
+         * Creates a new AIMetadataOperation instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AIMetadataOperation instance
+         */
+        public static create(properties?: proto.IAIMetadataOperation): proto.AIMetadataOperation;
+
+        /**
+         * Encodes the specified AIMetadataOperation message. Does not implicitly {@link proto.AIMetadataOperation.verify|verify} messages.
+         * @param message AIMetadataOperation message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.IAIMetadataOperation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified AIMetadataOperation message, length delimited. Does not implicitly {@link proto.AIMetadataOperation.verify|verify} messages.
+         * @param message AIMetadataOperation message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IAIMetadataOperation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a AIMetadataOperation message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AIMetadataOperation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.AIMetadataOperation;
+
+        /**
+         * Decodes a AIMetadataOperation message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AIMetadataOperation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.AIMetadataOperation;
+
+        /**
+         * Verifies a AIMetadataOperation message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a AIMetadataOperation message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns AIMetadataOperation
+         */
+        public static fromObject(object: { [k: string]: any }): proto.AIMetadataOperation;
+
+        /**
+         * Creates a plain object from a AIMetadataOperation message. Also converts values to other types if specified.
+         * @param message AIMetadataOperation
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: proto.AIMetadataOperation, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this AIMetadataOperation to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for AIMetadataOperation
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
     /** Properties of a AIQueryFanout. */
     interface IAIQueryFanout {
 
@@ -5106,7 +5203,11 @@ export namespace proto {
             JSON_PATCH_STREAMING = 58,
             AI_TAB_FORCE_CLIPPY = 59,
             UNIFIED_RESPONSE_EMBEDDED_SCREENS = 60,
-            AI_SUBSCRIPTION_ENABLED = 61
+            AI_SUBSCRIPTION_ENABLED = 61,
+            UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED = 62,
+            UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED = 63,
+            AI_RICH_RESPONSE_MAPS_V2_ENABLED = 64,
+            AI_SUBSCRIPTION_METERING_ENABLED = 65
         }
     }
 
@@ -7921,6 +8022,9 @@ export namespace proto {
         /** BotMetadata subscriptionUpsellMetadata */
         subscriptionUpsellMetadata?: (proto.IAISubscriptionUpsellMetadata|null);
 
+        /** BotMetadata pttPromptMetadata */
+        pttPromptMetadata?: (proto.IBotPttPromptMetadata|null);
+
         /** BotMetadata internalMetadata */
         internalMetadata?: (Uint8Array|null);
     }
@@ -8053,6 +8157,9 @@ export namespace proto {
 
         /** BotMetadata subscriptionUpsellMetadata. */
         public subscriptionUpsellMetadata?: (proto.IAISubscriptionUpsellMetadata|null);
+
+        /** BotMetadata pttPromptMetadata. */
+        public pttPromptMetadata?: (proto.IBotPttPromptMetadata|null);
 
         /** BotMetadata internalMetadata. */
         public internalMetadata: Uint8Array;
@@ -9639,6 +9746,103 @@ export namespace proto {
 
         /**
          * Gets the default type url for BotPromptSuggestions
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of a BotPttPromptMetadata. */
+    interface IBotPttPromptMetadata {
+
+        /** BotPttPromptMetadata transcript */
+        transcript?: (string|null);
+    }
+
+    /** Represents a BotPttPromptMetadata. */
+    class BotPttPromptMetadata implements IBotPttPromptMetadata {
+
+        /**
+         * Constructs a new BotPttPromptMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.IBotPttPromptMetadata);
+
+        /** BotPttPromptMetadata transcript. */
+        public transcript: string;
+
+        /**
+         * Creates a new BotPttPromptMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns BotPttPromptMetadata instance
+         */
+        public static create(properties?: proto.IBotPttPromptMetadata): proto.BotPttPromptMetadata;
+
+        /**
+         * Encodes the specified BotPttPromptMetadata message. Does not implicitly {@link proto.BotPttPromptMetadata.verify|verify} messages.
+         * @param message BotPttPromptMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.IBotPttPromptMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified BotPttPromptMetadata message, length delimited. Does not implicitly {@link proto.BotPttPromptMetadata.verify|verify} messages.
+         * @param message BotPttPromptMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IBotPttPromptMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a BotPttPromptMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns BotPttPromptMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.BotPttPromptMetadata;
+
+        /**
+         * Decodes a BotPttPromptMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns BotPttPromptMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.BotPttPromptMetadata;
+
+        /**
+         * Verifies a BotPttPromptMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a BotPttPromptMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns BotPttPromptMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): proto.BotPttPromptMetadata;
+
+        /**
+         * Creates a plain object from a BotPttPromptMetadata message. Also converts values to other types if specified.
+         * @param message BotPttPromptMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: proto.BotPttPromptMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this BotPttPromptMetadata to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for BotPttPromptMetadata
          * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
          * @returns The default type url
          */
@@ -15592,7 +15796,9 @@ export namespace proto {
                 OFFERS = 7,
                 BESTSELLERS = 8,
                 MENU = 9,
-                ABOUT = 10
+                ABOUT = 10,
+                SHOP = 11,
+                ORDER = 12
             }
         }
 
@@ -20497,7 +20703,8 @@ export namespace proto {
             INJECTED = 1,
             INJECTED_PARTIAL = 2,
             INJECTION_FAILED = 3,
-            INJECTION_FAILED_NO_RETRY = 4
+            INJECTION_FAILED_NO_RETRY = 4,
+            DEDUPED = 5
         }
     }
 
@@ -20934,6 +21141,9 @@ export namespace proto {
 
         /** GroupRootKeyShareEntry expiryTimestampMs */
         expiryTimestampMs?: (number|Long|null);
+
+        /** GroupRootKeyShareEntry createdTimestampMs */
+        createdTimestampMs?: (number|Long|null);
     }
 
     /** Represents a GroupRootKeyShareEntry. */
@@ -20953,6 +21163,9 @@ export namespace proto {
 
         /** GroupRootKeyShareEntry expiryTimestampMs. */
         public expiryTimestampMs: (number|Long);
+
+        /** GroupRootKeyShareEntry createdTimestampMs. */
+        public createdTimestampMs: (number|Long);
 
         /**
          * Creates a new GroupRootKeyShareEntry instance using the specified properties.
@@ -21554,6 +21767,115 @@ export namespace proto {
              */
             public static getTypeUrl(typeUrlPrefix?: string): string;
         }
+    }
+
+    /** Properties of a HatchMetadataSync. */
+    interface IHatchMetadataSync {
+
+        /** HatchMetadataSync data */
+        data?: (Uint8Array|null);
+
+        /** HatchMetadataSync timestampMs */
+        timestampMs?: (number|Long|null);
+
+        /** HatchMetadataSync requestId */
+        requestId?: (string|null);
+    }
+
+    /** Represents a HatchMetadataSync. */
+    class HatchMetadataSync implements IHatchMetadataSync {
+
+        /**
+         * Constructs a new HatchMetadataSync.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.IHatchMetadataSync);
+
+        /** HatchMetadataSync data. */
+        public data: Uint8Array;
+
+        /** HatchMetadataSync timestampMs. */
+        public timestampMs: (number|Long);
+
+        /** HatchMetadataSync requestId. */
+        public requestId: string;
+
+        /**
+         * Creates a new HatchMetadataSync instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HatchMetadataSync instance
+         */
+        public static create(properties?: proto.IHatchMetadataSync): proto.HatchMetadataSync;
+
+        /**
+         * Encodes the specified HatchMetadataSync message. Does not implicitly {@link proto.HatchMetadataSync.verify|verify} messages.
+         * @param message HatchMetadataSync message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.IHatchMetadataSync, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified HatchMetadataSync message, length delimited. Does not implicitly {@link proto.HatchMetadataSync.verify|verify} messages.
+         * @param message HatchMetadataSync message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IHatchMetadataSync, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a HatchMetadataSync message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns HatchMetadataSync
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.HatchMetadataSync;
+
+        /**
+         * Decodes a HatchMetadataSync message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns HatchMetadataSync
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.HatchMetadataSync;
+
+        /**
+         * Verifies a HatchMetadataSync message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a HatchMetadataSync message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns HatchMetadataSync
+         */
+        public static fromObject(object: { [k: string]: any }): proto.HatchMetadataSync;
+
+        /**
+         * Creates a plain object from a HatchMetadataSync message. Also converts values to other types if specified.
+         * @param message HatchMetadataSync
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: proto.HatchMetadataSync, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this HatchMetadataSync to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for HatchMetadataSync
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
     /** Properties of a HistorySync. */
@@ -25310,11 +25632,14 @@ export namespace proto {
         /** Message groupRootKeyShare */
         groupRootKeyShare?: (proto.IGroupRootKeyShare|null);
 
-        /** Message p2PPaymentReminderNotification */
-        p2PPaymentReminderNotification?: (proto.Message.IP2PPaymentReminderNotification|null);
+        /** Message paymentReminderMessage */
+        paymentReminderMessage?: (proto.Message.IPaymentReminderMessage|null);
 
         /** Message splitPaymentMessage */
         splitPaymentMessage?: (proto.Message.ISplitPaymentMessage|null);
+
+        /** Message newsletterAdminProfileStatusMessage */
+        newsletterAdminProfileStatusMessage?: (proto.Message.IFutureProofMessage|null);
     }
 
     /** Represents a Message. */
@@ -25635,11 +25960,14 @@ export namespace proto {
         /** Message groupRootKeyShare. */
         public groupRootKeyShare?: (proto.IGroupRootKeyShare|null);
 
-        /** Message p2PPaymentReminderNotification. */
-        public p2PPaymentReminderNotification?: (proto.Message.IP2PPaymentReminderNotification|null);
+        /** Message paymentReminderMessage. */
+        public paymentReminderMessage?: (proto.Message.IPaymentReminderMessage|null);
 
         /** Message splitPaymentMessage. */
         public splitPaymentMessage?: (proto.Message.ISplitPaymentMessage|null);
+
+        /** Message newsletterAdminProfileStatusMessage. */
+        public newsletterAdminProfileStatusMessage?: (proto.Message.IFutureProofMessage|null);
 
         /**
          * Creates a new Message instance using the specified properties.
@@ -30114,6 +30442,9 @@ export namespace proto {
 
             /** EventInviteMessage endTime */
             endTime?: (number|Long|null);
+
+            /** EventInviteMessage callLink */
+            callLink?: (string|null);
         }
 
         /** Represents an EventInviteMessage. */
@@ -30148,6 +30479,9 @@ export namespace proto {
 
             /** EventInviteMessage endTime. */
             public endTime: (number|Long);
+
+            /** EventInviteMessage callLink. */
+            public callLink: string;
 
             /**
              * Creates a new EventInviteMessage instance using the specified properties.
@@ -32854,6 +33188,9 @@ export namespace proto {
 
                 /** BloksWidget type */
                 type?: (string|null);
+
+                /** BloksWidget fallback */
+                fallback?: (string|null);
             }
 
             /** Represents a BloksWidget. */
@@ -32873,6 +33210,9 @@ export namespace proto {
 
                 /** BloksWidget type. */
                 public type: string;
+
+                /** BloksWidget fallback. */
+                public fallback: string;
 
                 /**
                  * Creates a new BloksWidget instance using the specified properties.
@@ -36896,185 +37236,6 @@ export namespace proto {
             }
         }
 
-        /** Properties of a P2PPaymentReminderNotification. */
-        interface IP2PPaymentReminderNotification {
-
-            /** P2PPaymentReminderNotification reminderId */
-            reminderId?: (string|null);
-
-            /** P2PPaymentReminderNotification amount */
-            amount?: (proto.IMoney|null);
-
-            /** P2PPaymentReminderNotification frequency */
-            frequency?: (proto.Message.P2PPaymentReminderNotification.ReminderFrequency|null);
-
-            /** P2PPaymentReminderNotification nextReminderTimestamp */
-            nextReminderTimestamp?: (number|Long|null);
-
-            /** P2PPaymentReminderNotification expiryTimestamp */
-            expiryTimestamp?: (number|Long|null);
-
-            /** P2PPaymentReminderNotification state */
-            state?: (proto.Message.P2PPaymentReminderNotification.ReminderState|null);
-
-            /** P2PPaymentReminderNotification description */
-            description?: (string|null);
-
-            /** P2PPaymentReminderNotification creatorJid */
-            creatorJid?: (string|null);
-
-            /** P2PPaymentReminderNotification receiverJid */
-            receiverJid?: (string|null);
-
-            /** P2PPaymentReminderNotification upiId */
-            upiId?: (string|null);
-
-            /** P2PPaymentReminderNotification createdTimestamp */
-            createdTimestamp?: (number|Long|null);
-        }
-
-        /** Represents a P2PPaymentReminderNotification. */
-        class P2PPaymentReminderNotification implements IP2PPaymentReminderNotification {
-
-            /**
-             * Constructs a new P2PPaymentReminderNotification.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: proto.Message.IP2PPaymentReminderNotification);
-
-            /** P2PPaymentReminderNotification reminderId. */
-            public reminderId: string;
-
-            /** P2PPaymentReminderNotification amount. */
-            public amount?: (proto.IMoney|null);
-
-            /** P2PPaymentReminderNotification frequency. */
-            public frequency: proto.Message.P2PPaymentReminderNotification.ReminderFrequency;
-
-            /** P2PPaymentReminderNotification nextReminderTimestamp. */
-            public nextReminderTimestamp: (number|Long);
-
-            /** P2PPaymentReminderNotification expiryTimestamp. */
-            public expiryTimestamp: (number|Long);
-
-            /** P2PPaymentReminderNotification state. */
-            public state: proto.Message.P2PPaymentReminderNotification.ReminderState;
-
-            /** P2PPaymentReminderNotification description. */
-            public description: string;
-
-            /** P2PPaymentReminderNotification creatorJid. */
-            public creatorJid: string;
-
-            /** P2PPaymentReminderNotification receiverJid. */
-            public receiverJid: string;
-
-            /** P2PPaymentReminderNotification upiId. */
-            public upiId: string;
-
-            /** P2PPaymentReminderNotification createdTimestamp. */
-            public createdTimestamp: (number|Long);
-
-            /**
-             * Creates a new P2PPaymentReminderNotification instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns P2PPaymentReminderNotification instance
-             */
-            public static create(properties?: proto.Message.IP2PPaymentReminderNotification): proto.Message.P2PPaymentReminderNotification;
-
-            /**
-             * Encodes the specified P2PPaymentReminderNotification message. Does not implicitly {@link proto.Message.P2PPaymentReminderNotification.verify|verify} messages.
-             * @param message P2PPaymentReminderNotification message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: proto.Message.IP2PPaymentReminderNotification, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified P2PPaymentReminderNotification message, length delimited. Does not implicitly {@link proto.Message.P2PPaymentReminderNotification.verify|verify} messages.
-             * @param message P2PPaymentReminderNotification message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: proto.Message.IP2PPaymentReminderNotification, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a P2PPaymentReminderNotification message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns P2PPaymentReminderNotification
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.P2PPaymentReminderNotification;
-
-            /**
-             * Decodes a P2PPaymentReminderNotification message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns P2PPaymentReminderNotification
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.P2PPaymentReminderNotification;
-
-            /**
-             * Verifies a P2PPaymentReminderNotification message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a P2PPaymentReminderNotification message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns P2PPaymentReminderNotification
-             */
-            public static fromObject(object: { [k: string]: any }): proto.Message.P2PPaymentReminderNotification;
-
-            /**
-             * Creates a plain object from a P2PPaymentReminderNotification message. Also converts values to other types if specified.
-             * @param message P2PPaymentReminderNotification
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: proto.Message.P2PPaymentReminderNotification, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this P2PPaymentReminderNotification to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-
-            /**
-             * Gets the default type url for P2PPaymentReminderNotification
-             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns The default type url
-             */
-            public static getTypeUrl(typeUrlPrefix?: string): string;
-        }
-
-        namespace P2PPaymentReminderNotification {
-
-            /** ReminderFrequency enum. */
-            enum ReminderFrequency {
-                UNKNOWN_FREQUENCY = 0,
-                WEEKLY = 1,
-                BIWEEKLY = 2,
-                MONTHLY = 3,
-                CUSTOM = 4
-            }
-
-            /** ReminderState enum. */
-            enum ReminderState {
-                UNKNOWN_STATE = 0,
-                ACTIVE = 1,
-                PAUSED = 2,
-                STOPPED = 3,
-                EXPIRED = 4,
-                CANCELLED = 5
-            }
-        }
-
         /** Properties of a PaymentExtendedMetadata. */
         interface IPaymentExtendedMetadata {
 
@@ -37725,6 +37886,173 @@ export namespace proto {
                  * @returns The default type url
                  */
                 public static getTypeUrl(typeUrlPrefix?: string): string;
+            }
+        }
+
+        /** Properties of a PaymentReminderMessage. */
+        interface IPaymentReminderMessage {
+
+            /** PaymentReminderMessage reminderId */
+            reminderId?: (string|null);
+
+            /** PaymentReminderMessage instanceId */
+            instanceId?: (string|null);
+
+            /** PaymentReminderMessage description */
+            description?: (string|null);
+
+            /** PaymentReminderMessage frequency */
+            frequency?: (proto.Message.PaymentReminderMessage.ReminderFrequency|null);
+
+            /** PaymentReminderMessage status */
+            status?: (proto.Message.PaymentReminderMessage.ReminderStatus|null);
+
+            /** PaymentReminderMessage payeeVpa */
+            payeeVpa?: (string|null);
+
+            /** PaymentReminderMessage payeeJid */
+            payeeJid?: (string|null);
+
+            /** PaymentReminderMessage payerJid */
+            payerJid?: (string|null);
+
+            /** PaymentReminderMessage amount */
+            amount?: (proto.IMoney|null);
+        }
+
+        /** Represents a PaymentReminderMessage. */
+        class PaymentReminderMessage implements IPaymentReminderMessage {
+
+            /**
+             * Constructs a new PaymentReminderMessage.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.Message.IPaymentReminderMessage);
+
+            /** PaymentReminderMessage reminderId. */
+            public reminderId: string;
+
+            /** PaymentReminderMessage instanceId. */
+            public instanceId: string;
+
+            /** PaymentReminderMessage description. */
+            public description: string;
+
+            /** PaymentReminderMessage frequency. */
+            public frequency: proto.Message.PaymentReminderMessage.ReminderFrequency;
+
+            /** PaymentReminderMessage status. */
+            public status: proto.Message.PaymentReminderMessage.ReminderStatus;
+
+            /** PaymentReminderMessage payeeVpa. */
+            public payeeVpa: string;
+
+            /** PaymentReminderMessage payeeJid. */
+            public payeeJid: string;
+
+            /** PaymentReminderMessage payerJid. */
+            public payerJid: string;
+
+            /** PaymentReminderMessage amount. */
+            public amount?: (proto.IMoney|null);
+
+            /**
+             * Creates a new PaymentReminderMessage instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns PaymentReminderMessage instance
+             */
+            public static create(properties?: proto.Message.IPaymentReminderMessage): proto.Message.PaymentReminderMessage;
+
+            /**
+             * Encodes the specified PaymentReminderMessage message. Does not implicitly {@link proto.Message.PaymentReminderMessage.verify|verify} messages.
+             * @param message PaymentReminderMessage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.Message.IPaymentReminderMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified PaymentReminderMessage message, length delimited. Does not implicitly {@link proto.Message.PaymentReminderMessage.verify|verify} messages.
+             * @param message PaymentReminderMessage message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.Message.IPaymentReminderMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a PaymentReminderMessage message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns PaymentReminderMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.Message.PaymentReminderMessage;
+
+            /**
+             * Decodes a PaymentReminderMessage message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns PaymentReminderMessage
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.Message.PaymentReminderMessage;
+
+            /**
+             * Verifies a PaymentReminderMessage message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a PaymentReminderMessage message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns PaymentReminderMessage
+             */
+            public static fromObject(object: { [k: string]: any }): proto.Message.PaymentReminderMessage;
+
+            /**
+             * Creates a plain object from a PaymentReminderMessage message. Also converts values to other types if specified.
+             * @param message PaymentReminderMessage
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.Message.PaymentReminderMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this PaymentReminderMessage to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for PaymentReminderMessage
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace PaymentReminderMessage {
+
+            /** ReminderFrequency enum. */
+            enum ReminderFrequency {
+                REMINDER_FREQUENCY_UNKNOWN = 0,
+                WEEKLY = 1,
+                BI_WEEKLY = 2,
+                MONTHLY = 3,
+                QUARTERLY = 4
+            }
+
+            /** ReminderStatus enum. */
+            enum ReminderStatus {
+                REMINDER_STATUS_UNKNOWN = 0,
+                ACTIVE = 1,
+                CANCELLED_BY_CREATOR = 2,
+                STOPPED_BY_RECEIVER = 3,
+                EXPIRED = 4,
+                PAID = 5
             }
         }
 
@@ -42597,6 +42925,9 @@ export namespace proto {
 
             /** ProtocolMessage chatThemeSetting */
             chatThemeSetting?: (proto.Message.IChatThemeSetting|null);
+
+            /** ProtocolMessage aiMetadataOperation */
+            aiMetadataOperation?: (proto.IAIMetadataOperation|null);
         }
 
         /** Represents a ProtocolMessage. */
@@ -42688,6 +43019,9 @@ export namespace proto {
 
             /** ProtocolMessage chatThemeSetting. */
             public chatThemeSetting?: (proto.Message.IChatThemeSetting|null);
+
+            /** ProtocolMessage aiMetadataOperation. */
+            public aiMetadataOperation?: (proto.IAIMetadataOperation|null);
 
             /**
              * Creates a new ProtocolMessage instance using the specified properties.
@@ -42799,7 +43133,8 @@ export namespace proto {
                 GROUP_MEMBER_LABEL_CHANGE = 30,
                 AI_MEDIA_COLLECTION_MESSAGE = 31,
                 MESSAGE_UNSCHEDULE = 32,
-                CHAT_THEME_SETTING = 34
+                CHAT_THEME_SETTING = 34,
+                AI_METADATA_OPERATION = 35
             }
         }
 
@@ -47491,6 +47826,30 @@ export namespace proto {
 
         /** MsgOpaqueData pollAllowAddOption */
         pollAllowAddOption?: (boolean|null);
+
+        /** MsgOpaqueData sharableEventInviteId */
+        sharableEventInviteId?: (string|null);
+
+        /** MsgOpaqueData sharableEventInviteTitle */
+        sharableEventInviteTitle?: (string|null);
+
+        /** MsgOpaqueData sharableEventInviteStartTime */
+        sharableEventInviteStartTime?: (number|Long|null);
+
+        /** MsgOpaqueData sharableEventInviteEndTime */
+        sharableEventInviteEndTime?: (number|Long|null);
+
+        /** MsgOpaqueData sharableEventInviteCaption */
+        sharableEventInviteCaption?: (string|null);
+
+        /** MsgOpaqueData sharableEventInviteIsCanceled */
+        sharableEventInviteIsCanceled?: (boolean|null);
+
+        /** MsgOpaqueData sharableEventInviteJpegThumbnail */
+        sharableEventInviteJpegThumbnail?: (Uint8Array|null);
+
+        /** MsgOpaqueData sharableEventInviteCallLink */
+        sharableEventInviteCallLink?: (string|null);
     }
 
     /** Represents a MsgOpaqueData. */
@@ -47642,6 +48001,30 @@ export namespace proto {
 
         /** MsgOpaqueData pollAllowAddOption. */
         public pollAllowAddOption: boolean;
+
+        /** MsgOpaqueData sharableEventInviteId. */
+        public sharableEventInviteId: string;
+
+        /** MsgOpaqueData sharableEventInviteTitle. */
+        public sharableEventInviteTitle: string;
+
+        /** MsgOpaqueData sharableEventInviteStartTime. */
+        public sharableEventInviteStartTime: (number|Long);
+
+        /** MsgOpaqueData sharableEventInviteEndTime. */
+        public sharableEventInviteEndTime: (number|Long);
+
+        /** MsgOpaqueData sharableEventInviteCaption. */
+        public sharableEventInviteCaption: string;
+
+        /** MsgOpaqueData sharableEventInviteIsCanceled. */
+        public sharableEventInviteIsCanceled: boolean;
+
+        /** MsgOpaqueData sharableEventInviteJpegThumbnail. */
+        public sharableEventInviteJpegThumbnail: Uint8Array;
+
+        /** MsgOpaqueData sharableEventInviteCallLink. */
+        public sharableEventInviteCallLink: string;
 
         /**
          * Creates a new MsgOpaqueData instance using the specified properties.
@@ -59556,6 +59939,9 @@ export namespace proto {
 
             /** LabelAssociationAction labeled */
             labeled?: (boolean|null);
+
+            /** LabelAssociationAction modelMetaData */
+            modelMetaData?: (proto.SyncActionValue.IModelMetadata[]|null);
         }
 
         /** Represents a LabelAssociationAction. */
@@ -59569,6 +59955,9 @@ export namespace proto {
 
             /** LabelAssociationAction labeled. */
             public labeled: boolean;
+
+            /** LabelAssociationAction modelMetaData. */
+            public modelMetaData: proto.SyncActionValue.IModelMetadata[];
 
             /**
              * Creates a new LabelAssociationAction instance using the specified properties.
@@ -59808,7 +60197,11 @@ export namespace proto {
                 DRAFTED = 8,
                 AI_HANDOFF = 9,
                 CHANNELS = 10,
-                AI_RESPONDING = 11
+                AI_RESPONDING = 11,
+                ARCHIVED = 12,
+                LOCKED = 13,
+                INVITES = 14,
+                THIRD_PARTY = 15
             }
         }
 
@@ -60782,6 +61175,115 @@ export namespace proto {
                 ACTIVE = 0,
                 INACTIVE = 1
             }
+        }
+
+        /** Properties of a ModelMetadata. */
+        interface IModelMetadata {
+
+            /** ModelMetadata modelName */
+            modelName?: (string|null);
+
+            /** ModelMetadata isLatestModel */
+            isLatestModel?: (boolean|null);
+
+            /** ModelMetadata isDetected */
+            isDetected?: (boolean|null);
+        }
+
+        /** Represents a ModelMetadata. */
+        class ModelMetadata implements IModelMetadata {
+
+            /**
+             * Constructs a new ModelMetadata.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.SyncActionValue.IModelMetadata);
+
+            /** ModelMetadata modelName. */
+            public modelName: string;
+
+            /** ModelMetadata isLatestModel. */
+            public isLatestModel: boolean;
+
+            /** ModelMetadata isDetected. */
+            public isDetected: boolean;
+
+            /**
+             * Creates a new ModelMetadata instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ModelMetadata instance
+             */
+            public static create(properties?: proto.SyncActionValue.IModelMetadata): proto.SyncActionValue.ModelMetadata;
+
+            /**
+             * Encodes the specified ModelMetadata message. Does not implicitly {@link proto.SyncActionValue.ModelMetadata.verify|verify} messages.
+             * @param message ModelMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.SyncActionValue.IModelMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ModelMetadata message, length delimited. Does not implicitly {@link proto.SyncActionValue.ModelMetadata.verify|verify} messages.
+             * @param message ModelMetadata message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.SyncActionValue.IModelMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ModelMetadata message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ModelMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.ModelMetadata;
+
+            /**
+             * Decodes a ModelMetadata message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ModelMetadata
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.ModelMetadata;
+
+            /**
+             * Verifies a ModelMetadata message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ModelMetadata message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ModelMetadata
+             */
+            public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.ModelMetadata;
+
+            /**
+             * Creates a plain object from a ModelMetadata message. Also converts values to other types if specified.
+             * @param message ModelMetadata
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.SyncActionValue.ModelMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ModelMetadata to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for ModelMetadata
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
         }
 
         /** Properties of a MusicUserIdAction. */

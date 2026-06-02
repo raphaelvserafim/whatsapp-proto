@@ -1,9 +1,9 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1038839325
-/// Generated on: 2026-05-06T12:48:12.919Z
-/// Entities found: 220
+/// WhatsApp Version: 2.3000.1040665440
+/// Generated on: 2026-06-02T15:51:48.144Z
+/// Entities found: 223
 
 message ADVDeviceIdentity {
   uint32 rawId = 1;
@@ -79,6 +79,10 @@ message AIMediaCollectionMessage {
 message AIMediaCollectionMetadata {
   string collectionId = 1;
   uint32 uploadOrderIndex = 2;
+}
+
+message AIMetadataOperation {
+  HatchMetadataSync hatchMetadataSync = 1;
 }
 
 message AIQueryFanout {
@@ -432,6 +436,10 @@ message BotCapabilityMetadata {
     AI_TAB_FORCE_CLIPPY = 59;
     UNIFIED_RESPONSE_EMBEDDED_SCREENS = 60;
     AI_SUBSCRIPTION_ENABLED = 61;
+    UNIFIED_RESPONSE_AI_CONTENT_SEARCH_ENABLED = 62;
+    UNIFIED_RESPONSE_MARKDOWN_LINKS_ENABLED = 63;
+    AI_RICH_RESPONSE_MAPS_V2_ENABLED = 64;
+    AI_SUBSCRIPTION_METERING_ENABLED = 65;
   }
 }
 
@@ -675,6 +683,7 @@ message BotMetadata {
   BotCommandMetadata commandMetadata = 39;
   BotResolvedToolCallMetadata resolvedToolCallMetadata = 40;
   AISubscriptionUpsellMetadata subscriptionUpsellMetadata = 41;
+  BotPttPromptMetadata pttPromptMetadata = 42;
   bytes internalMetadata = 999;
 }
 
@@ -862,6 +871,10 @@ message BotPromptSuggestion {
 
 message BotPromptSuggestions {
   repeated BotPromptSuggestion suggestions = 1;
+}
+
+message BotPttPromptMetadata {
+  string transcript = 1;
 }
 
 message BotQuotaMetadata {
@@ -1484,6 +1497,8 @@ message ContextInfo {
       BESTSELLERS = 8;
       MENU = 9;
       ABOUT = 10;
+      SHOP = 11;
+      ORDER = 12;
     }
   }
   
@@ -1984,6 +1999,7 @@ message GroupHistoryBundleInfo {
     INJECTED_PARTIAL = 2;
     INJECTION_FAILED = 3;
     INJECTION_FAILED_NO_RETRY = 4;
+    DEDUPED = 5;
   }
 }
 
@@ -2016,6 +2032,7 @@ message GroupRootKeyShareEntry {
   bytes groupRootKey = 1;
   string keyId = 2;
   int64 expiryTimestampMs = 3;
+  int64 createdTimestampMs = 4;
 }
 
 message HandshakeMessage {
@@ -2063,6 +2080,12 @@ message HandshakeMessage {
     bytes extendedCiphertext = 6;
   }
   
+}
+
+message HatchMetadataSync {
+  bytes data = 1;
+  int64 timestampMs = 2;
+  string requestId = 3;
 }
 
 message HistorySync {
@@ -2428,8 +2451,9 @@ message Message {
   PollAddOptionMessage pollAddOptionMessage = 121;
   EventInviteMessage eventInviteMessage = 122;
   GroupRootKeyShare groupRootKeyShare = 123;
-  P2PPaymentReminderNotification p2PPaymentReminderNotification = 124;
+  PaymentReminderMessage paymentReminderMessage = 124;
   SplitPaymentMessage splitPaymentMessage = 125;
+  FutureProofMessage newsletterAdminProfileStatusMessage = 126;
   message AlbumMessage {
     uint32 expectedImageCount = 2;
     uint32 expectedVideoCount = 3;
@@ -2755,6 +2779,7 @@ message Message {
     string caption = 6;
     bool isCanceled = 7;
     int64 endTime = 8;
+    string callLink = 9;
   }
   
   message EventMessage {
@@ -3032,6 +3057,7 @@ message Message {
       string uuid = 1;
       string data = 2;
       string type = 3;
+      string fallback = 4;
     }
     
     message Body {
@@ -3337,35 +3363,6 @@ message Message {
     }
   }
   
-  message P2PPaymentReminderNotification {
-    string reminderId = 1;
-    Money amount = 2;
-    ReminderFrequency frequency = 3;
-    int64 nextReminderTimestamp = 4;
-    int64 expiryTimestamp = 5;
-    ReminderState state = 6;
-    string description = 7;
-    string creatorJid = 8;
-    string receiverJid = 9;
-    string upiId = 10;
-    int64 createdTimestamp = 11;
-    enum ReminderFrequency {
-      UNKNOWN_FREQUENCY = 0;
-      WEEKLY = 1;
-      BIWEEKLY = 2;
-      MONTHLY = 3;
-      CUSTOM = 4;
-    }
-    enum ReminderState {
-      UNKNOWN_STATE = 0;
-      ACTIVE = 1;
-      PAUSED = 2;
-      STOPPED = 3;
-      EXPIRED = 4;
-      CANCELLED = 5;
-    }
-  }
-  
   message PaymentExtendedMetadata {
     uint32 type = 1;
     string platform = 2;
@@ -3409,6 +3406,33 @@ message Message {
       string paramsJson = 1;
     }
     
+  }
+  
+  message PaymentReminderMessage {
+    string reminderId = 1;
+    string instanceId = 2;
+    string description = 3;
+    ReminderFrequency frequency = 4;
+    ReminderStatus status = 5;
+    string payeeVpa = 6;
+    string payeeJid = 7;
+    string payerJid = 8;
+    Money amount = 9;
+    enum ReminderFrequency {
+      REMINDER_FREQUENCY_UNKNOWN = 0;
+      WEEKLY = 1;
+      BI_WEEKLY = 2;
+      MONTHLY = 3;
+      QUARTERLY = 4;
+    }
+    enum ReminderStatus {
+      REMINDER_STATUS_UNKNOWN = 0;
+      ACTIVE = 1;
+      CANCELLED_BY_CREATOR = 2;
+      STOPPED_BY_RECEIVER = 3;
+      EXPIRED = 4;
+      PAID = 5;
+    }
   }
   
   message PeerDataOperationRequestMessage {
@@ -3776,6 +3800,7 @@ message Message {
     AIMediaCollectionMessage aiMediaCollectionMessage = 28;
     uint32 afterReadDuration = 29;
     Message.ChatThemeSetting chatThemeSetting = 30;
+    AIMetadataOperation aiMetadataOperation = 31;
     enum Type {
       REVOKE = 0;
       EPHEMERAL_SETTING = 3;
@@ -3806,6 +3831,7 @@ message Message {
       AI_MEDIA_COLLECTION_MESSAGE = 31;
       MESSAGE_UNSCHEDULE = 32;
       CHAT_THEME_SETTING = 34;
+      AI_METADATA_OPERATION = 35;
     }
   }
   
@@ -4271,6 +4297,14 @@ message MsgOpaqueData {
   int64 pollEndTime = 49;
   bool pollHideVoterNames = 50;
   bool pollAllowAddOption = 52;
+  string sharableEventInviteId = 53;
+  string sharableEventInviteTitle = 54;
+  int64 sharableEventInviteStartTime = 55;
+  int64 sharableEventInviteEndTime = 56;
+  string sharableEventInviteCaption = 57;
+  bool sharableEventInviteIsCanceled = 58;
+  bytes sharableEventInviteJpegThumbnail = 59;
+  string sharableEventInviteCallLink = 60;
   message EventLocation {
     double degreesLatitude = 1;
     double degreesLongitude = 2;
@@ -5239,6 +5273,7 @@ message SyncActionValue {
   
   message LabelAssociationAction {
     bool labeled = 1;
+    repeated SyncActionValue.ModelMetadata modelMetaData = 2;
   }
   
   message LabelEditAction {
@@ -5264,6 +5299,10 @@ message SyncActionValue {
       AI_HANDOFF = 9;
       CHANNELS = 10;
       AI_RESPONDING = 11;
+      ARCHIVED = 12;
+      LOCKED = 13;
+      INVITES = 14;
+      THIRD_PARTY = 15;
     }
   }
   
@@ -5325,6 +5364,12 @@ message SyncActionValue {
       ACTIVE = 0;
       INACTIVE = 1;
     }
+  }
+  
+  message ModelMetadata {
+    string modelName = 1;
+    bool isLatestModel = 2;
+    bool isDetected = 3;
   }
   
   message MusicUserIdAction {
