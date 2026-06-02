@@ -1,4 +1,3 @@
-const requestPromise = require('request-promise-native');
 const acorn = require('acorn');
 const walk = require('acorn-walk');
 const { writeFile, mkdir } = require('fs').promises;
@@ -48,13 +47,22 @@ async function makeRequestWithRetry(url, options = {}, attempt = 1) {
   try {
     console.log(`📡 Fetching: ${url} (attempt ${attempt})`);
 
-    const requestOptions = {
-      headers: createRequestHeaders(),
-      timeout: CONFIG.requestTimeout,
-      ...options
-    };
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), CONFIG.requestTimeout);
 
-    return await requestPromise.get(url, requestOptions);
+    const response = await fetch(url, {
+      headers: createRequestHeaders(),
+      signal: controller.signal,
+      ...options
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    return await response.text();
   } catch (error) {
     if (attempt < CONFIG.retryAttempts) {
       console.warn(`⚠️  Request failed, retrying in ${CONFIG.retryDelay}ms... (${error.message})`);
@@ -174,7 +182,7 @@ async function findAppModules() {
     const serviceworker = await makeRequestWithRetry(`${CONFIG.baseURL}/sw.js`);
 
     // Extract version and bootstrap URL
-    extractWhatsAppVersion(serviceworker);
+    await extractWhatsAppVersion(serviceworker);
     const bootstrapURL = extractBootstrapURL(serviceworker);
 
     // Fetch bootstrap script
@@ -393,10 +401,11 @@ function processMessageSpecifications(modules, modulesInfo, moduleIndentationMap
           const constraints = [];
           let members = [];
 
-          for (const property of node.right.properties) {
-            property.key.name = property.key.type === 'Identifier'
+          for (let property of node.right.properties) {
+            const resolvedName = property.key.type === 'Identifier'
               ? property.key.name
               : property.key.value;
+            property = { ...property, key: { ...property.key, name: resolvedName } };
 
             const targetArray = property.key.name.startsWith('__') ? constraints : members;
             targetArray.push(property);
@@ -502,10 +511,14 @@ function processMessageSpecifications(modules, modulesInfo, moduleIndentationMap
                 type: '__oneof__',
                 members: property.value.elements.map((element) => {
                   const idx = members.findIndex((m) => m.name === element.value);
+                  if (idx === -1) {
+                    console.warn(`Warning: oneof member '${element.value}' not found`);
+                    return null;
+                  }
                   const member = members[idx];
                   members.splice(idx, 1);
                   return member;
-                }),
+                }).filter(Boolean),
               }));
               members.push(...newOneOfs);
             }

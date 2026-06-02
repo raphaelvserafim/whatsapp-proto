@@ -1,6 +1,6 @@
 {
   "name": "@raphaelvserafim/whatsapp-proto",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "WhatsApp Protocol Buffer schema extractor and compiler",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,21 +8,19 @@
   "scripts": {
     "build": "node src/scripts/build.js",
     "prepublishOnly": "npm run build",
-    "publish": "npm publish --access public"
+    "postpublish": "echo 'Published successfully!'"
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
     "dist",
-    "READNE.md"
+    "README.md"
   ],
   "dependencies": {
     "acorn": "^8.11.3",
     "acorn-walk": "^8.3.2",
-    "protobufjs": "^7.5.4",
-    "request": "^2.88.2",
-    "request-promise-native": "^1.0.9"
+    "protobufjs": "^7.5.4"
   },
   "keywords": [
     "whatsapp",
@@ -34,6 +32,9 @@
   ],
   "author": "Raphael Serafim <raphaelvserafim@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "protobufjs-cli": "^1.1.3"
   }
