@@ -1,8 +1,8 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1040677438
-/// Generated on: 2026-06-02T19:47:52.623Z
+/// WhatsApp Version: 2.3000.1041023899
+/// Generated on: 2026-06-08T17:51:21.940Z
 /// Entities found: 223
 
 message ADVDeviceIdentity {
@@ -965,6 +965,7 @@ message BotSignatureVerificationUseCaseProof {
     UNSPECIFIED = 0;
     WA_BOT_MSG = 1;
     WA_TEE_BOT_MSG = 2;
+    P2P_PILLS = 3;
   }
 }
 
@@ -1478,6 +1479,8 @@ message ContextInfo {
     string businessJid = 1;
     repeated Pill pills = 2;
     EntryPoint entryPoint = 3;
+    bytes signedPayload = 4;
+    BotSignatureVerificationMetadata signatureEnvelope = 5;
     enum EntryPoint {
       ENTRY_POINT_UNKNOWN = 0;
       P2P_LINK_SHARE = 1;
@@ -1506,6 +1509,11 @@ message ContextInfo {
       SHOP = 11;
       ORDER = 12;
     }
+    message SignedPayload {
+      string verifiedName = 1;
+      repeated ContextInfo.BusinessInteractionPills.Pill pills = 2;
+    }
+    
   }
   
   message BusinessMessageForwardInfo {
@@ -2464,6 +2472,7 @@ message Message {
   PaymentReminderMessage paymentReminderMessage = 124;
   SplitPaymentMessage splitPaymentMessage = 125;
   FutureProofMessage newsletterAdminProfileStatusMessage = 126;
+  RootSecretDistributeMessage rootSecretDistributeMessage = 127;
   message AlbumMessage {
     uint32 expectedImageCount = 2;
     uint32 expectedVideoCount = 3;
@@ -3697,6 +3706,7 @@ message Message {
   message PollAddOptionMessage {
     MessageKey pollCreationMessageKey = 1;
     Message.PollCreationMessage.Option addOption = 2;
+    Message.PollUpdateMessageMetadata metadata = 3;
   }
   
   enum PollContentType {
@@ -3752,6 +3762,8 @@ message Message {
   }
   
   message PollUpdateMessageMetadata {
+    bytes pollNameHash = 1;
+    string lastEditStanzaId = 2;
   }
   
   message PollVoteMessage {
@@ -3889,6 +3901,10 @@ message Message {
       CHAT_OPEN = 0;
       COMPANION_PAIRING = 1;
     }
+  }
+  
+  message RootSecretDistributeMessage {
+    string chatJid = 1;
   }
   
   message ScheduledCallCreationMessage {
@@ -4653,6 +4669,12 @@ message Point {
 
 message PollAdditionalMetadata {
   bool pollInvalidated = 1;
+  repeated PollNameHashHistoryEntry pollNameHashHistory = 2;
+  message PollNameHashHistoryEntry {
+    string editStanzaId = 1;
+    bytes pollNameHash = 2;
+  }
+  
 }
 
 message PollEncValue {
@@ -4666,6 +4688,7 @@ message PollUpdate {
   int64 senderTimestampMs = 3;
   int64 serverTimestampMs = 4;
   bool unread = 5;
+  Message.PollUpdateMessageMetadata metadata = 6;
 }
 
 message PreKeyRecordStructure {
@@ -5295,7 +5318,7 @@ message SyncActionValue {
   
   message LabelAssociationAction {
     bool labeled = 1;
-    repeated SyncActionValue.ModelMetadata modelMetaData = 2;
+    string modelMetaData = 2;
   }
   
   message LabelEditAction {
@@ -5348,10 +5371,16 @@ message SyncActionValue {
   
   message MaibaAIFeaturesControlAction {
     MaibaAIFeatureStatus aiFeatureStatus = 1;
+    MaibaAIReplyMode aiReplyMode = 2;
     enum MaibaAIFeatureStatus {
       ENABLED = 0;
       ENABLED_HAS_LEARNING = 1;
       DISABLED = 2;
+    }
+    enum MaibaAIReplyMode {
+      MUTED = 0;
+      AI_AGENT = 1;
+      SUGGESTIONS = 2;
     }
   }
   
@@ -5386,12 +5415,6 @@ message SyncActionValue {
       ACTIVE = 0;
       INACTIVE = 1;
     }
-  }
-  
-  message ModelMetadata {
-    string modelName = 1;
-    bool isLatestModel = 2;
-    bool isDetected = 3;
   }
   
   message MusicUserIdAction {
