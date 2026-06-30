@@ -24138,115 +24138,6 @@ export namespace proto {
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
-    /** Properties of a LIDMigrationMapping. */
-    interface ILIDMigrationMapping {
-
-        /** LIDMigrationMapping pn */
-        pn?: (number|Long|null);
-
-        /** LIDMigrationMapping assignedLid */
-        assignedLid?: (number|Long|null);
-
-        /** LIDMigrationMapping latestLid */
-        latestLid?: (number|Long|null);
-    }
-
-    /** Represents a LIDMigrationMapping. */
-    class LIDMigrationMapping implements ILIDMigrationMapping {
-
-        /**
-         * Constructs a new LIDMigrationMapping.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.ILIDMigrationMapping);
-
-        /** LIDMigrationMapping pn. */
-        public pn: (number|Long);
-
-        /** LIDMigrationMapping assignedLid. */
-        public assignedLid: (number|Long);
-
-        /** LIDMigrationMapping latestLid. */
-        public latestLid: (number|Long);
-
-        /**
-         * Creates a new LIDMigrationMapping instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns LIDMigrationMapping instance
-         */
-        public static create(properties?: proto.ILIDMigrationMapping): proto.LIDMigrationMapping;
-
-        /**
-         * Encodes the specified LIDMigrationMapping message. Does not implicitly {@link proto.LIDMigrationMapping.verify|verify} messages.
-         * @param message LIDMigrationMapping message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.ILIDMigrationMapping, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified LIDMigrationMapping message, length delimited. Does not implicitly {@link proto.LIDMigrationMapping.verify|verify} messages.
-         * @param message LIDMigrationMapping message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.ILIDMigrationMapping, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a LIDMigrationMapping message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns LIDMigrationMapping
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.LIDMigrationMapping;
-
-        /**
-         * Decodes a LIDMigrationMapping message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns LIDMigrationMapping
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.LIDMigrationMapping;
-
-        /**
-         * Verifies a LIDMigrationMapping message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a LIDMigrationMapping message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns LIDMigrationMapping
-         */
-        public static fromObject(object: { [k: string]: any }): proto.LIDMigrationMapping;
-
-        /**
-         * Creates a plain object from a LIDMigrationMapping message. Also converts values to other types if specified.
-         * @param message LIDMigrationMapping
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: proto.LIDMigrationMapping, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this LIDMigrationMapping to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-
-        /**
-         * Gets the default type url for LIDMigrationMapping
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
-         */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
-    }
-
     /** Properties of a LIDMigrationMappingSyncMessage. */
     interface ILIDMigrationMappingSyncMessage {
 
@@ -24338,109 +24229,6 @@ export namespace proto {
 
         /**
          * Gets the default type url for LIDMigrationMappingSyncMessage
-         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-         * @returns The default type url
-         */
-        public static getTypeUrl(typeUrlPrefix?: string): string;
-    }
-
-    /** Properties of a LIDMigrationMappingSyncPayload. */
-    interface ILIDMigrationMappingSyncPayload {
-
-        /** LIDMigrationMappingSyncPayload pnToLidMappings */
-        pnToLidMappings?: (proto.ILIDMigrationMapping[]|null);
-
-        /** LIDMigrationMappingSyncPayload chatDbMigrationTimestamp */
-        chatDbMigrationTimestamp?: (number|Long|null);
-    }
-
-    /** Represents a LIDMigrationMappingSyncPayload. */
-    class LIDMigrationMappingSyncPayload implements ILIDMigrationMappingSyncPayload {
-
-        /**
-         * Constructs a new LIDMigrationMappingSyncPayload.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.ILIDMigrationMappingSyncPayload);
-
-        /** LIDMigrationMappingSyncPayload pnToLidMappings. */
-        public pnToLidMappings: proto.ILIDMigrationMapping[];
-
-        /** LIDMigrationMappingSyncPayload chatDbMigrationTimestamp. */
-        public chatDbMigrationTimestamp: (number|Long);
-
-        /**
-         * Creates a new LIDMigrationMappingSyncPayload instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns LIDMigrationMappingSyncPayload instance
-         */
-        public static create(properties?: proto.ILIDMigrationMappingSyncPayload): proto.LIDMigrationMappingSyncPayload;
-
-        /**
-         * Encodes the specified LIDMigrationMappingSyncPayload message. Does not implicitly {@link proto.LIDMigrationMappingSyncPayload.verify|verify} messages.
-         * @param message LIDMigrationMappingSyncPayload message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.ILIDMigrationMappingSyncPayload, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Encodes the specified LIDMigrationMappingSyncPayload message, length delimited. Does not implicitly {@link proto.LIDMigrationMappingSyncPayload.verify|verify} messages.
-         * @param message LIDMigrationMappingSyncPayload message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.ILIDMigrationMappingSyncPayload, writer?: $protobuf.Writer): $protobuf.Writer;
-
-        /**
-         * Decodes a LIDMigrationMappingSyncPayload message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns LIDMigrationMappingSyncPayload
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.LIDMigrationMappingSyncPayload;
-
-        /**
-         * Decodes a LIDMigrationMappingSyncPayload message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns LIDMigrationMappingSyncPayload
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.LIDMigrationMappingSyncPayload;
-
-        /**
-         * Verifies a LIDMigrationMappingSyncPayload message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-
-        /**
-         * Creates a LIDMigrationMappingSyncPayload message from a plain object. Also converts values to their respective internal types.
-         * @param object Plain object
-         * @returns LIDMigrationMappingSyncPayload
-         */
-        public static fromObject(object: { [k: string]: any }): proto.LIDMigrationMappingSyncPayload;
-
-        /**
-         * Creates a plain object from a LIDMigrationMappingSyncPayload message. Also converts values to other types if specified.
-         * @param message LIDMigrationMappingSyncPayload
-         * @param [options] Conversion options
-         * @returns Plain object
-         */
-        public static toObject(message: proto.LIDMigrationMappingSyncPayload, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-        /**
-         * Converts this LIDMigrationMappingSyncPayload to JSON.
-         * @returns JSON object
-         */
-        public toJSON(): { [k: string]: any };
-
-        /**
-         * Gets the default type url for LIDMigrationMappingSyncPayload
          * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
          * @returns The default type url
          */
@@ -48992,6 +48780,8 @@ export namespace proto {
         THREAD_PIN_ACTION = 85,
         AUTO_ORGANIZE_BUSINESS_CHAT_SETTING = 86,
         BIZ_AI_SETTINGS_NUDGE_ACTION = 87,
+        COEX_V2_VERSION_ACTION = 88,
+        WASA_ROOT_SECRET_ACTION = 89,
         SHARE_OWN_PN = 10001,
         BUSINESS_BROADCAST_ACTION = 10002,
         AI_THREAD_DELETE_ACTION = 10003
@@ -56567,6 +56357,12 @@ export namespace proto {
 
         /** SyncActionValue bizAiSettingsNudgeAction */
         bizAiSettingsNudgeAction?: (proto.SyncActionValue.IBizAISettingsNudgeAction|null);
+
+        /** SyncActionValue coexV2VersionAction */
+        coexV2VersionAction?: (proto.SyncActionValue.ICoexV2VersionAction|null);
+
+        /** SyncActionValue wasaRootSecretAction */
+        wasaRootSecretAction?: (proto.SyncActionValue.IWASARootSecretAction|null);
     }
 
     /** Represents a SyncActionValue. */
@@ -56812,6 +56608,12 @@ export namespace proto {
         /** SyncActionValue bizAiSettingsNudgeAction. */
         public bizAiSettingsNudgeAction?: (proto.SyncActionValue.IBizAISettingsNudgeAction|null);
 
+        /** SyncActionValue coexV2VersionAction. */
+        public coexV2VersionAction?: (proto.SyncActionValue.ICoexV2VersionAction|null);
+
+        /** SyncActionValue wasaRootSecretAction. */
+        public wasaRootSecretAction?: (proto.SyncActionValue.IWASARootSecretAction|null);
+
         /**
          * Creates a new SyncActionValue instance using the specified properties.
          * @param [properties] Properties to set
@@ -56898,8 +56700,8 @@ export namespace proto {
             /** AgentAction name */
             name?: (string|null);
 
-            /** AgentAction deviceID */
-            deviceID?: (number|null);
+            /** AgentAction deviceId */
+            deviceId?: (number|null);
 
             /** AgentAction isDeleted */
             isDeleted?: (boolean|null);
@@ -56917,8 +56719,8 @@ export namespace proto {
             /** AgentAction name. */
             public name: string;
 
-            /** AgentAction deviceID. */
-            public deviceID: number;
+            /** AgentAction deviceId. */
+            public deviceId: number;
 
             /** AgentAction isDeleted. */
             public isDeleted: boolean;
@@ -58424,8 +58226,8 @@ export namespace proto {
         /** Properties of a ChatAssignmentAction. */
         interface IChatAssignmentAction {
 
-            /** ChatAssignmentAction deviceAgentID */
-            deviceAgentID?: (string|null);
+            /** ChatAssignmentAction deviceAgentId */
+            deviceAgentId?: (string|null);
         }
 
         /** Represents a ChatAssignmentAction. */
@@ -58437,8 +58239,8 @@ export namespace proto {
              */
             constructor(properties?: proto.SyncActionValue.IChatAssignmentAction);
 
-            /** ChatAssignmentAction deviceAgentID. */
-            public deviceAgentID: string;
+            /** ChatAssignmentAction deviceAgentId. */
+            public deviceAgentId: string;
 
             /**
              * Creates a new ChatAssignmentAction instance using the specified properties.
@@ -58706,6 +58508,103 @@ export namespace proto {
 
             /**
              * Gets the default type url for ClearChatAction
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        /** Properties of a CoexV2VersionAction. */
+        interface ICoexV2VersionAction {
+
+            /** CoexV2VersionAction version */
+            version?: (number|Long|null);
+        }
+
+        /** Represents a CoexV2VersionAction. */
+        class CoexV2VersionAction implements ICoexV2VersionAction {
+
+            /**
+             * Constructs a new CoexV2VersionAction.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.SyncActionValue.ICoexV2VersionAction);
+
+            /** CoexV2VersionAction version. */
+            public version: (number|Long);
+
+            /**
+             * Creates a new CoexV2VersionAction instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CoexV2VersionAction instance
+             */
+            public static create(properties?: proto.SyncActionValue.ICoexV2VersionAction): proto.SyncActionValue.CoexV2VersionAction;
+
+            /**
+             * Encodes the specified CoexV2VersionAction message. Does not implicitly {@link proto.SyncActionValue.CoexV2VersionAction.verify|verify} messages.
+             * @param message CoexV2VersionAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.SyncActionValue.ICoexV2VersionAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CoexV2VersionAction message, length delimited. Does not implicitly {@link proto.SyncActionValue.CoexV2VersionAction.verify|verify} messages.
+             * @param message CoexV2VersionAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.SyncActionValue.ICoexV2VersionAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CoexV2VersionAction message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CoexV2VersionAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.CoexV2VersionAction;
+
+            /**
+             * Decodes a CoexV2VersionAction message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CoexV2VersionAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.CoexV2VersionAction;
+
+            /**
+             * Verifies a CoexV2VersionAction message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CoexV2VersionAction message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CoexV2VersionAction
+             */
+            public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.CoexV2VersionAction;
+
+            /**
+             * Creates a plain object from a CoexV2VersionAction message. Also converts values to other types if specified.
+             * @param message CoexV2VersionAction
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.SyncActionValue.CoexV2VersionAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CoexV2VersionAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for CoexV2VersionAction
              * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
              * @returns The default type url
              */
@@ -64387,11 +64286,11 @@ export namespace proto {
             /** StatusPrivacyAction userJid */
             userJid?: (string[]|null);
 
-            /** StatusPrivacyAction shareToFB */
-            shareToFB?: (boolean|null);
+            /** StatusPrivacyAction shareToFb */
+            shareToFb?: (boolean|null);
 
-            /** StatusPrivacyAction shareToIG */
-            shareToIG?: (boolean|null);
+            /** StatusPrivacyAction shareToIg */
+            shareToIg?: (boolean|null);
 
             /** StatusPrivacyAction customLists */
             customLists?: (proto.SyncActionValue.StatusPrivacyAction.ICustomList[]|null);
@@ -64415,11 +64314,11 @@ export namespace proto {
             /** StatusPrivacyAction userJid. */
             public userJid: string[];
 
-            /** StatusPrivacyAction shareToFB. */
-            public shareToFB: boolean;
+            /** StatusPrivacyAction shareToFb. */
+            public shareToFb: boolean;
 
-            /** StatusPrivacyAction shareToIG. */
-            public shareToIG: boolean;
+            /** StatusPrivacyAction shareToIg. */
+            public shareToIg: boolean;
 
             /** StatusPrivacyAction customLists. */
             public customLists: proto.SyncActionValue.StatusPrivacyAction.ICustomList[];
@@ -66077,6 +65976,215 @@ export namespace proto {
                 UNKNOWN = 0,
                 LID = 1,
                 PN = 2
+            }
+        }
+
+        /** Properties of a WASARootSecretAction. */
+        interface IWASARootSecretAction {
+
+            /** WASARootSecretAction secrets */
+            secrets?: (proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry[]|null);
+        }
+
+        /** Represents a WASARootSecretAction. */
+        class WASARootSecretAction implements IWASARootSecretAction {
+
+            /**
+             * Constructs a new WASARootSecretAction.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.SyncActionValue.IWASARootSecretAction);
+
+            /** WASARootSecretAction secrets. */
+            public secrets: proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry[];
+
+            /**
+             * Creates a new WASARootSecretAction instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns WASARootSecretAction instance
+             */
+            public static create(properties?: proto.SyncActionValue.IWASARootSecretAction): proto.SyncActionValue.WASARootSecretAction;
+
+            /**
+             * Encodes the specified WASARootSecretAction message. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.verify|verify} messages.
+             * @param message WASARootSecretAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.SyncActionValue.IWASARootSecretAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified WASARootSecretAction message, length delimited. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.verify|verify} messages.
+             * @param message WASARootSecretAction message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.SyncActionValue.IWASARootSecretAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a WASARootSecretAction message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns WASARootSecretAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.WASARootSecretAction;
+
+            /**
+             * Decodes a WASARootSecretAction message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns WASARootSecretAction
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.WASARootSecretAction;
+
+            /**
+             * Verifies a WASARootSecretAction message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a WASARootSecretAction message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns WASARootSecretAction
+             */
+            public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.WASARootSecretAction;
+
+            /**
+             * Creates a plain object from a WASARootSecretAction message. Also converts values to other types if specified.
+             * @param message WASARootSecretAction
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.SyncActionValue.WASARootSecretAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this WASARootSecretAction to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+
+            /**
+             * Gets the default type url for WASARootSecretAction
+             * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+             * @returns The default type url
+             */
+            public static getTypeUrl(typeUrlPrefix?: string): string;
+        }
+
+        namespace WASARootSecretAction {
+
+            /** Properties of a RootSecretEntry. */
+            interface IRootSecretEntry {
+
+                /** RootSecretEntry id */
+                id?: (string|null);
+
+                /** RootSecretEntry rootSecret */
+                rootSecret?: (Uint8Array|null);
+
+                /** RootSecretEntry epoch */
+                epoch?: (number|Long|null);
+            }
+
+            /** Represents a RootSecretEntry. */
+            class RootSecretEntry implements IRootSecretEntry {
+
+                /**
+                 * Constructs a new RootSecretEntry.
+                 * @param [properties] Properties to set
+                 */
+                constructor(properties?: proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry);
+
+                /** RootSecretEntry id. */
+                public id: string;
+
+                /** RootSecretEntry rootSecret. */
+                public rootSecret: Uint8Array;
+
+                /** RootSecretEntry epoch. */
+                public epoch: (number|Long);
+
+                /**
+                 * Creates a new RootSecretEntry instance using the specified properties.
+                 * @param [properties] Properties to set
+                 * @returns RootSecretEntry instance
+                 */
+                public static create(properties?: proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry): proto.SyncActionValue.WASARootSecretAction.RootSecretEntry;
+
+                /**
+                 * Encodes the specified RootSecretEntry message. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify|verify} messages.
+                 * @param message RootSecretEntry message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encode(message: proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Encodes the specified RootSecretEntry message, length delimited. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify|verify} messages.
+                 * @param message RootSecretEntry message or plain object to encode
+                 * @param [writer] Writer to encode to
+                 * @returns Writer
+                 */
+                public static encodeDelimited(message: proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                /**
+                 * Decodes a RootSecretEntry message from the specified reader or buffer.
+                 * @param reader Reader or buffer to decode from
+                 * @param [length] Message length if known beforehand
+                 * @returns RootSecretEntry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.SyncActionValue.WASARootSecretAction.RootSecretEntry;
+
+                /**
+                 * Decodes a RootSecretEntry message from the specified reader or buffer, length delimited.
+                 * @param reader Reader or buffer to decode from
+                 * @returns RootSecretEntry
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.SyncActionValue.WASARootSecretAction.RootSecretEntry;
+
+                /**
+                 * Verifies a RootSecretEntry message.
+                 * @param message Plain object to verify
+                 * @returns `null` if valid, otherwise the reason why it is not
+                 */
+                public static verify(message: { [k: string]: any }): (string|null);
+
+                /**
+                 * Creates a RootSecretEntry message from a plain object. Also converts values to their respective internal types.
+                 * @param object Plain object
+                 * @returns RootSecretEntry
+                 */
+                public static fromObject(object: { [k: string]: any }): proto.SyncActionValue.WASARootSecretAction.RootSecretEntry;
+
+                /**
+                 * Creates a plain object from a RootSecretEntry message. Also converts values to other types if specified.
+                 * @param message RootSecretEntry
+                 * @param [options] Conversion options
+                 * @returns Plain object
+                 */
+                public static toObject(message: proto.SyncActionValue.WASARootSecretAction.RootSecretEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                /**
+                 * Converts this RootSecretEntry to JSON.
+                 * @returns JSON object
+                 */
+                public toJSON(): { [k: string]: any };
+
+                /**
+                 * Gets the default type url for RootSecretEntry
+                 * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns The default type url
+                 */
+                public static getTypeUrl(typeUrlPrefix?: string): string;
             }
         }
 

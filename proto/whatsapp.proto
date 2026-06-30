@@ -1,9 +1,9 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1041554264
-/// Generated on: 2026-06-16T19:38:42.996Z
-/// Entities found: 223
+/// WhatsApp Version: 2.3000.1042411060
+/// Generated on: 2026-06-30T21:24:59.280Z
+/// Entities found: 221
 
 message ADVDeviceIdentity {
   uint32 rawId = 1;
@@ -2277,19 +2277,8 @@ message KeyId {
   bytes id = 1;
 }
 
-message LIDMigrationMapping {
-  uint64 pn = 1;
-  uint64 assignedLid = 2;
-  uint64 latestLid = 3;
-}
-
 message LIDMigrationMappingSyncMessage {
   bytes encodedMappingPayload = 1;
-}
-
-message LIDMigrationMappingSyncPayload {
-  repeated LIDMigrationMapping pnToLidMappings = 1;
-  uint64 chatDbMigrationTimestamp = 2;
 }
 
 message LegacyMessage {
@@ -4461,6 +4450,8 @@ enum MutationProps {
   THREAD_PIN_ACTION = 85;
   AUTO_ORGANIZE_BUSINESS_CHAT_SETTING = 86;
   BIZ_AI_SETTINGS_NUDGE_ACTION = 87;
+  COEX_V2_VERSION_ACTION = 88;
+  WASA_ROOT_SECRET_ACTION = 89;
   SHARE_OWN_PN = 10001;
   BUSINESS_BROADCAST_ACTION = 10002;
   AI_THREAD_DELETE_ACTION = 10003;
@@ -5118,9 +5109,11 @@ message SyncActionValue {
   ThreadPinAction threadPinAction = 85;
   AutoOrganizeBusinessChatSetting autoOrganizeBusinessChatSetting = 86;
   BizAISettingsNudgeAction bizAiSettingsNudgeAction = 87;
+  CoexV2VersionAction coexV2VersionAction = 88;
+  WASARootSecretAction wasaRootSecretAction = 89;
   message AgentAction {
     string name = 1;
-    int32 deviceID = 2;
+    int32 deviceId = 2;
     bool isDeleted = 3;
   }
   
@@ -5219,7 +5212,7 @@ message SyncActionValue {
   }
   
   message ChatAssignmentAction {
-    string deviceAgentID = 1;
+    string deviceAgentId = 1;
   }
   
   message ChatAssignmentOpenedStatusAction {
@@ -5228,6 +5221,10 @@ message SyncActionValue {
   
   message ClearChatAction {
     SyncActionValue.SyncActionMessageRange messageRange = 1;
+  }
+  
+  message CoexV2VersionAction {
+    uint64 version = 1;
   }
   
   message ContactAction {
@@ -5640,8 +5637,8 @@ message SyncActionValue {
   message StatusPrivacyAction {
     StatusDistributionMode mode = 1;
     repeated string userJid = 2;
-    bool shareToFB = 3;
-    bool shareToIG = 4;
+    bool shareToFb = 3;
+    bool shareToIg = 4;
     repeated CustomList customLists = 5;
     repeated StatusDistributionMode modes = 6;
     message CustomList {
@@ -5744,6 +5741,16 @@ message SyncActionValue {
       LID = 1;
       PN = 2;
     }
+  }
+  
+  message WASARootSecretAction {
+    repeated RootSecretEntry secrets = 1;
+    message RootSecretEntry {
+      string id = 1;
+      bytes rootSecret = 2;
+      int64 epoch = 3;
+    }
+    
   }
   
   message WaffleAccountLinkStateAction {

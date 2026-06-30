@@ -66631,300 +66631,6 @@
             return KeyId;
         })();
     
-        proto.LIDMigrationMapping = (function() {
-    
-            /**
-             * Properties of a LIDMigrationMapping.
-             * @memberof proto
-             * @interface ILIDMigrationMapping
-             * @property {number|Long|null} [pn] LIDMigrationMapping pn
-             * @property {number|Long|null} [assignedLid] LIDMigrationMapping assignedLid
-             * @property {number|Long|null} [latestLid] LIDMigrationMapping latestLid
-             */
-    
-            /**
-             * Constructs a new LIDMigrationMapping.
-             * @memberof proto
-             * @classdesc Represents a LIDMigrationMapping.
-             * @implements ILIDMigrationMapping
-             * @constructor
-             * @param {proto.ILIDMigrationMapping=} [properties] Properties to set
-             */
-            function LIDMigrationMapping(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-    
-            /**
-             * LIDMigrationMapping pn.
-             * @member {number|Long} pn
-             * @memberof proto.LIDMigrationMapping
-             * @instance
-             */
-            LIDMigrationMapping.prototype.pn = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
-    
-            /**
-             * LIDMigrationMapping assignedLid.
-             * @member {number|Long} assignedLid
-             * @memberof proto.LIDMigrationMapping
-             * @instance
-             */
-            LIDMigrationMapping.prototype.assignedLid = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
-    
-            /**
-             * LIDMigrationMapping latestLid.
-             * @member {number|Long} latestLid
-             * @memberof proto.LIDMigrationMapping
-             * @instance
-             */
-            LIDMigrationMapping.prototype.latestLid = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
-    
-            /**
-             * Creates a new LIDMigrationMapping instance using the specified properties.
-             * @function create
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {proto.ILIDMigrationMapping=} [properties] Properties to set
-             * @returns {proto.LIDMigrationMapping} LIDMigrationMapping instance
-             */
-            LIDMigrationMapping.create = function create(properties) {
-                return new LIDMigrationMapping(properties);
-            };
-    
-            /**
-             * Encodes the specified LIDMigrationMapping message. Does not implicitly {@link proto.LIDMigrationMapping.verify|verify} messages.
-             * @function encode
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {proto.ILIDMigrationMapping} message LIDMigrationMapping message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            LIDMigrationMapping.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.pn != null && Object.hasOwnProperty.call(message, "pn"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.pn);
-                if (message.assignedLid != null && Object.hasOwnProperty.call(message, "assignedLid"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.assignedLid);
-                if (message.latestLid != null && Object.hasOwnProperty.call(message, "latestLid"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).uint64(message.latestLid);
-                return writer;
-            };
-    
-            /**
-             * Encodes the specified LIDMigrationMapping message, length delimited. Does not implicitly {@link proto.LIDMigrationMapping.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {proto.ILIDMigrationMapping} message LIDMigrationMapping message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            LIDMigrationMapping.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-    
-            /**
-             * Decodes a LIDMigrationMapping message from the specified reader or buffer.
-             * @function decode
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {proto.LIDMigrationMapping} LIDMigrationMapping
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            LIDMigrationMapping.decode = function decode(reader, length, error) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.LIDMigrationMapping();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            message.pn = reader.uint64();
-                            break;
-                        }
-                    case 2: {
-                            message.assignedLid = reader.uint64();
-                            break;
-                        }
-                    case 3: {
-                            message.latestLid = reader.uint64();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-    
-            /**
-             * Decodes a LIDMigrationMapping message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {proto.LIDMigrationMapping} LIDMigrationMapping
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            LIDMigrationMapping.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-    
-            /**
-             * Verifies a LIDMigrationMapping message.
-             * @function verify
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            LIDMigrationMapping.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.pn != null && message.hasOwnProperty("pn"))
-                    if (!$util.isInteger(message.pn) && !(message.pn && $util.isInteger(message.pn.low) && $util.isInteger(message.pn.high)))
-                        return "pn: integer|Long expected";
-                if (message.assignedLid != null && message.hasOwnProperty("assignedLid"))
-                    if (!$util.isInteger(message.assignedLid) && !(message.assignedLid && $util.isInteger(message.assignedLid.low) && $util.isInteger(message.assignedLid.high)))
-                        return "assignedLid: integer|Long expected";
-                if (message.latestLid != null && message.hasOwnProperty("latestLid"))
-                    if (!$util.isInteger(message.latestLid) && !(message.latestLid && $util.isInteger(message.latestLid.low) && $util.isInteger(message.latestLid.high)))
-                        return "latestLid: integer|Long expected";
-                return null;
-            };
-    
-            /**
-             * Creates a LIDMigrationMapping message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {proto.LIDMigrationMapping} LIDMigrationMapping
-             */
-            LIDMigrationMapping.fromObject = function fromObject(object) {
-                if (object instanceof $root.proto.LIDMigrationMapping)
-                    return object;
-                var message = new $root.proto.LIDMigrationMapping();
-                if (object.pn != null)
-                    if ($util.Long)
-                        (message.pn = $util.Long.fromValue(object.pn)).unsigned = true;
-                    else if (typeof object.pn === "string")
-                        message.pn = parseInt(object.pn, 10);
-                    else if (typeof object.pn === "number")
-                        message.pn = object.pn;
-                    else if (typeof object.pn === "object")
-                        message.pn = new $util.LongBits(object.pn.low >>> 0, object.pn.high >>> 0).toNumber(true);
-                if (object.assignedLid != null)
-                    if ($util.Long)
-                        (message.assignedLid = $util.Long.fromValue(object.assignedLid)).unsigned = true;
-                    else if (typeof object.assignedLid === "string")
-                        message.assignedLid = parseInt(object.assignedLid, 10);
-                    else if (typeof object.assignedLid === "number")
-                        message.assignedLid = object.assignedLid;
-                    else if (typeof object.assignedLid === "object")
-                        message.assignedLid = new $util.LongBits(object.assignedLid.low >>> 0, object.assignedLid.high >>> 0).toNumber(true);
-                if (object.latestLid != null)
-                    if ($util.Long)
-                        (message.latestLid = $util.Long.fromValue(object.latestLid)).unsigned = true;
-                    else if (typeof object.latestLid === "string")
-                        message.latestLid = parseInt(object.latestLid, 10);
-                    else if (typeof object.latestLid === "number")
-                        message.latestLid = object.latestLid;
-                    else if (typeof object.latestLid === "object")
-                        message.latestLid = new $util.LongBits(object.latestLid.low >>> 0, object.latestLid.high >>> 0).toNumber(true);
-                return message;
-            };
-    
-            /**
-             * Creates a plain object from a LIDMigrationMapping message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {proto.LIDMigrationMapping} message LIDMigrationMapping
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            LIDMigrationMapping.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.pn = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.pn = options.longs === String ? "0" : 0;
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.assignedLid = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.assignedLid = options.longs === String ? "0" : 0;
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.latestLid = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.latestLid = options.longs === String ? "0" : 0;
-                }
-                if (message.pn != null && message.hasOwnProperty("pn"))
-                    if (typeof message.pn === "number")
-                        object.pn = options.longs === String ? String(message.pn) : message.pn;
-                    else
-                        object.pn = options.longs === String ? $util.Long.prototype.toString.call(message.pn) : options.longs === Number ? new $util.LongBits(message.pn.low >>> 0, message.pn.high >>> 0).toNumber(true) : message.pn;
-                if (message.assignedLid != null && message.hasOwnProperty("assignedLid"))
-                    if (typeof message.assignedLid === "number")
-                        object.assignedLid = options.longs === String ? String(message.assignedLid) : message.assignedLid;
-                    else
-                        object.assignedLid = options.longs === String ? $util.Long.prototype.toString.call(message.assignedLid) : options.longs === Number ? new $util.LongBits(message.assignedLid.low >>> 0, message.assignedLid.high >>> 0).toNumber(true) : message.assignedLid;
-                if (message.latestLid != null && message.hasOwnProperty("latestLid"))
-                    if (typeof message.latestLid === "number")
-                        object.latestLid = options.longs === String ? String(message.latestLid) : message.latestLid;
-                    else
-                        object.latestLid = options.longs === String ? $util.Long.prototype.toString.call(message.latestLid) : options.longs === Number ? new $util.LongBits(message.latestLid.low >>> 0, message.latestLid.high >>> 0).toNumber(true) : message.latestLid;
-                return object;
-            };
-    
-            /**
-             * Converts this LIDMigrationMapping to JSON.
-             * @function toJSON
-             * @memberof proto.LIDMigrationMapping
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            LIDMigrationMapping.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-    
-            /**
-             * Gets the default type url for LIDMigrationMapping
-             * @function getTypeUrl
-             * @memberof proto.LIDMigrationMapping
-             * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
-             */
-            LIDMigrationMapping.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/proto.LIDMigrationMapping";
-            };
-    
-            return LIDMigrationMapping;
-        })();
-    
         proto.LIDMigrationMappingSyncMessage = (function() {
     
             /**
@@ -67137,270 +66843,6 @@
             };
     
             return LIDMigrationMappingSyncMessage;
-        })();
-    
-        proto.LIDMigrationMappingSyncPayload = (function() {
-    
-            /**
-             * Properties of a LIDMigrationMappingSyncPayload.
-             * @memberof proto
-             * @interface ILIDMigrationMappingSyncPayload
-             * @property {Array.<proto.ILIDMigrationMapping>|null} [pnToLidMappings] LIDMigrationMappingSyncPayload pnToLidMappings
-             * @property {number|Long|null} [chatDbMigrationTimestamp] LIDMigrationMappingSyncPayload chatDbMigrationTimestamp
-             */
-    
-            /**
-             * Constructs a new LIDMigrationMappingSyncPayload.
-             * @memberof proto
-             * @classdesc Represents a LIDMigrationMappingSyncPayload.
-             * @implements ILIDMigrationMappingSyncPayload
-             * @constructor
-             * @param {proto.ILIDMigrationMappingSyncPayload=} [properties] Properties to set
-             */
-            function LIDMigrationMappingSyncPayload(properties) {
-                this.pnToLidMappings = [];
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-    
-            /**
-             * LIDMigrationMappingSyncPayload pnToLidMappings.
-             * @member {Array.<proto.ILIDMigrationMapping>} pnToLidMappings
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @instance
-             */
-            LIDMigrationMappingSyncPayload.prototype.pnToLidMappings = $util.emptyArray;
-    
-            /**
-             * LIDMigrationMappingSyncPayload chatDbMigrationTimestamp.
-             * @member {number|Long} chatDbMigrationTimestamp
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @instance
-             */
-            LIDMigrationMappingSyncPayload.prototype.chatDbMigrationTimestamp = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
-    
-            /**
-             * Creates a new LIDMigrationMappingSyncPayload instance using the specified properties.
-             * @function create
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {proto.ILIDMigrationMappingSyncPayload=} [properties] Properties to set
-             * @returns {proto.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload instance
-             */
-            LIDMigrationMappingSyncPayload.create = function create(properties) {
-                return new LIDMigrationMappingSyncPayload(properties);
-            };
-    
-            /**
-             * Encodes the specified LIDMigrationMappingSyncPayload message. Does not implicitly {@link proto.LIDMigrationMappingSyncPayload.verify|verify} messages.
-             * @function encode
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {proto.ILIDMigrationMappingSyncPayload} message LIDMigrationMappingSyncPayload message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            LIDMigrationMappingSyncPayload.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.pnToLidMappings != null && message.pnToLidMappings.length)
-                    for (var i = 0; i < message.pnToLidMappings.length; ++i)
-                        $root.proto.LIDMigrationMapping.encode(message.pnToLidMappings[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                if (message.chatDbMigrationTimestamp != null && Object.hasOwnProperty.call(message, "chatDbMigrationTimestamp"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).uint64(message.chatDbMigrationTimestamp);
-                return writer;
-            };
-    
-            /**
-             * Encodes the specified LIDMigrationMappingSyncPayload message, length delimited. Does not implicitly {@link proto.LIDMigrationMappingSyncPayload.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {proto.ILIDMigrationMappingSyncPayload} message LIDMigrationMappingSyncPayload message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            LIDMigrationMappingSyncPayload.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-    
-            /**
-             * Decodes a LIDMigrationMappingSyncPayload message from the specified reader or buffer.
-             * @function decode
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {proto.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            LIDMigrationMappingSyncPayload.decode = function decode(reader, length, error) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.LIDMigrationMappingSyncPayload();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    if (tag === error)
-                        break;
-                    switch (tag >>> 3) {
-                    case 1: {
-                            if (!(message.pnToLidMappings && message.pnToLidMappings.length))
-                                message.pnToLidMappings = [];
-                            message.pnToLidMappings.push($root.proto.LIDMigrationMapping.decode(reader, reader.uint32()));
-                            break;
-                        }
-                    case 2: {
-                            message.chatDbMigrationTimestamp = reader.uint64();
-                            break;
-                        }
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-    
-            /**
-             * Decodes a LIDMigrationMappingSyncPayload message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {proto.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            LIDMigrationMappingSyncPayload.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-    
-            /**
-             * Verifies a LIDMigrationMappingSyncPayload message.
-             * @function verify
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            LIDMigrationMappingSyncPayload.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.pnToLidMappings != null && message.hasOwnProperty("pnToLidMappings")) {
-                    if (!Array.isArray(message.pnToLidMappings))
-                        return "pnToLidMappings: array expected";
-                    for (var i = 0; i < message.pnToLidMappings.length; ++i) {
-                        var error = $root.proto.LIDMigrationMapping.verify(message.pnToLidMappings[i]);
-                        if (error)
-                            return "pnToLidMappings." + error;
-                    }
-                }
-                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
-                    if (!$util.isInteger(message.chatDbMigrationTimestamp) && !(message.chatDbMigrationTimestamp && $util.isInteger(message.chatDbMigrationTimestamp.low) && $util.isInteger(message.chatDbMigrationTimestamp.high)))
-                        return "chatDbMigrationTimestamp: integer|Long expected";
-                return null;
-            };
-    
-            /**
-             * Creates a LIDMigrationMappingSyncPayload message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {proto.LIDMigrationMappingSyncPayload} LIDMigrationMappingSyncPayload
-             */
-            LIDMigrationMappingSyncPayload.fromObject = function fromObject(object) {
-                if (object instanceof $root.proto.LIDMigrationMappingSyncPayload)
-                    return object;
-                var message = new $root.proto.LIDMigrationMappingSyncPayload();
-                if (object.pnToLidMappings) {
-                    if (!Array.isArray(object.pnToLidMappings))
-                        throw TypeError(".proto.LIDMigrationMappingSyncPayload.pnToLidMappings: array expected");
-                    message.pnToLidMappings = [];
-                    for (var i = 0; i < object.pnToLidMappings.length; ++i) {
-                        if (typeof object.pnToLidMappings[i] !== "object")
-                            throw TypeError(".proto.LIDMigrationMappingSyncPayload.pnToLidMappings: object expected");
-                        message.pnToLidMappings[i] = $root.proto.LIDMigrationMapping.fromObject(object.pnToLidMappings[i]);
-                    }
-                }
-                if (object.chatDbMigrationTimestamp != null)
-                    if ($util.Long)
-                        (message.chatDbMigrationTimestamp = $util.Long.fromValue(object.chatDbMigrationTimestamp)).unsigned = true;
-                    else if (typeof object.chatDbMigrationTimestamp === "string")
-                        message.chatDbMigrationTimestamp = parseInt(object.chatDbMigrationTimestamp, 10);
-                    else if (typeof object.chatDbMigrationTimestamp === "number")
-                        message.chatDbMigrationTimestamp = object.chatDbMigrationTimestamp;
-                    else if (typeof object.chatDbMigrationTimestamp === "object")
-                        message.chatDbMigrationTimestamp = new $util.LongBits(object.chatDbMigrationTimestamp.low >>> 0, object.chatDbMigrationTimestamp.high >>> 0).toNumber(true);
-                return message;
-            };
-    
-            /**
-             * Creates a plain object from a LIDMigrationMappingSyncPayload message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {proto.LIDMigrationMappingSyncPayload} message LIDMigrationMappingSyncPayload
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            LIDMigrationMappingSyncPayload.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.arrays || options.defaults)
-                    object.pnToLidMappings = [];
-                if (options.defaults)
-                    if ($util.Long) {
-                        var long = new $util.Long(0, 0, true);
-                        object.chatDbMigrationTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                    } else
-                        object.chatDbMigrationTimestamp = options.longs === String ? "0" : 0;
-                if (message.pnToLidMappings && message.pnToLidMappings.length) {
-                    object.pnToLidMappings = [];
-                    for (var j = 0; j < message.pnToLidMappings.length; ++j)
-                        object.pnToLidMappings[j] = $root.proto.LIDMigrationMapping.toObject(message.pnToLidMappings[j], options);
-                }
-                if (message.chatDbMigrationTimestamp != null && message.hasOwnProperty("chatDbMigrationTimestamp"))
-                    if (typeof message.chatDbMigrationTimestamp === "number")
-                        object.chatDbMigrationTimestamp = options.longs === String ? String(message.chatDbMigrationTimestamp) : message.chatDbMigrationTimestamp;
-                    else
-                        object.chatDbMigrationTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.chatDbMigrationTimestamp) : options.longs === Number ? new $util.LongBits(message.chatDbMigrationTimestamp.low >>> 0, message.chatDbMigrationTimestamp.high >>> 0).toNumber(true) : message.chatDbMigrationTimestamp;
-                return object;
-            };
-    
-            /**
-             * Converts this LIDMigrationMappingSyncPayload to JSON.
-             * @function toJSON
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            LIDMigrationMappingSyncPayload.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-    
-            /**
-             * Gets the default type url for LIDMigrationMappingSyncPayload
-             * @function getTypeUrl
-             * @memberof proto.LIDMigrationMappingSyncPayload
-             * @static
-             * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-             * @returns {string} The default type url
-             */
-            LIDMigrationMappingSyncPayload.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-                if (typeUrlPrefix === undefined) {
-                    typeUrlPrefix = "type.googleapis.com";
-                }
-                return typeUrlPrefix + "/proto.LIDMigrationMappingSyncPayload";
-            };
-    
-            return LIDMigrationMappingSyncPayload;
         })();
     
         proto.LegacyMessage = (function() {
@@ -135603,6 +135045,8 @@
          * @property {number} THREAD_PIN_ACTION=85 THREAD_PIN_ACTION value
          * @property {number} AUTO_ORGANIZE_BUSINESS_CHAT_SETTING=86 AUTO_ORGANIZE_BUSINESS_CHAT_SETTING value
          * @property {number} BIZ_AI_SETTINGS_NUDGE_ACTION=87 BIZ_AI_SETTINGS_NUDGE_ACTION value
+         * @property {number} COEX_V2_VERSION_ACTION=88 COEX_V2_VERSION_ACTION value
+         * @property {number} WASA_ROOT_SECRET_ACTION=89 WASA_ROOT_SECRET_ACTION value
          * @property {number} SHARE_OWN_PN=10001 SHARE_OWN_PN value
          * @property {number} BUSINESS_BROADCAST_ACTION=10002 BUSINESS_BROADCAST_ACTION value
          * @property {number} AI_THREAD_DELETE_ACTION=10003 AI_THREAD_DELETE_ACTION value
@@ -135691,6 +135135,8 @@
             values[valuesById[85] = "THREAD_PIN_ACTION"] = 85;
             values[valuesById[86] = "AUTO_ORGANIZE_BUSINESS_CHAT_SETTING"] = 86;
             values[valuesById[87] = "BIZ_AI_SETTINGS_NUDGE_ACTION"] = 87;
+            values[valuesById[88] = "COEX_V2_VERSION_ACTION"] = 88;
+            values[valuesById[89] = "WASA_ROOT_SECRET_ACTION"] = 89;
             values[valuesById[10001] = "SHARE_OWN_PN"] = 10001;
             values[valuesById[10002] = "BUSINESS_BROADCAST_ACTION"] = 10002;
             values[valuesById[10003] = "AI_THREAD_DELETE_ACTION"] = 10003;
@@ -155028,6 +154474,8 @@
              * @property {proto.SyncActionValue.IThreadPinAction|null} [threadPinAction] SyncActionValue threadPinAction
              * @property {proto.SyncActionValue.IAutoOrganizeBusinessChatSetting|null} [autoOrganizeBusinessChatSetting] SyncActionValue autoOrganizeBusinessChatSetting
              * @property {proto.SyncActionValue.IBizAISettingsNudgeAction|null} [bizAiSettingsNudgeAction] SyncActionValue bizAiSettingsNudgeAction
+             * @property {proto.SyncActionValue.ICoexV2VersionAction|null} [coexV2VersionAction] SyncActionValue coexV2VersionAction
+             * @property {proto.SyncActionValue.IWASARootSecretAction|null} [wasaRootSecretAction] SyncActionValue wasaRootSecretAction
              */
     
             /**
@@ -155670,6 +155118,22 @@
             SyncActionValue.prototype.bizAiSettingsNudgeAction = null;
     
             /**
+             * SyncActionValue coexV2VersionAction.
+             * @member {proto.SyncActionValue.ICoexV2VersionAction|null|undefined} coexV2VersionAction
+             * @memberof proto.SyncActionValue
+             * @instance
+             */
+            SyncActionValue.prototype.coexV2VersionAction = null;
+    
+            /**
+             * SyncActionValue wasaRootSecretAction.
+             * @member {proto.SyncActionValue.IWASARootSecretAction|null|undefined} wasaRootSecretAction
+             * @memberof proto.SyncActionValue
+             * @instance
+             */
+            SyncActionValue.prototype.wasaRootSecretAction = null;
+    
+            /**
              * Creates a new SyncActionValue instance using the specified properties.
              * @function create
              * @memberof proto.SyncActionValue
@@ -155849,6 +155313,10 @@
                     $root.proto.SyncActionValue.AutoOrganizeBusinessChatSetting.encode(message.autoOrganizeBusinessChatSetting, writer.uint32(/* id 86, wireType 2 =*/690).fork()).ldelim();
                 if (message.bizAiSettingsNudgeAction != null && Object.hasOwnProperty.call(message, "bizAiSettingsNudgeAction"))
                     $root.proto.SyncActionValue.BizAISettingsNudgeAction.encode(message.bizAiSettingsNudgeAction, writer.uint32(/* id 87, wireType 2 =*/698).fork()).ldelim();
+                if (message.coexV2VersionAction != null && Object.hasOwnProperty.call(message, "coexV2VersionAction"))
+                    $root.proto.SyncActionValue.CoexV2VersionAction.encode(message.coexV2VersionAction, writer.uint32(/* id 88, wireType 2 =*/706).fork()).ldelim();
+                if (message.wasaRootSecretAction != null && Object.hasOwnProperty.call(message, "wasaRootSecretAction"))
+                    $root.proto.SyncActionValue.WASARootSecretAction.encode(message.wasaRootSecretAction, writer.uint32(/* id 89, wireType 2 =*/714).fork()).ldelim();
                 return writer;
             };
     
@@ -156195,6 +155663,14 @@
                         }
                     case 87: {
                             message.bizAiSettingsNudgeAction = $root.proto.SyncActionValue.BizAISettingsNudgeAction.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 88: {
+                            message.coexV2VersionAction = $root.proto.SyncActionValue.CoexV2VersionAction.decode(reader, reader.uint32());
+                            break;
+                        }
+                    case 89: {
+                            message.wasaRootSecretAction = $root.proto.SyncActionValue.WASARootSecretAction.decode(reader, reader.uint32());
                             break;
                         }
                     default:
@@ -156620,6 +156096,16 @@
                     if (error)
                         return "bizAiSettingsNudgeAction." + error;
                 }
+                if (message.coexV2VersionAction != null && message.hasOwnProperty("coexV2VersionAction")) {
+                    var error = $root.proto.SyncActionValue.CoexV2VersionAction.verify(message.coexV2VersionAction);
+                    if (error)
+                        return "coexV2VersionAction." + error;
+                }
+                if (message.wasaRootSecretAction != null && message.hasOwnProperty("wasaRootSecretAction")) {
+                    var error = $root.proto.SyncActionValue.WASARootSecretAction.verify(message.wasaRootSecretAction);
+                    if (error)
+                        return "wasaRootSecretAction." + error;
+                }
                 return null;
             };
     
@@ -157029,6 +156515,16 @@
                         throw TypeError(".proto.SyncActionValue.bizAiSettingsNudgeAction: object expected");
                     message.bizAiSettingsNudgeAction = $root.proto.SyncActionValue.BizAISettingsNudgeAction.fromObject(object.bizAiSettingsNudgeAction);
                 }
+                if (object.coexV2VersionAction != null) {
+                    if (typeof object.coexV2VersionAction !== "object")
+                        throw TypeError(".proto.SyncActionValue.coexV2VersionAction: object expected");
+                    message.coexV2VersionAction = $root.proto.SyncActionValue.CoexV2VersionAction.fromObject(object.coexV2VersionAction);
+                }
+                if (object.wasaRootSecretAction != null) {
+                    if (typeof object.wasaRootSecretAction !== "object")
+                        throw TypeError(".proto.SyncActionValue.wasaRootSecretAction: object expected");
+                    message.wasaRootSecretAction = $root.proto.SyncActionValue.WASARootSecretAction.fromObject(object.wasaRootSecretAction);
+                }
                 return message;
             };
     
@@ -157128,6 +156624,8 @@
                     object.threadPinAction = null;
                     object.autoOrganizeBusinessChatSetting = null;
                     object.bizAiSettingsNudgeAction = null;
+                    object.coexV2VersionAction = null;
+                    object.wasaRootSecretAction = null;
                 }
                 if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                     if (typeof message.timestamp === "number")
@@ -157288,6 +156786,10 @@
                     object.autoOrganizeBusinessChatSetting = $root.proto.SyncActionValue.AutoOrganizeBusinessChatSetting.toObject(message.autoOrganizeBusinessChatSetting, options);
                 if (message.bizAiSettingsNudgeAction != null && message.hasOwnProperty("bizAiSettingsNudgeAction"))
                     object.bizAiSettingsNudgeAction = $root.proto.SyncActionValue.BizAISettingsNudgeAction.toObject(message.bizAiSettingsNudgeAction, options);
+                if (message.coexV2VersionAction != null && message.hasOwnProperty("coexV2VersionAction"))
+                    object.coexV2VersionAction = $root.proto.SyncActionValue.CoexV2VersionAction.toObject(message.coexV2VersionAction, options);
+                if (message.wasaRootSecretAction != null && message.hasOwnProperty("wasaRootSecretAction"))
+                    object.wasaRootSecretAction = $root.proto.SyncActionValue.WASARootSecretAction.toObject(message.wasaRootSecretAction, options);
                 return object;
             };
     
@@ -157324,7 +156826,7 @@
                  * @memberof proto.SyncActionValue
                  * @interface IAgentAction
                  * @property {string|null} [name] AgentAction name
-                 * @property {number|null} [deviceID] AgentAction deviceID
+                 * @property {number|null} [deviceId] AgentAction deviceId
                  * @property {boolean|null} [isDeleted] AgentAction isDeleted
                  */
     
@@ -157352,12 +156854,12 @@
                 AgentAction.prototype.name = "";
     
                 /**
-                 * AgentAction deviceID.
-                 * @member {number} deviceID
+                 * AgentAction deviceId.
+                 * @member {number} deviceId
                  * @memberof proto.SyncActionValue.AgentAction
                  * @instance
                  */
-                AgentAction.prototype.deviceID = 0;
+                AgentAction.prototype.deviceId = 0;
     
                 /**
                  * AgentAction isDeleted.
@@ -157393,8 +156895,8 @@
                         writer = $Writer.create();
                     if (message.name != null && Object.hasOwnProperty.call(message, "name"))
                         writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                    if (message.deviceID != null && Object.hasOwnProperty.call(message, "deviceID"))
-                        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.deviceID);
+                    if (message.deviceId != null && Object.hasOwnProperty.call(message, "deviceId"))
+                        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.deviceId);
                     if (message.isDeleted != null && Object.hasOwnProperty.call(message, "isDeleted"))
                         writer.uint32(/* id 3, wireType 0 =*/24).bool(message.isDeleted);
                     return writer;
@@ -157438,7 +156940,7 @@
                                 break;
                             }
                         case 2: {
-                                message.deviceID = reader.int32();
+                                message.deviceId = reader.int32();
                                 break;
                             }
                         case 3: {
@@ -157483,9 +156985,9 @@
                     if (message.name != null && message.hasOwnProperty("name"))
                         if (!$util.isString(message.name))
                             return "name: string expected";
-                    if (message.deviceID != null && message.hasOwnProperty("deviceID"))
-                        if (!$util.isInteger(message.deviceID))
-                            return "deviceID: integer expected";
+                    if (message.deviceId != null && message.hasOwnProperty("deviceId"))
+                        if (!$util.isInteger(message.deviceId))
+                            return "deviceId: integer expected";
                     if (message.isDeleted != null && message.hasOwnProperty("isDeleted"))
                         if (typeof message.isDeleted !== "boolean")
                             return "isDeleted: boolean expected";
@@ -157506,8 +157008,8 @@
                     var message = new $root.proto.SyncActionValue.AgentAction();
                     if (object.name != null)
                         message.name = String(object.name);
-                    if (object.deviceID != null)
-                        message.deviceID = object.deviceID | 0;
+                    if (object.deviceId != null)
+                        message.deviceId = object.deviceId | 0;
                     if (object.isDeleted != null)
                         message.isDeleted = Boolean(object.isDeleted);
                     return message;
@@ -157528,13 +157030,13 @@
                     var object = {};
                     if (options.defaults) {
                         object.name = "";
-                        object.deviceID = 0;
+                        object.deviceId = 0;
                         object.isDeleted = false;
                     }
                     if (message.name != null && message.hasOwnProperty("name"))
                         object.name = message.name;
-                    if (message.deviceID != null && message.hasOwnProperty("deviceID"))
-                        object.deviceID = message.deviceID;
+                    if (message.deviceId != null && message.hasOwnProperty("deviceId"))
+                        object.deviceId = message.deviceId;
                     if (message.isDeleted != null && message.hasOwnProperty("isDeleted"))
                         object.isDeleted = message.isDeleted;
                     return object;
@@ -161018,7 +160520,7 @@
                  * Properties of a ChatAssignmentAction.
                  * @memberof proto.SyncActionValue
                  * @interface IChatAssignmentAction
-                 * @property {string|null} [deviceAgentID] ChatAssignmentAction deviceAgentID
+                 * @property {string|null} [deviceAgentId] ChatAssignmentAction deviceAgentId
                  */
     
                 /**
@@ -161037,12 +160539,12 @@
                 }
     
                 /**
-                 * ChatAssignmentAction deviceAgentID.
-                 * @member {string} deviceAgentID
+                 * ChatAssignmentAction deviceAgentId.
+                 * @member {string} deviceAgentId
                  * @memberof proto.SyncActionValue.ChatAssignmentAction
                  * @instance
                  */
-                ChatAssignmentAction.prototype.deviceAgentID = "";
+                ChatAssignmentAction.prototype.deviceAgentId = "";
     
                 /**
                  * Creates a new ChatAssignmentAction instance using the specified properties.
@@ -161068,8 +160570,8 @@
                 ChatAssignmentAction.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.deviceAgentID != null && Object.hasOwnProperty.call(message, "deviceAgentID"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.deviceAgentID);
+                    if (message.deviceAgentId != null && Object.hasOwnProperty.call(message, "deviceAgentId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.deviceAgentId);
                     return writer;
                 };
     
@@ -161107,7 +160609,7 @@
                             break;
                         switch (tag >>> 3) {
                         case 1: {
-                                message.deviceAgentID = reader.string();
+                                message.deviceAgentId = reader.string();
                                 break;
                             }
                         default:
@@ -161145,9 +160647,9 @@
                 ChatAssignmentAction.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.deviceAgentID != null && message.hasOwnProperty("deviceAgentID"))
-                        if (!$util.isString(message.deviceAgentID))
-                            return "deviceAgentID: string expected";
+                    if (message.deviceAgentId != null && message.hasOwnProperty("deviceAgentId"))
+                        if (!$util.isString(message.deviceAgentId))
+                            return "deviceAgentId: string expected";
                     return null;
                 };
     
@@ -161163,8 +160665,8 @@
                     if (object instanceof $root.proto.SyncActionValue.ChatAssignmentAction)
                         return object;
                     var message = new $root.proto.SyncActionValue.ChatAssignmentAction();
-                    if (object.deviceAgentID != null)
-                        message.deviceAgentID = String(object.deviceAgentID);
+                    if (object.deviceAgentId != null)
+                        message.deviceAgentId = String(object.deviceAgentId);
                     return message;
                 };
     
@@ -161182,9 +160684,9 @@
                         options = {};
                     var object = {};
                     if (options.defaults)
-                        object.deviceAgentID = "";
-                    if (message.deviceAgentID != null && message.hasOwnProperty("deviceAgentID"))
-                        object.deviceAgentID = message.deviceAgentID;
+                        object.deviceAgentId = "";
+                    if (message.deviceAgentId != null && message.hasOwnProperty("deviceAgentId"))
+                        object.deviceAgentId = message.deviceAgentId;
                     return object;
                 };
     
@@ -161630,6 +161132,225 @@
                 };
     
                 return ClearChatAction;
+            })();
+    
+            SyncActionValue.CoexV2VersionAction = (function() {
+    
+                /**
+                 * Properties of a CoexV2VersionAction.
+                 * @memberof proto.SyncActionValue
+                 * @interface ICoexV2VersionAction
+                 * @property {number|Long|null} [version] CoexV2VersionAction version
+                 */
+    
+                /**
+                 * Constructs a new CoexV2VersionAction.
+                 * @memberof proto.SyncActionValue
+                 * @classdesc Represents a CoexV2VersionAction.
+                 * @implements ICoexV2VersionAction
+                 * @constructor
+                 * @param {proto.SyncActionValue.ICoexV2VersionAction=} [properties] Properties to set
+                 */
+                function CoexV2VersionAction(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * CoexV2VersionAction version.
+                 * @member {number|Long} version
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @instance
+                 */
+                CoexV2VersionAction.prototype.version = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+    
+                /**
+                 * Creates a new CoexV2VersionAction instance using the specified properties.
+                 * @function create
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {proto.SyncActionValue.ICoexV2VersionAction=} [properties] Properties to set
+                 * @returns {proto.SyncActionValue.CoexV2VersionAction} CoexV2VersionAction instance
+                 */
+                CoexV2VersionAction.create = function create(properties) {
+                    return new CoexV2VersionAction(properties);
+                };
+    
+                /**
+                 * Encodes the specified CoexV2VersionAction message. Does not implicitly {@link proto.SyncActionValue.CoexV2VersionAction.verify|verify} messages.
+                 * @function encode
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {proto.SyncActionValue.ICoexV2VersionAction} message CoexV2VersionAction message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                CoexV2VersionAction.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                        writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.version);
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified CoexV2VersionAction message, length delimited. Does not implicitly {@link proto.SyncActionValue.CoexV2VersionAction.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {proto.SyncActionValue.ICoexV2VersionAction} message CoexV2VersionAction message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                CoexV2VersionAction.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes a CoexV2VersionAction message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {proto.SyncActionValue.CoexV2VersionAction} CoexV2VersionAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                CoexV2VersionAction.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.SyncActionValue.CoexV2VersionAction();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                message.version = reader.uint64();
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes a CoexV2VersionAction message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {proto.SyncActionValue.CoexV2VersionAction} CoexV2VersionAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                CoexV2VersionAction.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies a CoexV2VersionAction message.
+                 * @function verify
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                CoexV2VersionAction.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.version != null && message.hasOwnProperty("version"))
+                        if (!$util.isInteger(message.version) && !(message.version && $util.isInteger(message.version.low) && $util.isInteger(message.version.high)))
+                            return "version: integer|Long expected";
+                    return null;
+                };
+    
+                /**
+                 * Creates a CoexV2VersionAction message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {proto.SyncActionValue.CoexV2VersionAction} CoexV2VersionAction
+                 */
+                CoexV2VersionAction.fromObject = function fromObject(object) {
+                    if (object instanceof $root.proto.SyncActionValue.CoexV2VersionAction)
+                        return object;
+                    var message = new $root.proto.SyncActionValue.CoexV2VersionAction();
+                    if (object.version != null)
+                        if ($util.Long)
+                            (message.version = $util.Long.fromValue(object.version)).unsigned = true;
+                        else if (typeof object.version === "string")
+                            message.version = parseInt(object.version, 10);
+                        else if (typeof object.version === "number")
+                            message.version = object.version;
+                        else if (typeof object.version === "object")
+                            message.version = new $util.LongBits(object.version.low >>> 0, object.version.high >>> 0).toNumber(true);
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from a CoexV2VersionAction message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {proto.SyncActionValue.CoexV2VersionAction} message CoexV2VersionAction
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                CoexV2VersionAction.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults)
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, true);
+                            object.version = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.version = options.longs === String ? "0" : 0;
+                    if (message.version != null && message.hasOwnProperty("version"))
+                        if (typeof message.version === "number")
+                            object.version = options.longs === String ? String(message.version) : message.version;
+                        else
+                            object.version = options.longs === String ? $util.Long.prototype.toString.call(message.version) : options.longs === Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber(true) : message.version;
+                    return object;
+                };
+    
+                /**
+                 * Converts this CoexV2VersionAction to JSON.
+                 * @function toJSON
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                CoexV2VersionAction.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for CoexV2VersionAction
+                 * @function getTypeUrl
+                 * @memberof proto.SyncActionValue.CoexV2VersionAction
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                CoexV2VersionAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/proto.SyncActionValue.CoexV2VersionAction";
+                };
+    
+                return CoexV2VersionAction;
             })();
     
             SyncActionValue.ContactAction = (function() {
@@ -175260,8 +174981,8 @@
                  * @interface IStatusPrivacyAction
                  * @property {proto.SyncActionValue.StatusPrivacyAction.StatusDistributionMode|null} [mode] StatusPrivacyAction mode
                  * @property {Array.<string>|null} [userJid] StatusPrivacyAction userJid
-                 * @property {boolean|null} [shareToFB] StatusPrivacyAction shareToFB
-                 * @property {boolean|null} [shareToIG] StatusPrivacyAction shareToIG
+                 * @property {boolean|null} [shareToFb] StatusPrivacyAction shareToFb
+                 * @property {boolean|null} [shareToIg] StatusPrivacyAction shareToIg
                  * @property {Array.<proto.SyncActionValue.StatusPrivacyAction.ICustomList>|null} [customLists] StatusPrivacyAction customLists
                  * @property {Array.<proto.SyncActionValue.StatusPrivacyAction.StatusDistributionMode>|null} [modes] StatusPrivacyAction modes
                  */
@@ -175301,20 +175022,20 @@
                 StatusPrivacyAction.prototype.userJid = $util.emptyArray;
     
                 /**
-                 * StatusPrivacyAction shareToFB.
-                 * @member {boolean} shareToFB
+                 * StatusPrivacyAction shareToFb.
+                 * @member {boolean} shareToFb
                  * @memberof proto.SyncActionValue.StatusPrivacyAction
                  * @instance
                  */
-                StatusPrivacyAction.prototype.shareToFB = false;
+                StatusPrivacyAction.prototype.shareToFb = false;
     
                 /**
-                 * StatusPrivacyAction shareToIG.
-                 * @member {boolean} shareToIG
+                 * StatusPrivacyAction shareToIg.
+                 * @member {boolean} shareToIg
                  * @memberof proto.SyncActionValue.StatusPrivacyAction
                  * @instance
                  */
-                StatusPrivacyAction.prototype.shareToIG = false;
+                StatusPrivacyAction.prototype.shareToIg = false;
     
                 /**
                  * StatusPrivacyAction customLists.
@@ -175361,10 +175082,10 @@
                     if (message.userJid != null && message.userJid.length)
                         for (var i = 0; i < message.userJid.length; ++i)
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.userJid[i]);
-                    if (message.shareToFB != null && Object.hasOwnProperty.call(message, "shareToFB"))
-                        writer.uint32(/* id 3, wireType 0 =*/24).bool(message.shareToFB);
-                    if (message.shareToIG != null && Object.hasOwnProperty.call(message, "shareToIG"))
-                        writer.uint32(/* id 4, wireType 0 =*/32).bool(message.shareToIG);
+                    if (message.shareToFb != null && Object.hasOwnProperty.call(message, "shareToFb"))
+                        writer.uint32(/* id 3, wireType 0 =*/24).bool(message.shareToFb);
+                    if (message.shareToIg != null && Object.hasOwnProperty.call(message, "shareToIg"))
+                        writer.uint32(/* id 4, wireType 0 =*/32).bool(message.shareToIg);
                     if (message.customLists != null && message.customLists.length)
                         for (var i = 0; i < message.customLists.length; ++i)
                             $root.proto.SyncActionValue.StatusPrivacyAction.CustomList.encode(message.customLists[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
@@ -175421,11 +175142,11 @@
                                 break;
                             }
                         case 3: {
-                                message.shareToFB = reader.bool();
+                                message.shareToFb = reader.bool();
                                 break;
                             }
                         case 4: {
-                                message.shareToIG = reader.bool();
+                                message.shareToIg = reader.bool();
                                 break;
                             }
                         case 5: {
@@ -175498,12 +175219,12 @@
                             if (!$util.isString(message.userJid[i]))
                                 return "userJid: string[] expected";
                     }
-                    if (message.shareToFB != null && message.hasOwnProperty("shareToFB"))
-                        if (typeof message.shareToFB !== "boolean")
-                            return "shareToFB: boolean expected";
-                    if (message.shareToIG != null && message.hasOwnProperty("shareToIG"))
-                        if (typeof message.shareToIG !== "boolean")
-                            return "shareToIG: boolean expected";
+                    if (message.shareToFb != null && message.hasOwnProperty("shareToFb"))
+                        if (typeof message.shareToFb !== "boolean")
+                            return "shareToFb: boolean expected";
+                    if (message.shareToIg != null && message.hasOwnProperty("shareToIg"))
+                        if (typeof message.shareToIg !== "boolean")
+                            return "shareToIg: boolean expected";
                     if (message.customLists != null && message.hasOwnProperty("customLists")) {
                         if (!Array.isArray(message.customLists))
                             return "customLists: array expected";
@@ -175578,10 +175299,10 @@
                         for (var i = 0; i < object.userJid.length; ++i)
                             message.userJid[i] = String(object.userJid[i]);
                     }
-                    if (object.shareToFB != null)
-                        message.shareToFB = Boolean(object.shareToFB);
-                    if (object.shareToIG != null)
-                        message.shareToIG = Boolean(object.shareToIG);
+                    if (object.shareToFb != null)
+                        message.shareToFb = Boolean(object.shareToFb);
+                    if (object.shareToIg != null)
+                        message.shareToIg = Boolean(object.shareToIg);
                     if (object.customLists) {
                         if (!Array.isArray(object.customLists))
                             throw TypeError(".proto.SyncActionValue.StatusPrivacyAction.customLists: array expected");
@@ -175648,8 +175369,8 @@
                     }
                     if (options.defaults) {
                         object.mode = options.enums === String ? "ALLOW_LIST" : 0;
-                        object.shareToFB = false;
-                        object.shareToIG = false;
+                        object.shareToFb = false;
+                        object.shareToIg = false;
                     }
                     if (message.mode != null && message.hasOwnProperty("mode"))
                         object.mode = options.enums === String ? $root.proto.SyncActionValue.StatusPrivacyAction.StatusDistributionMode[message.mode] === undefined ? message.mode : $root.proto.SyncActionValue.StatusPrivacyAction.StatusDistributionMode[message.mode] : message.mode;
@@ -175658,10 +175379,10 @@
                         for (var j = 0; j < message.userJid.length; ++j)
                             object.userJid[j] = message.userJid[j];
                     }
-                    if (message.shareToFB != null && message.hasOwnProperty("shareToFB"))
-                        object.shareToFB = message.shareToFB;
-                    if (message.shareToIG != null && message.hasOwnProperty("shareToIG"))
-                        object.shareToIG = message.shareToIG;
+                    if (message.shareToFb != null && message.hasOwnProperty("shareToFb"))
+                        object.shareToFb = message.shareToFb;
+                    if (message.shareToIg != null && message.hasOwnProperty("shareToIg"))
+                        object.shareToIg = message.shareToIg;
                     if (message.customLists && message.customLists.length) {
                         object.customLists = [];
                         for (var j = 0; j < message.customLists.length; ++j)
@@ -179615,6 +179336,507 @@
                 })();
     
                 return UsernameChatStartModeAction;
+            })();
+    
+            SyncActionValue.WASARootSecretAction = (function() {
+    
+                /**
+                 * Properties of a WASARootSecretAction.
+                 * @memberof proto.SyncActionValue
+                 * @interface IWASARootSecretAction
+                 * @property {Array.<proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry>|null} [secrets] WASARootSecretAction secrets
+                 */
+    
+                /**
+                 * Constructs a new WASARootSecretAction.
+                 * @memberof proto.SyncActionValue
+                 * @classdesc Represents a WASARootSecretAction.
+                 * @implements IWASARootSecretAction
+                 * @constructor
+                 * @param {proto.SyncActionValue.IWASARootSecretAction=} [properties] Properties to set
+                 */
+                function WASARootSecretAction(properties) {
+                    this.secrets = [];
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * WASARootSecretAction secrets.
+                 * @member {Array.<proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry>} secrets
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @instance
+                 */
+                WASARootSecretAction.prototype.secrets = $util.emptyArray;
+    
+                /**
+                 * Creates a new WASARootSecretAction instance using the specified properties.
+                 * @function create
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {proto.SyncActionValue.IWASARootSecretAction=} [properties] Properties to set
+                 * @returns {proto.SyncActionValue.WASARootSecretAction} WASARootSecretAction instance
+                 */
+                WASARootSecretAction.create = function create(properties) {
+                    return new WASARootSecretAction(properties);
+                };
+    
+                /**
+                 * Encodes the specified WASARootSecretAction message. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.verify|verify} messages.
+                 * @function encode
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {proto.SyncActionValue.IWASARootSecretAction} message WASARootSecretAction message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                WASARootSecretAction.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.secrets != null && message.secrets.length)
+                        for (var i = 0; i < message.secrets.length; ++i)
+                            $root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.encode(message.secrets[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified WASARootSecretAction message, length delimited. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {proto.SyncActionValue.IWASARootSecretAction} message WASARootSecretAction message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                WASARootSecretAction.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes a WASARootSecretAction message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {proto.SyncActionValue.WASARootSecretAction} WASARootSecretAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                WASARootSecretAction.decode = function decode(reader, length, error) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.SyncActionValue.WASARootSecretAction();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        if (tag === error)
+                            break;
+                        switch (tag >>> 3) {
+                        case 1: {
+                                if (!(message.secrets && message.secrets.length))
+                                    message.secrets = [];
+                                message.secrets.push($root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.decode(reader, reader.uint32()));
+                                break;
+                            }
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes a WASARootSecretAction message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {proto.SyncActionValue.WASARootSecretAction} WASARootSecretAction
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                WASARootSecretAction.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies a WASARootSecretAction message.
+                 * @function verify
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                WASARootSecretAction.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.secrets != null && message.hasOwnProperty("secrets")) {
+                        if (!Array.isArray(message.secrets))
+                            return "secrets: array expected";
+                        for (var i = 0; i < message.secrets.length; ++i) {
+                            var error = $root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify(message.secrets[i]);
+                            if (error)
+                                return "secrets." + error;
+                        }
+                    }
+                    return null;
+                };
+    
+                /**
+                 * Creates a WASARootSecretAction message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {proto.SyncActionValue.WASARootSecretAction} WASARootSecretAction
+                 */
+                WASARootSecretAction.fromObject = function fromObject(object) {
+                    if (object instanceof $root.proto.SyncActionValue.WASARootSecretAction)
+                        return object;
+                    var message = new $root.proto.SyncActionValue.WASARootSecretAction();
+                    if (object.secrets) {
+                        if (!Array.isArray(object.secrets))
+                            throw TypeError(".proto.SyncActionValue.WASARootSecretAction.secrets: array expected");
+                        message.secrets = [];
+                        for (var i = 0; i < object.secrets.length; ++i) {
+                            if (typeof object.secrets[i] !== "object")
+                                throw TypeError(".proto.SyncActionValue.WASARootSecretAction.secrets: object expected");
+                            message.secrets[i] = $root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.fromObject(object.secrets[i]);
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from a WASARootSecretAction message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {proto.SyncActionValue.WASARootSecretAction} message WASARootSecretAction
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                WASARootSecretAction.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.arrays || options.defaults)
+                        object.secrets = [];
+                    if (message.secrets && message.secrets.length) {
+                        object.secrets = [];
+                        for (var j = 0; j < message.secrets.length; ++j)
+                            object.secrets[j] = $root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.toObject(message.secrets[j], options);
+                    }
+                    return object;
+                };
+    
+                /**
+                 * Converts this WASARootSecretAction to JSON.
+                 * @function toJSON
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                WASARootSecretAction.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                /**
+                 * Gets the default type url for WASARootSecretAction
+                 * @function getTypeUrl
+                 * @memberof proto.SyncActionValue.WASARootSecretAction
+                 * @static
+                 * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                 * @returns {string} The default type url
+                 */
+                WASARootSecretAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                    if (typeUrlPrefix === undefined) {
+                        typeUrlPrefix = "type.googleapis.com";
+                    }
+                    return typeUrlPrefix + "/proto.SyncActionValue.WASARootSecretAction";
+                };
+    
+                WASARootSecretAction.RootSecretEntry = (function() {
+    
+                    /**
+                     * Properties of a RootSecretEntry.
+                     * @memberof proto.SyncActionValue.WASARootSecretAction
+                     * @interface IRootSecretEntry
+                     * @property {string|null} [id] RootSecretEntry id
+                     * @property {Uint8Array|null} [rootSecret] RootSecretEntry rootSecret
+                     * @property {number|Long|null} [epoch] RootSecretEntry epoch
+                     */
+    
+                    /**
+                     * Constructs a new RootSecretEntry.
+                     * @memberof proto.SyncActionValue.WASARootSecretAction
+                     * @classdesc Represents a RootSecretEntry.
+                     * @implements IRootSecretEntry
+                     * @constructor
+                     * @param {proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry=} [properties] Properties to set
+                     */
+                    function RootSecretEntry(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+    
+                    /**
+                     * RootSecretEntry id.
+                     * @member {string} id
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @instance
+                     */
+                    RootSecretEntry.prototype.id = "";
+    
+                    /**
+                     * RootSecretEntry rootSecret.
+                     * @member {Uint8Array} rootSecret
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @instance
+                     */
+                    RootSecretEntry.prototype.rootSecret = $util.newBuffer([]);
+    
+                    /**
+                     * RootSecretEntry epoch.
+                     * @member {number|Long} epoch
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @instance
+                     */
+                    RootSecretEntry.prototype.epoch = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+    
+                    /**
+                     * Creates a new RootSecretEntry instance using the specified properties.
+                     * @function create
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry=} [properties] Properties to set
+                     * @returns {proto.SyncActionValue.WASARootSecretAction.RootSecretEntry} RootSecretEntry instance
+                     */
+                    RootSecretEntry.create = function create(properties) {
+                        return new RootSecretEntry(properties);
+                    };
+    
+                    /**
+                     * Encodes the specified RootSecretEntry message. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify|verify} messages.
+                     * @function encode
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry} message RootSecretEntry message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    RootSecretEntry.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                        if (message.rootSecret != null && Object.hasOwnProperty.call(message, "rootSecret"))
+                            writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.rootSecret);
+                        if (message.epoch != null && Object.hasOwnProperty.call(message, "epoch"))
+                            writer.uint32(/* id 3, wireType 0 =*/24).int64(message.epoch);
+                        return writer;
+                    };
+    
+                    /**
+                     * Encodes the specified RootSecretEntry message, length delimited. Does not implicitly {@link proto.SyncActionValue.WASARootSecretAction.RootSecretEntry.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {proto.SyncActionValue.WASARootSecretAction.IRootSecretEntry} message RootSecretEntry message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    RootSecretEntry.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+    
+                    /**
+                     * Decodes a RootSecretEntry message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {proto.SyncActionValue.WASARootSecretAction.RootSecretEntry} RootSecretEntry
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    RootSecretEntry.decode = function decode(reader, length, error) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            if (tag === error)
+                                break;
+                            switch (tag >>> 3) {
+                            case 1: {
+                                    message.id = reader.string();
+                                    break;
+                                }
+                            case 2: {
+                                    message.rootSecret = reader.bytes();
+                                    break;
+                                }
+                            case 3: {
+                                    message.epoch = reader.int64();
+                                    break;
+                                }
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Decodes a RootSecretEntry message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {proto.SyncActionValue.WASARootSecretAction.RootSecretEntry} RootSecretEntry
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    RootSecretEntry.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+    
+                    /**
+                     * Verifies a RootSecretEntry message.
+                     * @function verify
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    RootSecretEntry.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.id != null && message.hasOwnProperty("id"))
+                            if (!$util.isString(message.id))
+                                return "id: string expected";
+                        if (message.rootSecret != null && message.hasOwnProperty("rootSecret"))
+                            if (!(message.rootSecret && typeof message.rootSecret.length === "number" || $util.isString(message.rootSecret)))
+                                return "rootSecret: buffer expected";
+                        if (message.epoch != null && message.hasOwnProperty("epoch"))
+                            if (!$util.isInteger(message.epoch) && !(message.epoch && $util.isInteger(message.epoch.low) && $util.isInteger(message.epoch.high)))
+                                return "epoch: integer|Long expected";
+                        return null;
+                    };
+    
+                    /**
+                     * Creates a RootSecretEntry message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {proto.SyncActionValue.WASARootSecretAction.RootSecretEntry} RootSecretEntry
+                     */
+                    RootSecretEntry.fromObject = function fromObject(object) {
+                        if (object instanceof $root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry)
+                            return object;
+                        var message = new $root.proto.SyncActionValue.WASARootSecretAction.RootSecretEntry();
+                        if (object.id != null)
+                            message.id = String(object.id);
+                        if (object.rootSecret != null)
+                            if (typeof object.rootSecret === "string")
+                                $util.base64.decode(object.rootSecret, message.rootSecret = $util.newBuffer($util.base64.length(object.rootSecret)), 0);
+                            else if (object.rootSecret.length >= 0)
+                                message.rootSecret = object.rootSecret;
+                        if (object.epoch != null)
+                            if ($util.Long)
+                                (message.epoch = $util.Long.fromValue(object.epoch)).unsigned = false;
+                            else if (typeof object.epoch === "string")
+                                message.epoch = parseInt(object.epoch, 10);
+                            else if (typeof object.epoch === "number")
+                                message.epoch = object.epoch;
+                            else if (typeof object.epoch === "object")
+                                message.epoch = new $util.LongBits(object.epoch.low >>> 0, object.epoch.high >>> 0).toNumber();
+                        return message;
+                    };
+    
+                    /**
+                     * Creates a plain object from a RootSecretEntry message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {proto.SyncActionValue.WASARootSecretAction.RootSecretEntry} message RootSecretEntry
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    RootSecretEntry.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults) {
+                            object.id = "";
+                            if (options.bytes === String)
+                                object.rootSecret = "";
+                            else {
+                                object.rootSecret = [];
+                                if (options.bytes !== Array)
+                                    object.rootSecret = $util.newBuffer(object.rootSecret);
+                            }
+                            if ($util.Long) {
+                                var long = new $util.Long(0, 0, false);
+                                object.epoch = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                            } else
+                                object.epoch = options.longs === String ? "0" : 0;
+                        }
+                        if (message.id != null && message.hasOwnProperty("id"))
+                            object.id = message.id;
+                        if (message.rootSecret != null && message.hasOwnProperty("rootSecret"))
+                            object.rootSecret = options.bytes === String ? $util.base64.encode(message.rootSecret, 0, message.rootSecret.length) : options.bytes === Array ? Array.prototype.slice.call(message.rootSecret) : message.rootSecret;
+                        if (message.epoch != null && message.hasOwnProperty("epoch"))
+                            if (typeof message.epoch === "number")
+                                object.epoch = options.longs === String ? String(message.epoch) : message.epoch;
+                            else
+                                object.epoch = options.longs === String ? $util.Long.prototype.toString.call(message.epoch) : options.longs === Number ? new $util.LongBits(message.epoch.low >>> 0, message.epoch.high >>> 0).toNumber() : message.epoch;
+                        return object;
+                    };
+    
+                    /**
+                     * Converts this RootSecretEntry to JSON.
+                     * @function toJSON
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    RootSecretEntry.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+    
+                    /**
+                     * Gets the default type url for RootSecretEntry
+                     * @function getTypeUrl
+                     * @memberof proto.SyncActionValue.WASARootSecretAction.RootSecretEntry
+                     * @static
+                     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns {string} The default type url
+                     */
+                    RootSecretEntry.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                        if (typeUrlPrefix === undefined) {
+                            typeUrlPrefix = "type.googleapis.com";
+                        }
+                        return typeUrlPrefix + "/proto.SyncActionValue.WASARootSecretAction.RootSecretEntry";
+                    };
+    
+                    return RootSecretEntry;
+                })();
+    
+                return WASARootSecretAction;
             })();
     
             SyncActionValue.WaffleAccountLinkStateAction = (function() {
