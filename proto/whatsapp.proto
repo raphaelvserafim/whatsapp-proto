@@ -1,8 +1,8 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1042843636
-/// Generated on: 2026-07-08T20:16:24.038Z
+/// WhatsApp Version: 2.3000.1043723687
+/// Generated on: 2026-07-23T20:21:01.286Z
 /// Entities found: 226
 
 message ADVDeviceIdentity {
@@ -452,6 +452,9 @@ message BotCapabilityMetadata {
     AI_RICH_RESPONSE_MAPS_V2_ENABLED = 64;
     AI_SUBSCRIPTION_METERING_ENABLED = 65;
     RICH_RESPONSE_SPORTS_WIDGET_ENABLED = 66;
+    AI_RICH_RESPONSE_ARTIFACTS_ENABLED = 67;
+    AI_RICH_RESPONSE_EMAIL_CALENDAR_ENABLED = 68;
+    AI_RICH_RESPONSE_REMINDERS_ENABLED = 69;
   }
 }
 
@@ -756,6 +759,7 @@ enum BotMetricsEntryPoint {
   GROUP_MEMBER = 54;
   CHATLIST_SEARCH = 55;
   NEW_CHAT_LIST = 56;
+  CONTACTS_TAB = 57;
 }
 message BotMetricsMetadata {
   string destinationId = 1;
@@ -1347,6 +1351,7 @@ message ClientPayload {
       SMART_GLASSES = 35;
       BLUE_VR = 36;
       AR_WRIST = 37;
+      WAIL = 38;
     }
     enum ReleaseChannel {
       RELEASE = 0;
@@ -2669,6 +2674,7 @@ message Message {
     string deeplinkPayload = 9;
     MessageContextInfo messageContextInfo = 10;
     uint32 callEntryPoint = 11;
+    string callReason = 12;
   }
   
   message CallLogMessage {
@@ -3753,6 +3759,7 @@ message Message {
     GALAXY_FLOW_ACTION = 11;
     BUSINESS_BROADCAST_INSIGHTS_DELIVERED_TO = 12;
     BUSINESS_BROADCAST_INSIGHTS_REFRESH = 13;
+    CONTACT_REFRESH_REQUEST = 14;
   }
   message PinInChatMessage {
     MessageKey key = 1;
@@ -3900,6 +3907,7 @@ message Message {
     AIMetadataOperation aiMetadataOperation = 31;
     Message.MarkAsVerifiedAction markAsVerifiedAction = 32;
     CoexStateSync coexStateSync = 33;
+    Message.SyncRequestMutationRetry syncRequestMutationRetry = 34;
     enum Type {
       REVOKE = 0;
       EPHEMERAL_SETTING = 3;
@@ -3933,6 +3941,7 @@ message Message {
       AI_METADATA_OPERATION = 35;
       MARK_AS_VERIFIED_ACTION = 36;
       COEX_STATE_SYNC = 37;
+      SYNC_REQUEST_MUTATION_RETRY = 38;
     }
   }
   
@@ -4160,6 +4169,16 @@ message Message {
     repeated string filehash = 1;
     string rmrSource = 2;
     int64 requestTimestamp = 3;
+  }
+  
+  message SyncRequestMutationRetry {
+    repeated Collection collections = 1;
+    uint32 count = 2;
+    message Collection {
+      string name = 1;
+      uint64 storedSyncdVersion = 2;
+    }
+    
   }
   
   message TemplateButtonReplyMessage {
@@ -4544,6 +4563,7 @@ enum MutationProps {
   COEX_V2_VERSION_ACTION = 88;
   WASA_ROOT_SECRET_ACTION = 89;
   BUBBLE_LOCK_MESSAGE_ACTION = 90;
+  LABEL_SUBLIST_ACTION = 91;
   SHARE_OWN_PN = 10001;
   BUSINESS_BROADCAST_ACTION = 10002;
   AI_THREAD_DELETE_ACTION = 10003;
@@ -5219,6 +5239,7 @@ message SyncActionValue {
   CoexV2VersionAction coexV2VersionAction = 88;
   WASARootSecretAction wasaRootSecretAction = 89;
   BubbleLockMessageAction bubbleLockMessageAction = 90;
+  LabelSublistAction labelSublistAction = 91;
   message AgentAction {
     string name = 1;
     int32 deviceId = 2;
@@ -5263,6 +5284,7 @@ message SyncActionValue {
       EXAMPLE_RESPONSES = 3;
       KNOWLEDGE = 4;
       LEAD_GEN = 5;
+      HANDOFF_REMOVAL_TIMING = 6;
     }
   }
   
@@ -5458,11 +5480,16 @@ message SyncActionValue {
       LOCKED = 13;
       INVITES = 14;
       THIRD_PARTY = 15;
+      LEAD = 16;
     }
   }
   
   message LabelReorderingAction {
     repeated int32 sortedLabelIds = 1;
+  }
+  
+  message LabelSublistAction {
+    int32 subListId = 1;
   }
   
   message LidContactAction {
@@ -5862,6 +5889,11 @@ message SyncActionValue {
       string id = 1;
       bytes rootSecret = 2;
       int64 epoch = 3;
+      Status status = 4;
+      enum Status {
+        INACTIVE = 0;
+        ACTIVE = 1;
+      }
     }
     
   }
