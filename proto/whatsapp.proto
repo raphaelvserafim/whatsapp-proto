@@ -1,8 +1,8 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1043723687
-/// Generated on: 2026-07-23T20:23:35.009Z
+/// WhatsApp Version: 2.3000.1044236315
+/// Generated on: 2026-07-31T14:37:25.692Z
 /// Entities found: 226
 
 message ADVDeviceIdentity {
@@ -3631,6 +3631,7 @@ message Message {
       HistorySyncChunkRetryResponse historySyncChunkRetryResponse = 10;
       FlowResponsesCsvBundle flowResponsesCsvBundle = 11;
       BizBroadcastInsightsContactListResponse bizBroadcastInsightsContactListResponse = 12;
+      ContactRefreshResponse contactRefreshResponse = 13;
       message BizBroadcastInsightsContactListResponse {
         string campaignId = 1;
         int64 timestampMs = 2;
@@ -3650,6 +3651,13 @@ message Message {
       
       message CompanionMetaNonceFetchResponse {
         string nonce = 1;
+      }
+      
+      message ContactRefreshResponse {
+        repeated string coveredRequestIds = 1;
+        uint64 collectionVersion = 2;
+        int64 primaryDurationMs = 3;
+        uint32 uniqueContactCount = 4;
       }
       
       message FlowResponsesCsvBundle {
@@ -5121,6 +5129,7 @@ message StatusAttribution {
     NEWSLETTER_STATUS = 9;
     STATUS_CLOSE_SHARING = 10;
     PAID_PARTNERSHIP = 11;
+    USERNAME_STATUS = 12;
   }
 }
 
