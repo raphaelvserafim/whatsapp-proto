@@ -1,9 +1,9 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1045220589
-/// Generated on: 2026-08-14T19:32:01.595Z
-/// Entities found: 226
+/// WhatsApp Version: 2.3000.1046973889
+/// Generated on: 2026-09-08T13:50:11.375Z
+/// Entities found: 227
 
 message ADVDeviceIdentity {
   uint32 rawId = 1;
@@ -83,6 +83,7 @@ message AIMediaCollectionMetadata {
 
 message AIMetadataOperation {
   HatchMetadataSync hatchMetadataSync = 1;
+  BizAIMetadataSync bizAiMetadataSync = 2;
 }
 
 message AIProvenance {
@@ -220,6 +221,7 @@ message AIRichResponseMessage {
   repeated AIRichResponseSubMessage submessages = 2;
   AIRichResponseUnifiedResponse unifiedResponse = 3;
   ContextInfo contextInfo = 4;
+  AIRichResponseUnifiedResponse originalRecipientMetadata = 5;
 }
 
 enum AIRichResponseMessageType {
@@ -317,6 +319,27 @@ message AutoDownloadSettings {
 message AvatarUserSettings {
   string fbid = 1;
   string password = 2;
+}
+
+message BizAIMetadataSync {
+  oneof operation {
+    BizAIMetadataSync.ServerEvent serverEvent = 1;
+  }
+  message ServerEvent {
+    oneof event {
+      BizAIMetadataSync.ServerEvent.ProtocolEvent protocolEvent = 1;
+      BizAIMetadataSync.ServerEvent.AgentOnboardingStarted agentOnboardingStarted = 2;
+    }
+    message AgentOnboardingStarted {
+      int64 composerBlockDurationSecs = 1;
+    }
+    
+    enum ProtocolEvent {
+      UNSPECIFIED = 0;
+      AGENT_CHAT_READY = 1;
+    }
+  }
+  
 }
 
 message BizAccountLinkInfo {
@@ -455,6 +478,8 @@ message BotCapabilityMetadata {
     AI_RICH_RESPONSE_ARTIFACTS_ENABLED = 67;
     AI_RICH_RESPONSE_EMAIL_CALENDAR_ENABLED = 68;
     AI_RICH_RESPONSE_REMINDERS_ENABLED = 69;
+    AI_STOP_GENERATION_ENABLED = 70;
+    AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED = 71;
   }
 }
 
@@ -707,6 +732,7 @@ message BotMetadata {
   AISubscriptionUpsellMetadata subscriptionUpsellMetadata = 41;
   BotPttPromptMetadata pttPromptMetadata = 42;
   BotHistoryShareMetadata botHistoryShareMetadata = 43;
+  bool responseStoppedByUser = 44;
   bytes internalMetadata = 999;
 }
 
@@ -760,6 +786,7 @@ enum BotMetricsEntryPoint {
   CHATLIST_SEARCH = 55;
   NEW_CHAT_LIST = 56;
   CONTACTS_TAB = 57;
+  NEW_3P_AGENT_CREATION = 58;
 }
 message BotMetricsMetadata {
   string destinationId = 1;
@@ -1164,6 +1191,7 @@ message ClientPairingProps {
   bool isSyncdSnapshotRecoveryEnabled = 3;
   bool isHsThumbnailSyncEnabled = 4;
   bytes subscriptionSyncPayload = 5;
+  bool isBotJidDbMigrated = 6;
 }
 
 message ClientPayload {
@@ -1360,6 +1388,8 @@ message ClientPayload {
       BLUE_VR = 36;
       AR_WRIST = 37;
       WAIL = 38;
+      WORK_ANDROID = 39;
+      WORK_IOS = 40;
     }
     enum ReleaseChannel {
       RELEASE = 0;
@@ -1511,6 +1541,7 @@ message ContextInfo {
   string posterStatusId = 79;
   InstagramThreadLink instagramThreadLink = 80;
   AIProvenance aiProvenance = 81;
+  repeated uint32 experienceIds = 82 [packed=true];
   message AdReplyInfo {
     string advertiserName = 1;
     MediaType mediaType = 2;
@@ -1827,6 +1858,7 @@ message DeviceCapabilities {
   ContactRefresh contactRefresh = 9;
   message AiFbidMigration {
     uint64 chatDbMigrationTimestamp = 1;
+    uint32 supportVersion = 2;
   }
   
   message AiThread {
@@ -1848,6 +1880,7 @@ message DeviceCapabilities {
     bool campaignSyncEnabled = 3;
     bool insightsSyncEnabled = 4;
     int32 recipientLimit = 5;
+    bool proCompanionSupportEnabled = 6;
   }
   
   enum ChatLockSupportLevel {
@@ -2535,7 +2568,6 @@ message Message {
   NewsletterFollowerInviteMessage newsletterFollowerInviteMessageV2 = 113;
   PollResultSnapshotMessage pollResultSnapshotMessageV3 = 115;
   FutureProofMessage newsletterAdminProfileMessage = 116;
-  FutureProofMessage newsletterAdminProfileMessageV2 = 117;
   FutureProofMessage spoilerMessage = 118;
   PollCreationMessage pollCreationMessageV6 = 119;
   ConditionalRevealMessage conditionalRevealMessage = 120;
@@ -2550,6 +2582,7 @@ message Message {
   MusicMessage musicMessage = 129;
   StatusLinkPreviewMetadata statusLinkPreviewMetadata = 130;
   FutureProofMessage botPlatformRegistrationSuccessMessage = 131;
+  FutureProofMessage newsletterScheduledMessage = 132;
   message AlbumMessage {
     uint32 expectedImageCount = 2;
     uint32 expectedVideoCount = 3;
@@ -4313,6 +4346,7 @@ message Message {
     uint64 motionPhotoPresentationOffsetMs = 29;
     string metadataUrl = 30;
     VideoSourceType videoSourceType = 31;
+    string dashManifestUrl = 33;
     enum Attribution {
       NONE = 0;
       GIPHY = 1;
@@ -4399,6 +4433,7 @@ message MessageContextInfo {
   bytes teeBotMetadata = 17;
   NonE2EEAttestation accountEncryptionAttestation = 18;
   bytes associatedPrimaryIdentityKey = 19;
+  string teeContextAnchorMessageId = 20;
   enum MessageAddonExpiryType {
     UNKNOWN = 0;
     STATIC = 1;
@@ -4481,6 +4516,8 @@ message MsgOpaqueData {
   bool sharableEventInviteIsCanceled = 58;
   bytes sharableEventInviteJpegThumbnail = 59;
   string sharableEventInviteCallLink = 60;
+  string mediaPngThumbnail = 61;
+  string qrUrl = 62;
   message EventLocation {
     double degreesLatitude = 1;
     double degreesLongitude = 2;
@@ -4609,6 +4646,9 @@ enum MutationProps {
   LABEL_SUBLIST_ACTION = 91;
   DEVICE_CAPABILITIES_V2 = 92;
   CTWA_MESSAGE_RECEIVED_ACTION = 93;
+  SHARED_DEVICE_ALLOWLIST_ACTION = 94;
+  CONTACT_MANAGER_METADATA_ACTION = 95;
+  BUSINESS_FOLDER_ACTIVATION_ACTION = 96;
   SHARE_OWN_PN = 10001;
   BUSINESS_BROADCAST_ACTION = 10002;
   AI_THREAD_DELETE_ACTION = 10003;
@@ -5288,6 +5328,9 @@ message SyncActionValue {
   LabelSublistAction labelSublistAction = 91;
   DeviceCapabilities deviceCapabilitiesV2 = 92;
   CtwaMessageReceivedAction ctwaMessageReceivedAction = 93;
+  SharedDeviceAllowlistAction sharedDeviceAllowlistAction = 94;
+  ContactManagerMetadataAction contactManagerMetadataAction = 95;
+  BusinessFolderActivationAction businessFolderActivationAction = 96;
   message AgentAction {
     string name = 1;
     int32 deviceId = 2;
@@ -5390,6 +5433,10 @@ message SyncActionValue {
     string customAudienceFbid = 6;
   }
   
+  message BusinessFolderActivationAction {
+    bool activated = 1;
+  }
+  
   message CallLogAction {
     CallLogRecord callLogRecord = 1;
   }
@@ -5417,6 +5464,10 @@ message SyncActionValue {
     bool saveOnPrimaryAddressbook = 4;
     string pnJid = 5;
     string username = 6;
+  }
+  
+  message ContactManagerMetadataAction {
+    bool isHidden = 1;
   }
   
   message CtwaMessageReceivedAction {
@@ -5819,6 +5870,10 @@ message SyncActionValue {
       WINDOWS = 3;
       MAC = 4;
     }
+  }
+  
+  message SharedDeviceAllowlistAction {
+    bool allowed = 1;
   }
   
   message StarAction {
