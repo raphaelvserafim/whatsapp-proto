@@ -1,8 +1,8 @@
 syntax = "proto3";
 package proto;
 
-/// WhatsApp Version: 2.3000.1048276254
-/// Generated on: 2026-09-23T20:22:28.163Z
+/// WhatsApp Version: 2.3000.1048638736
+/// Generated on: 2026-09-28T16:39:26.048Z
 /// Entities found: 228
 
 message ACP2Setting {
