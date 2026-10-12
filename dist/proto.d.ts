@@ -5880,7 +5880,8 @@ export namespace proto {
             HATCH_SECURE_CREDENTIAL_CARD_ENABLED = 77,
             HATCH_BROWSER_TASK_CARD_ENABLED = 78,
             HATCH_ARTIFACT_CARD_ENABLED = 79,
-            AI_STUDY_CENTER_ENABLED = 80
+            AI_STUDY_CENTER_ENABLED = 80,
+            AI_MUSE_JARVIS_SCHEMA_ENABLED = 81
         }
     }
 
